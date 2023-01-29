@@ -1,0 +1,28 @@
+
+<mat-toolbar color="primary">
+
+  <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+    <mat-icon>menu</mat-icon>
+  </button>
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item routerLink="/productos">
+      <mat-icon>fastfood</mat-icon>
+      <span>Productos</span>
+    </button>
+    <button mat-menu-item routerLink="/vehiculos">
+      <mat-icon>commute</mat-icon>
+      <span>Vehículos</span>
+    </button>
+  </mat-menu>
+
+<span>CIMA Group</span>
+
+
+<span class="example-spacer">
+</span>
+
+</mat-toolbar>
+
+
+
+<router-outlet></router-outlet>
