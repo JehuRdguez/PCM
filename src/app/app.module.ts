@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, Component } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -24,11 +24,15 @@ import {MatSidenavModule} from '@angular/material/sidenav';
 import { RouterModule } from '@angular/router';
 import { InicioComponent } from './paginas/inicio/inicio.component';
 import { DashboardComponent } from './paginas/dashboard/dashboard.component';
+import { PaginasComponent } from './paginas/paginas.component';
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    DashboardComponent,
+    InicioComponent,
+    PaginasComponent
   ],
   imports: [
     BrowserModule,
@@ -50,7 +54,12 @@ import { DashboardComponent } from './paginas/dashboard/dashboard.component';
     MatPaginatorModule,
     MatSortModule,
     MatMenuModule,
-    MatSidenavModule
+    MatSidenavModule,
+    RouterModule.forRoot([
+      {path:'', component: InicioComponent},
+
+      {path:'dashboard', component: DashboardComponent}
+    ])
 
   ],
   providers: [],
