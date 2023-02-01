@@ -1,14 +1,30 @@
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { InicioComponent } from './inicio/inicio.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { PaginasRoutingModule } from './paginas-routing.module';
-
+import { RouterModule } from '@angular/router';
+import { InterfazModule } from '../interfaz/interfaz.module';
+import { PaginasComponent } from './paginas.component';
+import { ConfiguracionesComponent } from './configuraciones/configuraciones.component';
 
 @NgModule({
-  declarations: [],
+  declarations: [
+    InicioComponent,
+    DashboardComponent,
+    PaginasComponent,
+    ConfiguracionesComponent
+  ],
   imports: [
     CommonModule,
-    PaginasRoutingModule
+    RouterModule,
+    InterfazModule
+  ],
+  exports: [
+    InicioComponent,
+    DashboardComponent,
+    ConfiguracionesComponent
+
   ]
 })
 export class PaginasModule { }

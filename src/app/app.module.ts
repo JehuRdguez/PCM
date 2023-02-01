@@ -1,3 +1,4 @@
+import { PaginasModule } from './paginas/paginas.module';
 import { NgModule, Component } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
@@ -20,19 +21,12 @@ import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import { MatMenuModule } from '@angular/material/menu';
-import {MatSidenavModule} from '@angular/material/sidenav';
-import { RouterModule } from '@angular/router';
-import { InicioComponent } from './paginas/inicio/inicio.component';
-import { DashboardComponent } from './paginas/dashboard/dashboard.component';
-import { PaginasComponent } from './paginas/paginas.component';
+import { MatSidenavModule } from '@angular/material/sidenav';
 
 
 @NgModule({
   declarations: [
-    AppComponent,
-    DashboardComponent,
-    InicioComponent,
-    PaginasComponent
+    AppComponent
   ],
   imports: [
     BrowserModule,
@@ -55,11 +49,7 @@ import { PaginasComponent } from './paginas/paginas.component';
     MatSortModule,
     MatMenuModule,
     MatSidenavModule,
-    RouterModule.forRoot([
-      {path:'', component: InicioComponent},
-
-      {path:'dashboard', component: DashboardComponent}
-    ])
+    PaginasModule
 
   ],
   providers: [],
