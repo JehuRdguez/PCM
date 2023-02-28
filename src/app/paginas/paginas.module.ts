@@ -7,13 +7,24 @@ import { RouterModule } from '@angular/router';
 import { InterfazModule } from '../interfaz/interfaz.module';
 import { PaginasComponent } from './paginas.component';
 import { ConfiguracionesComponent } from './configuraciones/configuraciones.component';
+import { EquiposComponent } from './equipos/equipos.component';
+import { ValorequiposComponent } from './valorequipos/valorequipos.component';
+import { ChecklistComponent } from './checklist/checklist.component';
+import { DisponibilidaddiariaComponent } from './disponibilidaddiaria/disponibilidaddiaria.component';
+
+
 
 @NgModule({
   declarations: [
     InicioComponent,
     DashboardComponent,
     PaginasComponent,
-    ConfiguracionesComponent
+    ConfiguracionesComponent,
+    EquiposComponent,
+    ValorequiposComponent,
+    ChecklistComponent,
+    DisponibilidaddiariaComponent
+
   ],
   imports: [
     CommonModule,
@@ -23,7 +34,12 @@ import { ConfiguracionesComponent } from './configuraciones/configuraciones.comp
   exports: [
     InicioComponent,
     DashboardComponent,
-    ConfiguracionesComponent
+    ConfiguracionesComponent,
+    EquiposComponent,
+    ValorequiposComponent,
+    ChecklistComponent,
+    DisponibilidaddiariaComponent
+    
 
   ]
 })
