@@ -1,0 +1,19 @@
+#select-header1{
+    display:inline-table;
+    width: 300px;
+    margin-left: 30px;
+    background-color: #D3E7FF;
+}
+#select-header{
+    display:inline-table;
+    width: 300px;
+    margin-left: 30px;
+    background-color: #D3E7FF;
+}
+#button-header{
+    display:inline-table;
+    width: 300px;
+    margin-left: 30px;
+    color: rgb(255, 255, 255);
+    background-color: #002C46;
+}
