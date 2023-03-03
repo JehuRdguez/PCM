@@ -1,3 +1,5 @@
+
+// En este archivo se guardan los dialogs
 import { PaginasModule } from './paginas/paginas.module';
 import { NgModule, Component } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
@@ -15,19 +17,28 @@ import { MatInputModule } from '@angular/material/input';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatRadioModule } from '@angular/material/radio';
-import { ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule, Validators, FormBuilder } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatSidenavModule } from '@angular/material/sidenav';
+// fORMULARIO EN PARTE
+import {STEPPER_GLOBAL_OPTIONS} from '@angular/cdk/stepper';
+
+
+
+
+// CONTROL EQUIPOS DIALOGOS
+import { DialogagregarequipoComponent } from './cedialogos/dialogagregarequipo/dialogagregarequipo.component';
 
 
 
 @NgModule({
   declarations: [
     AppComponent,
+    DialogagregarequipoComponent,
   ],
   imports: [
     BrowserModule,
