@@ -1,11 +1,11 @@
-import { InicioComponent } from './paginas/inicio/inicio.component';
 import { PaginasRoutingModule } from './paginas/paginas-routing.module';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { DashboardComponent } from './paginas/dashboard/dashboard.component';
 
 const routes: Routes = [
-  {path:'', component: InicioComponent}
+  {path:'', component: DashboardComponent}
 ];
 
 @NgModule({

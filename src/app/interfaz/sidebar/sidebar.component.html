@@ -1,7 +1,7 @@
 <!-- Main Sidebar Container -->
 <aside class="main-sidebar sidebar-dark-primary elevation-4" style="background-color: #0e1527;">
   <!-- Brand Logo -->
-  <a href="https://cimagroup.com.mx/" class="brand-link">
+  <a href="#" class="brand-link">
     <img src="./assets/dist/img/cropped-corporativo.png" alt="" class="brand-image" style="opacity: .8">
     <span class="brand-text font-weight-light">CIMA Group</span>
   </a>
@@ -14,7 +14,7 @@
         <img src="./assets/dist/img/admin.jpg" class="img-circle elevation-2" alt="User Image">
       </div>
       <div class="info">
-        <a  class="d-block">Jehú Rodríguez</a>
+        <a class="d-block">Jehú Rodríguez</a>
       </div>
     </div>
 
@@ -23,33 +23,55 @@
       <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
 
         <li class="nav-item">
-          <a routerLink="/" class="nav-link">
-            <i class="nav-icon fa fa-home"></i>
-            <p>
-              Inicio
-            </p>
-          </a>
-        </li>
-        <li class="nav-item">
-          <a routerLink="/dashboard" class="nav-link">
+          <a routerLink="" class="nav-link">
             <i class="nav-icon fas fa-tachometer-alt"></i>
             <p>
               Dashboard
             </p>
           </a>
         </li>
+
+        <li class="nav-item" *ngFor="let item of menuItems">
+          <a href="#" class="nav-link">
+            <i class="{{item.icono}}"></i>
+            <p clas="ml-2">
+              {{item.titulo}}
+              <i class="right fas fa-angle-left"></i>
+            </p>
+          </a>
+          <ul class="nav nav-treeview">
+            <li class="nav-item" *ngFor="let subMenu of item.subMenu">
+              <a [routerLink]="subMenu.url" class="nav-link" style="cursor: pointer;">
+                <i class="{{subMenu.icono}}"></i>
+                <p class="ml-2">{{subMenu.titulo}}</p>
+              </a>
+            </li>
+          </ul>
+        </li>
+
         <li class="nav-item">
-          <a routerLink="/configuraciones" class="nav-link">
-            <i class="nav-icon fa fa-cogs"></i>
+          <a routerLink="/manpower" class="nav-link">
+            <i class="nav-icon fa-solid fa-users"></i>
             <p>
-              Configuraciones
+              Manpower
             </p>
           </a>
         </li>
+
+        <li class="nav-item">
+          <a routerLink="/kpis" class="nav-link">
+            <i class="nav-icon fa-solid fa-chart-simple"></i>
+            <p>
+              KPI's
+            </p>
+          </a>
+        </li>
+
+        
         <!-- CONTROL DE EQUIPO -->
         <li class="nav-item">
           <a routerLink="/equipos" class="nav-link">
-            <i class="nav-icon fa fa-cogs"></i>
+            <i class="nav-icon fa-solid fa-boxes-stacked"></i>
             <p>
               Equipos
             </p>
@@ -57,7 +79,7 @@
         </li>
         <li class="nav-item">
           <a routerLink="/valorequipos" class="nav-link">
-            <i class="nav-icon fa fa-cogs"></i>
+            <i class="nav-icon fa-solid fa-dollar-sign"></i>
             <p>
               Valor de equipos
             </p>
@@ -65,7 +87,7 @@
         </li>
         <li class="nav-item">
           <a routerLink="/checklist" class="nav-link">
-            <i class="nav-icon fa fa-cogs"></i>
+            <i class="nav-icon fa-solid fa-list-check"></i>
             <p>
               Check List
             </p>
@@ -73,7 +95,7 @@
         </li>
         <li class="nav-item">
           <a routerLink="/disponibilidaddiaria" class="nav-link">
-            <i class="nav-icon fa fa-cogs"></i>
+            <i class="nav-icon fa-regular fa-circle-check"></i>
             <p>
               Disponibilidad
             </p>

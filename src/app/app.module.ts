@@ -38,7 +38,7 @@ import { DialogagregarequipoComponent } from './cedialogos/dialogagregarequipo/d
 @NgModule({
   declarations: [
     AppComponent,
-    DialogagregarequipoComponent,
+    DialogagregarequipoComponent
   ],
   imports: [
     BrowserModule,

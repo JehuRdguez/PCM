@@ -6,11 +6,13 @@ import { Injectable } from '@angular/core';
 export class SidebarService {
 
   menu:any[]=[{
-    titulo:'Dashboard',
-    icono:'nav-icon fas fa-tachometer-alt',
+    titulo:'Reportes',
+    icono:'nav-icon fa-regular fa-file',
     subMenu: [
-      {titulo:'inicio', url:'inicio',icono:'fa-solid fa-house-chimney'},
-
+      {titulo:'Horómetros', url:'horometros',icono:'nav-icon fa-solid fa-gauge'},
+      {titulo:'Preventivos', url:'preventivos',icono:'nav-icon fa-solid fa-truck-front'},
+      {titulo:'Semanales', url:'semanales',icono:'nav-icon fa-solid fa-calendar-week'},
+      {titulo:'Bitácora', url:'bitacora',icono:'nav-icon fa-solid fa-book-open'}
     ]
   }]
 

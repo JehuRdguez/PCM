@@ -1,46 +1,98 @@
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { InicioComponent } from './inicio/inicio.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { RouterModule } from '@angular/router';
 import { InterfazModule } from '../interfaz/interfaz.module';
 import { PaginasComponent } from './paginas.component';
-import { ConfiguracionesComponent } from './configuraciones/configuraciones.component';
 import { EquiposComponent } from './equipos/equipos.component';
 import { ValorequiposComponent } from './valorequipos/valorequipos.component';
 import { ChecklistComponent } from './checklist/checklist.component';
 import { DisponibilidaddiariaComponent } from './disponibilidaddiaria/disponibilidaddiaria.component';
+import { HorometrosComponent } from './horometros/horometros.component';
+import { PreventivosComponent } from './preventivos/preventivos.component';
+import { SemanalesComponent } from './semanales/semanales.component';
+import { BitacoraComponent } from './bitacora/bitacora.component';
+import { ManpowerComponent } from './manpower/manpower.component';
+import { KpisComponent } from './kpis/kpis.component';
+import { DialoghoroRegistrarComponent } from './horometros/elementos/dialoghoro-registrar/dialoghoro-registrar.component';
+import { DialoghoroDetallesComponent } from './horometros/elementos/dialoghoro-detalles/dialoghoro-detalles.component';
+import { DialoghoroEditarComponent } from './horometros/elementos/dialoghoro-editar/dialoghoro-editar.component';
 
-
+//IMPORTS DE FORMS
+import  {MatFormFieldModule } from '@angular/material/form-field';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatSelectModule } from '@angular/material/select';
+import { MatInputModule } from '@angular/material/input';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
+import { MatRadioModule } from '@angular/material/radio';
+import { MatTableModule } from '@angular/material/table';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatSortModule } from '@angular/material/sort';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatSidenavModule } from '@angular/material/sidenav';
 
 @NgModule({
   declarations: [
-    InicioComponent,
     DashboardComponent,
     PaginasComponent,
-    ConfiguracionesComponent,
     EquiposComponent,
     ValorequiposComponent,
     ChecklistComponent,
-    DisponibilidaddiariaComponent
+    DisponibilidaddiariaComponent,
+    HorometrosComponent,
+    PreventivosComponent,
+    SemanalesComponent,
+    BitacoraComponent,
+    ManpowerComponent,
+    KpisComponent,
+    DialoghoroRegistrarComponent,
+    DialoghoroDetallesComponent,
+    DialoghoroEditarComponent
 
   ],
   imports: [
     CommonModule,
     RouterModule,
-    InterfazModule
+    InterfazModule,
+    MatFormFieldModule,
+    MatToolbarModule,
+    MatDialogModule,
+    MatIconModule,
+    MatButtonModule,
+    MatSelectModule,
+    MatInputModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatRadioModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatSortModule,
+    MatMenuModule,
+    MatSidenavModule
   ],
   exports: [
-    InicioComponent,
     DashboardComponent,
-    ConfiguracionesComponent,
+    PaginasComponent,
     EquiposComponent,
     ValorequiposComponent,
     ChecklistComponent,
-    DisponibilidaddiariaComponent
-    
+    DisponibilidaddiariaComponent,
+    HorometrosComponent,
+    PreventivosComponent,
+    SemanalesComponent,
+    BitacoraComponent,
+    ManpowerComponent,
+    KpisComponent,
+    DialoghoroRegistrarComponent,
+    DialoghoroDetallesComponent,
+    DialoghoroEditarComponent
 
+  
   ]
 })
 export class PaginasModule { }
