@@ -1,14 +1,26 @@
 <br>
 <h4 style="text-align: center;">Todos los equipos</h4>
+<br>
+<ul id="menu-header">
+    <li>
+        <mat-label>Ver por:</mat-label>
+        <mat-select id="select-text" #mode value="side">
+            <mat-option value="side">Equipos</mat-option>
+            <mat-option value="over">Tipos de equipos</mat-option>
+            <mat-option value="push">Unidades de negocio</mat-option>
+        </mat-select>
+    </li>
+    <li>
+        <mat-label>Obtener:</mat-label>
+        <mat-select id="select-text" #mode value="side">
+            <mat-option value="side">Todas las propiedades</mat-option>
+            <mat-option value="over">Equipos de CIMA</mat-option>
+            <mat-option value="push">Equipos arrendados</mat-option>
+        </mat-select>
+    </li>
+</ul>
 
-<select id="select-header" class="form-select" aria-label="Default select example">
-    <option value="1">Ver todos los equipos</option>
-    <option value="2">Two</option>
-    <option value="3">Three</option>
-</select>
-<select id="select-header" class="form-select" aria-label="Default select example">
-    <option value="1">Ver todas las propiedades</option>
-    <option value="2">Two</option>
-    <option value="3">Three</option>
-</select><!-- TABLA  -->
-    <button id="button-header" mat-raised-button (click)="openDialog()">Agregar nuevo equipo</button>
+
+
+
+<button ty id="button-header" mat-raised-button (click)="OpenDialogAgregarEquipo()">Agregar nuevo equipo</button>

@@ -1,29 +1,21 @@
 import { Component } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { DialogagregarequipoComponent } from 'src/app/cedialogos/dialogagregarequipo/dialogagregarequipo.component';
 import {FormBuilder, Validators} from  '@angular/forms' ;
-import {STEPPER_GLOBAL_OPTIONS} from  '@angular/cdk/stepper' ;
+import { DialogagregarequipoComponent } from './elementos/dialogagregarequipo/dialogagregarequipo.component';
+
 
 
 @Component({
   selector: 'app-equipos',
   templateUrl: './equipos.component.html',
-  styleUrls: ['./equipos.component.css'],
-  providers: [
-    {
-      provide: STEPPER_GLOBAL_OPTIONS,
-      useValue: {showError: true},
-    },
-  ],
+  styleUrls: ['./equipos.component.css']
 })
 export class EquiposComponent {
-  title = 'Equipos CIMA';
+
+  constructor(public dialog: MatDialog, private formBuilder: FormBuilder){}
   
-  constructor(private _formBuilder: FormBuilder, private dialog:MatDialog){
 
-  }
-
-  openDialog(){
+  OpenDialogAgregarEquipo(){
     this.dialog.open(DialogagregarequipoComponent,{
       data: {
         animal:'PERRO',
@@ -31,13 +23,7 @@ export class EquiposComponent {
       width: '30%'
     });
   }
-
-  firstFormGroup = this._formBuilder.group({
-    firstCtrl: ['', Validators.required],
-  });
-  secondFormGroup = this._formBuilder.group({
-    secondCtrl: ['', Validators.required],
-  });
+  
 
 
 }

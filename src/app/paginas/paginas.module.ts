@@ -35,6 +35,12 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatSidenavModule } from '@angular/material/sidenav';
+import {MatCheckboxModule} from '@angular/material/checkbox';
+
+
+// Dialogs CE
+import { DialogagregarequipoComponent } from './equipos/elementos/dialogagregarequipo/dialogagregarequipo.component';
+
 
 @NgModule({
   declarations: [
@@ -52,7 +58,8 @@ import { MatSidenavModule } from '@angular/material/sidenav';
     KpisComponent,
     DialoghoroRegistrarComponent,
     DialoghoroDetallesComponent,
-    DialoghoroEditarComponent
+    DialoghoroEditarComponent,
+    DialogagregarequipoComponent
 
   ],
   imports: [
@@ -73,7 +80,8 @@ import { MatSidenavModule } from '@angular/material/sidenav';
     MatPaginatorModule,
     MatSortModule,
     MatMenuModule,
-    MatSidenavModule
+    MatSidenavModule,
+    MatCheckboxModule
   ],
   exports: [
     DashboardComponent,
@@ -90,7 +98,9 @@ import { MatSidenavModule } from '@angular/material/sidenav';
     KpisComponent,
     DialoghoroRegistrarComponent,
     DialoghoroDetallesComponent,
-    DialoghoroEditarComponent
+    DialoghoroEditarComponent,
+    // CONTROL DE EQUIPOS
+    DialogagregarequipoComponent
 
   
   ]
