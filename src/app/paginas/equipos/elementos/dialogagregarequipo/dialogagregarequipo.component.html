@@ -57,7 +57,7 @@
         </mat-form-field>
         <mat-form-field appearance="outline">
             <mat-label>Costo en pesos</mat-label>
-            <input formControlName="costoPeso" type="text" matInput placeholder="0">
+            <input formControlName="costoPesos" type="text" matInput placeholder="0">
         </mat-form-field>
         <mat-form-field appearance="outline">
             <mat-label>Costo en dolares</mat-label>
@@ -69,6 +69,6 @@
 <div mat-dialog-action [align]="'end'">
 
     <button class="btn btn-outline-danger" mat-dialog-close>Cerrar</button>
-    <button style="margin-left: 8px;" class="btn btn-outline-success">Enviar</button>
+    <button style="margin-left: 8px;"  (click)="addEquipo()" class="btn btn-outline-success">Enviar</button>
 
 </div>

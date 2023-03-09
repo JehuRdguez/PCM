@@ -1,19 +1,12 @@
 {
-  "posts": [
+  "acumulado": [
     {
-      "id": 1,
-      "title": "json-server",
+      "tipomaquina": "json-server",
+      "noeco": 1,
+      "idunidad": "1",
+      "modelo": "typicode",
+      "anio": "typicode",
       "author": "typicode"
     }
-  ],
-  "comments": [
-    {
-      "id": 1,
-      "body": "some comment",
-      "postId": 1
-    }
-  ],
-  "profile": {
-    "name": "typicode"
-  }
+  ]
 }

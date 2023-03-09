@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
-import { DialogRef } from '@angular/cdk/dialog';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { MatDialogRef } from '@angular/material/dialog';
+import { ApiequiposService } from 'src/app/services/apiequipos.service';
+
+
 @Component({
   selector: 'app-dialogagregarequipo',
   templateUrl: './dialogagregarequipo.component.html',
@@ -9,23 +11,23 @@ import { ReactiveFormsModule } from '@angular/forms';
 })
 export class DialogagregarequipoComponent implements OnInit {
   agregarequipoForm !: FormGroup;
-  constructor(private formBuilder: FormBuilder){}
+  constructor(private formBuilder: FormBuilder, private api: ApiequiposService, private dialogRef: MatDialogRef<DialogagregarequipoComponent>) { }
 
   ngOnInit(): void {
     this.agregarequipoForm = this.formBuilder.group({
-      tipomaquina: ['',Validators.required],  
-      noeco: ['',Validators.required],  
-      idunidad: ['',Validators.required],  
-      modelo: ['',Validators.required],  
-      anio: ['',Validators.required],  
-      serie: ['',Validators.required],
-      motor: ['',Validators.required],
-      seriemotor: ['',Validators.required],
-      estatus: ['',Validators.required],
-      atencion: ['',Validators.required],
-      costoPesos: ['',Validators.required],
-      costoDolares: ['',Validators.required]
-    })
+      tipomaquina: ['', Validators.required],
+      noeco: ['', Validators.required],
+      idunidad: ['', Validators.required],
+      modelo: ['', Validators.required],
+      anio: ['', Validators.required],
+      serie: ['', Validators.required],
+      motor: ['', Validators.required],
+      seriemotor: ['', Validators.required],
+      estatus: ['', Validators.required],
+      atencion: ['', Validators.required],
+      costoPesos: ['', Validators.required],
+      costoDolares: ['', Validators.required]
+    });
 
     // if(this.editData){
     //   this.actionBtn="Update";
@@ -55,20 +57,23 @@ export class DialogagregarequipoComponent implements OnInit {
 
   }
 
-  // addEquipo(){
-  //   if(this.agregarequipoForm.valid){
-  //     this.api.postProduct(this.agregarequipoForm.value).subscribe({
-  //       next: (res)=>{
-  //         alert("Product added successfully")
-  //         this.agregarequipoForm.reset();
-  //         this.dialogRef.close('save');
-  //       },
-  //       error:()=>{
-  //         alert("Error while adding the product")
-  //       }
-  //     })
-  //   }
-  //   }else{
-  //     this.updateProduct()
-  //   }
+  addEquipo() {
+    if (this.agregarequipoForm.valid) {
+      this.api.postEquipo(this.agregarequipoForm.value)
+        .subscribe({
+          next: (res) => {
+            alert("Product added successfully")
+            this.agregarequipoForm.reset();
+            this.dialogRef.close('save');
+          },
+          error: () => {
+            alert("Error while adding the product")
+          }
+        })
+    }
+    // }
+    // else{
+    //   this.updateProduct()
+    // }
+  }
 }
