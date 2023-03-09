@@ -1,43 +1,74 @@
-        <h1 mat-dialog-title>Agregar nuevo equipo </h1>
-        <div mat-dialog-content>
-            <form>
-                <br>
-                <mat-form-field appearance="outline">
-                    <mat-label>Técnico</mat-label>
-                    <input formControlName="tecnico" matInput placeholder="Juan Pérez">
-                </mat-form-field>
-        
-                <mat-form-field appearance="fill">
-                    <mat-label>Último mantenimiento</mat-label>
-                    <input formControlName="ultimoMant" matInput [matDatepicker]="picker1">
-                    <mat-datepicker-toggle matIconSuffix [for]="picker1"></mat-datepicker-toggle>
-                    <mat-datepicker #picker1></mat-datepicker>
-                </mat-form-field>
-        
-                <mat-form-field appearance="outline">
-                    <mat-label>Último horómetro</mat-label>
-                    <input formControlName="horometro" type="number" matInput placeholder="1500">
-                </mat-form-field>
-        
-                <mat-form-field appearance="outline">
-                    <mat-label>Horas trabajadas desde el último servicio</mat-label>
-                    <input formControlName="horasUltiServ" type="number" matInput placeholder="230">
-                </mat-form-field>
-        
-                <mat-form-field appearance="outline">
-                    <mat-label>Horas restantes</mat-label>
-                    <input formControlName="horasRest" type="number" matInput placeholder="270">
-                </mat-form-field>
-        
-                <mat-form-field appearance="outline">
-                    <mat-label>Días restantes</mat-label>
-                    <input formControlName="diasRest" type="number" matInput placeholder="14 días">
-                </mat-form-field>
-            </form>
-        </div>
-        
-        <div mat-dialog-action [align]="'end'">
-        
-            <button class="btn btn-outline-danger" mat-dialog-close>Cerrar</button>
-        
-        </div>
+<h1 mat-dialog-title>Registrar nuevo equipo</h1>
+<div mat-dialog-content>
+    <form [formGroup]="agregarequipoForm">
+        <br>
+        <mat-form-field appearance="outline">
+            <mat-label>Tipo de equipo</mat-label>
+            <mat-select formControlName="tipomaquina">
+                <mat-option value="1">Unidad 1</mat-option>
+                <mat-option value="2">Unidad 2</mat-option>
+                <mat-option value="3">Unidad 3</mat-option>
+            </mat-select>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+            <mat-label>No. Eco.</mat-label>
+            <input formControlName="noeco" type="text" matInput placeholder="ABC-01">
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+            <mat-label>Unidad</mat-label>
+            <mat-select formControlName="idunidad">
+                <mat-option value="unidad1">Unidad 1</mat-option>
+                <mat-option value="unidad2">Unidad 2</mat-option>
+                <mat-option value="unidad3">Unidad 3</mat-option>
+            </mat-select>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+            <mat-label>Modelo</mat-label>
+            <input formControlName="modelo" type="text" matInput placeholder="--">
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+            <mat-label>Año</mat-label>
+            <input formControlName="anio" type="number" matInput placeholder="0">
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+            <mat-label>Numero de serie</mat-label>
+            <input formControlName="serie" type="number" matInput placeholder="0">
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+            <mat-label>Motor</mat-label>
+            <input formControlName="motor" type="text" matInput placeholder="0">
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+            <mat-label>Serie de motor</mat-label>
+            <input formControlName="seriemotor" type="number" matInput placeholder="0">
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+            <mat-label>Estatus</mat-label>
+            <mat-select formControlName="estatus">
+                <mat-option value="1">Operativo</mat-option>
+                <mat-option value="2">Inoperativo</mat-option>
+                <mat-option value="3">Desconocido</mat-option>
+            </mat-select>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+            <mat-label>Atencion</mat-label>
+            <input formControlName="atencion" type="text" matInput placeholder="0">
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+            <mat-label>Costo en pesos</mat-label>
+            <input formControlName="costoPeso" type="text" matInput placeholder="0">
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+            <mat-label>Costo en dolares</mat-label>
+            <input formControlName="costoDolares" type="text" matInput placeholder="0">
+        </mat-form-field>
+    </form>
+</div>
+
+<div mat-dialog-action [align]="'end'">
+
+    <button class="btn btn-outline-danger" mat-dialog-close>Cerrar</button>
+    <button style="margin-left: 8px;" class="btn btn-outline-success">Enviar</button>
+
+</div>

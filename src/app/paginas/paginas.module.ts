@@ -36,6 +36,7 @@ import { MatSortModule } from '@angular/material/sort';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import {MatCheckboxModule} from '@angular/material/checkbox';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 // Dialogs CE
@@ -81,7 +82,8 @@ import { DialogagregarequipoComponent } from './equipos/elementos/dialogagregare
     MatSortModule,
     MatMenuModule,
     MatSidenavModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    ReactiveFormsModule
   ],
   exports: [
     DashboardComponent,
