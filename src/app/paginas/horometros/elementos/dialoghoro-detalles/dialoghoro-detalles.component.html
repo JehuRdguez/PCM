@@ -1,7 +1,7 @@
 <h1 mat-dialog-title>Detalles horómetro</h1>
 <div mat-dialog-content>
-    <form>
-        <br>
+    <form [formGroup]="HorometroForm">
+        <br><!--
         <mat-form-field appearance="outline">
             <mat-label>Técnico</mat-label>
             <input formControlName="tecnico" matInput placeholder="Juan Pérez">
@@ -37,7 +37,28 @@
         <mat-form-field appearance="outline">
             <mat-label>Días restantes</mat-label>
             <input formControlName="diasRest" type="number" matInput placeholder="14 días">
+        </mat-form-field>-->
+        <mat-form-field appearance="outline">
+            <mat-label>Unidad</mat-label>
+            <input formControlName="Unidad" type="text" matInput placeholder="0">
+            </mat-form-field>
+    
+          <mat-form-field appearance="outline">
+            <mat-label>Ultima actualización</mat-label>
+            <input formControlName="fhUltAct" matInput [matDatepicker]="picker">
+            <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
         </mat-form-field>
+    
+          <mat-form-field appearance="outline">
+            <mat-label>Horómetro</mat-label>
+            <input formControlName="Horometro" type="number" matInput placeholder="0">
+            </mat-form-field>
+    
+            <mat-form-field appearance="outline">
+              <mat-label>Odómetro</mat-label>
+              <input formControlName="Odometro" type="number" matInput placeholder="0">
+            </mat-form-field>
     </form>
 </div>
 

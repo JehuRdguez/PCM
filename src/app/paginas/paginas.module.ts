@@ -17,7 +17,6 @@ import { ManpowerComponent } from './manpower/manpower.component';
 import { KpisComponent } from './kpis/kpis.component';
 import { DialoghoroRegistrarComponent } from './horometros/elementos/dialoghoro-registrar/dialoghoro-registrar.component';
 import { DialoghoroDetallesComponent } from './horometros/elementos/dialoghoro-detalles/dialoghoro-detalles.component';
-import { DialoghoroEditarComponent } from './horometros/elementos/dialoghoro-editar/dialoghoro-editar.component';
 
 //IMPORTS DE FORMS
 import  {MatFormFieldModule } from '@angular/material/form-field';
@@ -35,13 +34,17 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatSidenavModule } from '@angular/material/sidenav';
-import {MatCheckboxModule} from '@angular/material/checkbox';
+import { InicioComponent } from './inicio/inicio.component';
 import { ReactiveFormsModule } from '@angular/forms';
-
-
-// Dialogs CE
-import { DialogagregarequipoComponent } from './equipos/elementos/dialogagregarequipo/dialogagregarequipo.component';
-
+import { PreventivosFormComponent } from './preventivos/elementos/preventivos-form/preventivos-form.component';
+import { PrimerMantComponent } from './preventivos/elementos/primer-mant/primer-mant.component';
+import { DetallesPreventivosComponent } from './preventivos/elementos/detalles-preventivos/detalles-preventivos.component';
+import { ManpowerFormComponent } from './manpower/elementos/manpower-form/manpower-form.component';
+import { ManpowerDetallesComponent } from './manpower/elementos/manpower-detalles/manpower-detalles.component';
+import { SemanalesFormComponent } from './semanales/elementos/semanales-form/semanales-form.component';
+import { DetallesSemanalesComponent } from './semanales/elementos/detalles-semanales/detalles-semanales.component';
+import { BitacoraFormComponent } from './bitacora/elementos/bitacora-form/bitacora-form.component';
+import { DetallesBitacoraComponent } from './bitacora/elementos/detalles-bitacora/detalles-bitacora.component';
 
 @NgModule({
   declarations: [
@@ -59,8 +62,16 @@ import { DialogagregarequipoComponent } from './equipos/elementos/dialogagregare
     KpisComponent,
     DialoghoroRegistrarComponent,
     DialoghoroDetallesComponent,
-    DialoghoroEditarComponent,
-    DialogagregarequipoComponent
+    InicioComponent,
+    PreventivosFormComponent,
+    PrimerMantComponent,
+    DetallesPreventivosComponent,
+    ManpowerFormComponent,
+    ManpowerDetallesComponent,
+    SemanalesFormComponent,
+    DetallesSemanalesComponent,
+    BitacoraFormComponent,
+    DetallesBitacoraComponent
 
   ],
   imports: [
@@ -82,8 +93,7 @@ import { DialogagregarequipoComponent } from './equipos/elementos/dialogagregare
     MatSortModule,
     MatMenuModule,
     MatSidenavModule,
-    MatCheckboxModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
   ],
   exports: [
     DashboardComponent,
@@ -100,9 +110,6 @@ import { DialogagregarequipoComponent } from './equipos/elementos/dialogagregare
     KpisComponent,
     DialoghoroRegistrarComponent,
     DialoghoroDetallesComponent,
-    DialoghoroEditarComponent,
-    // CONTROL DE EQUIPOS
-    DialogagregarequipoComponent
 
   
   ]

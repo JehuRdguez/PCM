@@ -1,0 +1,99 @@
+<h1>Tickets</h1>
+<!--Tabla-->
+<div class="container">
+    <button mat-raised-button color="warn" (click)="openDialog()">Añadir Ticket</button>
+    <hr>
+      <mat-form-field>
+        <mat-label>Filter</mat-label>
+        <input matInput (keyup)="applyFilter($event)" placeholder="Filtro" #input>
+      </mat-form-field>
+      
+      <div class="mat-elevation-z8">
+        <table mat-table [dataSource]="dataSource" matSort>
+      
+          <!-- ID Column -->
+          <ng-container matColumnDef="id">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> ID </th>
+            <td mat-cell *matCellDef="let row"> {{row.id}} </td>
+          </ng-container>
+
+          <!-- fhCreacion Column -->
+          <ng-container matColumnDef="fhCreacion">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Fecha de Creación </th>
+            <td mat-cell *matCellDef="let row"> {{row.fhCreacion | date}} </td>
+          </ng-container>
+
+          <!-- fhModificacion Column -->
+          <ng-container matColumnDef="fhModificacion">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Ultima Modificación </th>
+            <td mat-cell *matCellDef="let row"> {{row.fhModificacion | date}} </td>
+          </ng-container>
+
+          <!-- fhCierre Column -->
+          <ng-container matColumnDef="fhCierre">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Fecha de Cierre </th>
+            <td mat-cell *matCellDef="let row"> {{row.fhCierre | date}} </td>
+          </ng-container>
+      
+          <!-- tipoTicket Column -->
+          <ng-container matColumnDef="tipoTicket">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Tipo de Ticket </th>
+            <td mat-cell *matCellDef="let row"> {{row.tipoTicket}} </td>
+          </ng-container>
+
+          <!-- motivo Column -->
+          <ng-container matColumnDef="motivo">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Motivo </th>
+            <td mat-cell *matCellDef="let row"> {{row.motivo}} </td>
+          </ng-container>
+
+          <!-- notas Column -->
+          <ng-container matColumnDef="notas">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Notas </th>
+            <td mat-cell *matCellDef="let row"> {{row.notas}} </td>
+          </ng-container>
+
+          <!-- estado Column -->
+          <ng-container matColumnDef="estado">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Estado </th>
+            <td mat-cell *matCellDef="let row"> {{row.estado}} </td>
+          </ng-container>
+
+          <!-- prioridad Column -->
+          <ng-container matColumnDef="prioridad">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Prioridad</th>
+            <td mat-cell *matCellDef="let row"> {{row.prioridad}} </td>
+          </ng-container>
+          
+          <!-- anexos Column -->
+          <ng-container matColumnDef="anexos">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Anexos </th>
+            <td mat-cell *matCellDef="let row"> {{row.anexos}} </td>
+          </ng-container>
+
+          <!-- actions Column -->
+          <ng-container matColumnDef="action">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Action </th>
+            <td mat-cell *matCellDef="let row">
+              <button (click)="editTicket(row)"mat-icon-button color="primary">
+                <mat-icon>edit</mat-icon>
+              </button>
+              <button mat-icon-button color="warn" (click)="deleteTicket(row.id)">
+                <mat-icon>delete</mat-icon>
+              </button>
+            </td>
+          </ng-container>
+      
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      
+          <!-- Row shown when there is no matching data. -->
+          <tr class="mat-row" *matNoDataRow>
+            <td class="mat-cell" colspan="4">No hay datos</td>
+          </tr>
+        </table>
+      
+        <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page of users"></mat-paginator>
+      </div>
+      
+      

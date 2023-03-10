@@ -1,0 +1,21 @@
+*{
+    margin-bottom: 3px;
+    margin-right: 3px;
+    margin-left: 3px;
+    margin-top: 3px;
+}
+
+.example-radio-group {
+    display: flex;
+    flex-direction: column;
+    margin: 15px 0;
+    align-items: flex-start;
+}
+
+.example-radio-button {
+    margin: 5px;
+}
+
+mat-form-field{
+    width: 100%;
+}

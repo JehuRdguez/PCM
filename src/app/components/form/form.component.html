@@ -1,0 +1,74 @@
+<h1 mat-dialog-title>Crear Ticket</h1>
+<div mat-dialog-content>
+    <form [formGroup]="TicketForm">
+        <mat-form-field appearance="fill">
+            <mat-label>Fecha de Creación</mat-label>
+            <input formControlName="fhCreacion" matInput [matDatepicker]="picker">
+            <mat-hint>MM/DD/YYYY</mat-hint>
+            <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+        <br>
+        <mat-form-field appearance="fill">
+            <mat-label>Fecha de Modificación</mat-label>
+            <input formControlName="fhModificacion" matInput [matDatepicker]="picker2">
+            <mat-hint>MM/DD/YYYY</mat-hint>
+            <mat-datepicker-toggle matIconSuffix [for]="picker2"></mat-datepicker-toggle>
+            <mat-datepicker #picker2></mat-datepicker>
+        </mat-form-field>
+        <br>
+        <mat-form-field appearance="fill">
+            <mat-label>Fecha de Cierre</mat-label>
+            <input formControlName="fhCierre" matInput [matDatepicker]="picker3">
+            <mat-hint>MM/DD/YYYY</mat-hint>
+            <mat-datepicker-toggle matIconSuffix [for]="picker3"></mat-datepicker-toggle>
+            <mat-datepicker #picker3></mat-datepicker>
+        </mat-form-field>
+        <br>
+        <mat-form-field apparence="outline">
+            <mat-label>Tipo de Ticket</mat-label>
+            <mat-select formControlName="tipoTicket">
+                <mat-option value="Mantenimiento">Mantenimiento</mat-option>
+                <mat-option value="Nose">Nose</mat-option>
+            </mat-select>
+        </mat-form-field>
+        <br>
+        <mat-form-field appearance="outline">
+            <mat-label>Motivo</mat-label>
+            <textarea formControlName="motivo" matInput></textarea>
+        </mat-form-field>
+        <br>
+        <mat-form-field appearance="outline">
+            <mat-label>Notas</mat-label>
+            <textarea formControlName="notas" matInput></textarea>
+        </mat-form-field>
+        <br>
+        <mat-form-field apparence="outline">
+            <mat-label>Estado</mat-label>
+            <mat-select formControlName="estado">
+                <mat-option value="Activo">Activo</mat-option>
+                <mat-option value="Inactivo">Inactivo</mat-option>
+            </mat-select>
+        </mat-form-field>
+        <br>
+        <mat-form-field apparence="outline">
+            <mat-label>Prioridad</mat-label>
+            <mat-select formControlName="prioridad">
+                <mat-option value="Alta">Alta</mat-option>
+                <mat-option value="Media">Media</mat-option>
+                <mat-option value="Baja">Baja</mat-option>
+            </mat-select>
+        </mat-form-field>
+        <br>
+        <mat-form-field appearance="outline">
+            <mat-label>Anexos</mat-label>
+            <input formControlName="anexos" matInput placeholder="Archivos">
+        </mat-form-field>
+
+    </form>
+</div>
+
+<div mat-dialog-action [align]="'end'">
+    <button mat-raised-button color="warn" mat-dialog-close>Close</button>
+    <button style="margin-left: 8px;" mat-raised-button color="primary" (click)="addTicket()">{{actionBtn}}</button>
+</div>

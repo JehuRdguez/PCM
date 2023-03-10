@@ -1,121 +1,14 @@
 <br>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <h4 style="text-align: center;">Todos los equipos</h4>
-<br>
-<ul id="menu-header">
-    <li>
-        <mat-label>Ver por:</mat-label>
-        <mat-select id="select-text" #mode value="side">
-            <mat-option value="side">Equipos</mat-option>
-            <mat-option value="over">Tipos de equipos</mat-option>
-            <mat-option value="push">Unidades de negocio</mat-option>
-        </mat-select>
-    </li>
-    <li>
-        <mat-label>Obtener:</mat-label>
-        <mat-select id="select-text" #mode value="side">
-            <mat-option value="side">Todas las propiedades</mat-option>
-            <mat-option value="over">Equipos de CIMA</mat-option>
-            <mat-option value="push">Equipos arrendados</mat-option>
-        </mat-select>
-    </li>
-</ul>
 
-
-
-
-
-
-
-
-<button ty id="button-header" mat-raised-button (click)="OpenDialogAgregarEquipo()">Agregar nuevo equipo</button>
-
-
-
-
-<mat-form-field>
-    <mat-label>Filter</mat-label>
-    <input matInput (keyup)="applyFilter($event)" placeholder="Ex. ium" #input>
-</mat-form-field>
-
-
-<div class="container">
-
-
-    <section class="example-container mat-elevation-z8" tabindex="0">
-        <table mat-table [dataSource]="dataSource" matSort>
-
-
-            <ng-container matColumnDef="noeco" sticky>
-                <th mat-header-cell *matHeaderCellDef mat-sort-header> No. Eco </th>
-                <td mat-cell *matCellDef="let row"> {{row.noeco}} </td>
-            </ng-container>
-            <ng-container matColumnDef="tipomaquina">
-                <th mat-header-cell *matHeaderCellDef mat-sort-header> Tipo equipo </th>
-                <td mat-cell *matCellDef="let row"> {{row.tipomaquina}} </td>
-            </ng-container>
-            <ng-container matColumnDef="idunidad">
-                <th mat-header-cell *matHeaderCellDef mat-sort-header> Tipo equipo </th>
-                <td mat-cell *matCellDef="let row"> {{row.idunidad}} </td>
-            </ng-container>
-            <ng-container matColumnDef="modelo">
-                <th mat-header-cell *matHeaderCellDef mat-sort-header> Tipo equipo </th>
-                <td mat-cell *matCellDef="let row"> {{row.modelo}} </td>
-            </ng-container>
-            <ng-container matColumnDef="anio">
-                <th mat-header-cell *matHeaderCellDef mat-sort-header> Tipo equipo </th>
-                <td mat-cell *matCellDef="let row"> {{row.anio}} </td>
-            </ng-container>
-            <ng-container matColumnDef="serie">
-                <th mat-header-cell *matHeaderCellDef mat-sort-header> Tipo equipo </th>
-                <td mat-cell *matCellDef="let row"> {{row.serie}} </td>
-            </ng-container>
-            <ng-container matColumnDef="motor">
-                <th mat-header-cell *matHeaderCellDef mat-sort-header> Tipo equipo </th>
-                <td mat-cell *matCellDef="let row"> {{row.motor}} </td>
-            </ng-container>
-            <ng-container matColumnDef="seriemotor">
-                <th mat-header-cell *matHeaderCellDef mat-sort-header> Tipo equipo </th>
-                <td mat-cell *matCellDef="let row"> {{row.seriemotor}} </td>
-            </ng-container>
-            <ng-container matColumnDef="estatus">
-                <th mat-header-cell *matHeaderCellDef mat-sort-header> Tipo equipo </th>
-                <td mat-cell *matCellDef="let row"> {{row.estatus}} </td>
-            </ng-container>
-            <ng-container matColumnDef="atencion">
-                <th mat-header-cell *matHeaderCellDef mat-sort-header> Tipo equipo </th>
-                <td mat-cell *matCellDef="let row"> {{row.atencion}} </td>
-            </ng-container>
-            <ng-container matColumnDef="costoPesos">
-                <th mat-header-cell *matHeaderCellDef mat-sort-header> Tipo equipo </th>
-                <td mat-cell *matCellDef="let row"> {{row.costoPeso}} </td>
-            </ng-container>
-            <ng-container matColumnDef="costoDolares" stickyEnd>
-                <th mat-header-cell *matHeaderCellDef mat-sort-header> Tipo equipo </th>
-                <td mat-cell *matCellDef="let row"> {{row.costoDolares}} </td>
-            </ng-container>
-
-
-
-
-
-            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-        </table>
-    </section>
-</div>
+<select id="select-header" class="form-select" aria-label="Default select example">
+    <option value="1">Ver todos los equipos</option>
+    <option value="2">Two</option>
+    <option value="3">Three</option>
+</select>
+<select id="select-header" class="form-select" aria-label="Default select example">
+    <option value="1">Ver todas las propiedades</option>
+    <option value="2">Two</option>
+    <option value="3">Three</option>
+</select><!-- TABLA  -->
+    <button id="button-header" mat-raised-button (click)="openDialog()">Agregar nuevo equipo</button>
