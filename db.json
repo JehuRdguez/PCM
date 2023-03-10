@@ -1,20 +1,77 @@
 {
-  "acumulado": [
+  "Ticket": [
     {
-      "noeco": 2,
-      "tipomaquina": "json-server",
-      "idunidad": "1",
-      "modelo": "typicode",
-      "anio": "typicode",
-      "serie": "typicode",
-      "motor": "465",
-      "seriemotor": "6467",
-      "estatus": "Operativo",
-      "atencion": "Manteniemiento",
-      "costoPeso":"3546",
-      "costoDolares":"68709"
-
+      "Unidad": "Unidad 1",
+      "Horometro": 20,
+      "Odometro": 202,
+      "fhUltAct": "2023-03-31T06:00:00.000Z",
+      "id": 1
+    }
+  ],
+  "Preventivo": [
+    {
+      "Estado": "En proceso",
+      "Unidad": "Unidad 3",
+      "UnidadNeg": "Manzanillo",
+      "Horometro": 1,
+      "Odometro": 1,
+      "fhUltMant": "2023-03-06T06:00:00.000Z",
+      "id": 3
+    },
+    {
+      "Estado": "Realizado",
+      "Unidad": "Unidad 1",
+      "UnidadNeg": "Manzanillo",
+      "Horometro": 50,
+      "Odometro": 50,
+      "fhUltMant": "2023-03-09T06:00:00.000Z",
+      "id": 4
+    }
+  ],
+  "Manpower": [
+    {
+      "img": "",
+      "nombre": "Huipio",
+      "tiempototal": 2,
+      "faltas": 1,
+      "actasYamon": 1,
+      "id": 1
+    },
+    {
+      "nombre": "lol",
+      "tiempototal": 50,
+      "faltas": 5,
+      "actasYamon": 5,
+      "id": 2
+    },
+    {
+      "nombre": "lol",
+      "tiempototal": 50,
+      "faltas": 5,
+      "actasYamon": 5,
+      "id": 3
+    }
+  ],
+  "Semanal": [
+    {
+      "Estado": "Unidad 1",
+      "tecnicos": "José",
+      "unidad": "Carro",
+      "fecha": "2023-03-31",
+      "Comentarios": "Hola",
+      "id": 1
+    }
+  ],
+  "Bitacora": [
+    {
+      "equipo": "Unidad 3",
+      "unidadNeg": "SUKARGA",
+      "capturo": "yo",
+      "descripcion": "yo",
+      "tipoFalla": "yo",
+      "fechainicial": "2023-03-09T06:00:00.000Z",
+      "fechafinal": "2023-03-31T06:00:00.000Z",
+      "id": 1
     }
   ]
 }
-
