@@ -31,16 +31,14 @@ import {STEPPER_GLOBAL_OPTIONS} from '@angular/cdk/stepper';
 
 
 // CONTROL EQUIPOS DIALOGOS
-import { DialogagregarequipoComponent } from './cedialogos/dialogagregarequipo/dialogagregarequipo.component';
-import { FormComponent } from './components/form/form.component';
+import { DialogagregarequipoComponent } from './paginas/equipos/elementos/dialogagregarequipo/dialogagregarequipo.component';
 
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    DialogagregarequipoComponent,
-  FormComponent
+    DialogagregarequipoComponent
   ],
   imports: [
     BrowserModule,
@@ -63,8 +61,7 @@ import { FormComponent } from './components/form/form.component';
     MatSortModule,
     MatMenuModule,
     MatSidenavModule,
-    PaginasModule
-
+ 
   ],
   providers: [],
   bootstrap: [AppComponent]

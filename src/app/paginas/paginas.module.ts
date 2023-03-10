@@ -45,8 +45,6 @@ import { SemanalesFormComponent } from './semanales/elementos/semanales-form/sem
 import { DetallesSemanalesComponent } from './semanales/elementos/detalles-semanales/detalles-semanales.component';
 import { BitacoraFormComponent } from './bitacora/elementos/bitacora-form/bitacora-form.component';
 import { DetallesBitacoraComponent } from './bitacora/elementos/detalles-bitacora/detalles-bitacora.component';
-// Dialogis CE 
-import { DialogagregarequipoComponent } from './equipos/elementos/dialogagregarequipo/dialogagregarequipo.component';
 
 @NgModule({
   declarations: [
@@ -73,8 +71,7 @@ import { DialogagregarequipoComponent } from './equipos/elementos/dialogagregare
     SemanalesFormComponent,
     DetallesSemanalesComponent,
     BitacoraFormComponent,
-    DetallesBitacoraComponent,
-    DialogagregarequipoComponent
+    DetallesBitacoraComponent
 
   ],
   imports: [

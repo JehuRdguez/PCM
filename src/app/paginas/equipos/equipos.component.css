@@ -46,7 +46,7 @@ mat-label {
     font-size: 12px;
     margin-top: -3px;
     margin-left: -250px;
-    position: absolute;
+    position: fixed;
 }
 
 /* css table */
