@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { MatDialogRef } from '@angular/material/dialog';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { ApiequiposService } from 'src/app/services/apiequipos.service';
 
 
@@ -11,7 +11,10 @@ import { ApiequiposService } from 'src/app/services/apiequipos.service';
 })
 export class DialogagregarequipoComponent implements OnInit {
   agregarequipoForm !: FormGroup;
-  constructor(private formBuilder: FormBuilder, private api: ApiequiposService, private dialogRef: MatDialogRef<DialogagregarequipoComponent>) { }
+  actionBtn: String = "Save"
+  constructor(private formBuilder: FormBuilder,
+    private api: ApiequiposService,
+    private dialogRef: MatDialogRef<DialogagregarequipoComponent>, @Inject (MAT_DIALOG_DATA) public editData: any) { }
 
   ngOnInit(): void {
     this.agregarequipoForm = this.formBuilder.group({
@@ -27,7 +30,7 @@ export class DialogagregarequipoComponent implements OnInit {
       atencion: ['', Validators.required],
       costoPesos: ['', Validators.required],
       costoDolares: ['', Validators.required]
-    });
+    })
 
     // if(this.editData){
     //   this.actionBtn="Update";
@@ -64,16 +67,16 @@ export class DialogagregarequipoComponent implements OnInit {
           next: (res) => {
             alert("Product added successfully")
             this.agregarequipoForm.reset();
-            this.dialogRef.close('save');
+            this.dialogRef.close('Save');
           },
           error: () => {
             alert("Error while adding the product")
           }
         })
     }
-    // }
-    // else{
-    //   this.updateProduct()
-    // }
+
   }
+  // else{
+  //   this.updateProduct()
+  // }
 }

@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import {FormBuilder, Validators} from  '@angular/forms' ;
+import { FormBuilder, Validators } from '@angular/forms';
 import { DialogagregarequipoComponent } from './elementos/dialogagregarequipo/dialogagregarequipo.component';
 import { MatTableDataSource, MatTable } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
@@ -15,8 +15,8 @@ import { ApiequiposService } from 'src/app/services/apiequipos.service';
   styleUrls: ['./equipos.component.css']
 })
 export class EquiposComponent implements OnInit {
-  title='Equipos';
-  displayedColumns:string[]= [
+  title = 'Equipos';
+  displayedColumns: string[] = [
     'noeco',
     'tipomaquina',
     'idunidad',
@@ -27,7 +27,7 @@ export class EquiposComponent implements OnInit {
     'seriemotor',
     'estatus',
     'atencion',
-    'costoPeso',
+    'costoPesos',
     'costoDolares'
   ];
 
@@ -35,42 +35,46 @@ export class EquiposComponent implements OnInit {
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
 
-  constructor(public dialog: MatDialog, private api: ApiequiposService){}
-  
-  ngOnInit(): void{
+  constructor(private dialog: MatDialog, private api: ApiequiposService) { }
+
+  ngOnInit(): void {
     this.getAllEquipos();
   }
 
-  OpenDialogAgregarEquipo(){
-    this.dialog.open(DialogagregarequipoComponent,{
+  OpenDialogAgregarEquipo() {
+    this.dialog.open(DialogagregarequipoComponent, {
       // data: {
       //   animal:'PERRO',
       // },
       width: '30%',
-    });
+    }).afterClosed().subscribe(val => {
+      if (val === 'save') {
+        this.getAllEquipos();
+      }
+    })
   }
 
-  getAllEquipos(){
+  getAllEquipos() {
     this.api.getEquipo()
-    .subscribe({
-      next: (res) => {
-        this.dataSource = new MatTableDataSource(res);
-        this.dataSource.paginator = this.paginator;
-        this.dataSource.sort = this.sort;
-      },
-      error:(err)=>{
+      .subscribe({
+        next: (res) => {
+          this.dataSource = new MatTableDataSource(res);
+          this.dataSource.paginator = this.paginator;
+          this.dataSource.sort = this.sort;
+        },
+        error: (err) => {
           alert("Error while fetching the records")
         }
       })
-    }
+  }
 
-    applyFilter(event: Event) {
-      const filterValue = (event.target as HTMLInputElement).value;
-      this.dataSource.filter = filterValue.trim().toLowerCase();
-  
-      if (this.dataSource.paginator) {
-        this.dataSource.paginator.firstPage();
-      }
+  applyFilter(event: Event) {
+    const filterValue = (event.target as HTMLInputElement).value;
+    this.dataSource.filter = filterValue.trim().toLowerCase();
+
+    if (this.dataSource.paginator) {
+      this.dataSource.paginator.firstPage();
     }
+  }
 
 }
