@@ -1,0 +1,18 @@
+{
+    "acumulado": [
+        {
+            "noeco": 2,
+            "tipomaquina": "json-server",
+            "idunidad": "1",
+            "modelo": "typicode",
+            "anio": "typicode",
+            "serie": "typicode",
+            "motor": "465",
+            "seriemotor": "6467",
+            "estatus": "Operativo",
+            "atencion": "Manteniemiento",
+            "costoPeso": "3546",
+            "costoDolares": "68709"
+        }
+    ]
+}

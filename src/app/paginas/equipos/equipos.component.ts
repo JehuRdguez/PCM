@@ -1,43 +1,81 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { DialogagregarequipoComponent } from 'src/app/cedialogos/dialogagregarequipo/dialogagregarequipo.component';
-import {FormBuilder, Validators} from  '@angular/forms' ;
-import {STEPPER_GLOBAL_OPTIONS} from  '@angular/cdk/stepper' ;
+import { FormBuilder, Validators } from '@angular/forms';
+import { DialogagregarequipoComponent } from './elementos/dialogagregarequipo/dialogagregarequipo.component';
+import { MatTableDataSource, MatTable } from '@angular/material/table';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatSort } from '@angular/material/sort';
+import { ApiequiposService } from 'src/app/services/apiequipos.service';
+
+
 
 
 @Component({
   selector: 'app-equipos',
   templateUrl: './equipos.component.html',
-  styleUrls: ['./equipos.component.css'],
-  providers: [
-    {
-      provide: STEPPER_GLOBAL_OPTIONS,
-      useValue: {showError: true},
-    },
-  ],
+  styleUrls: ['./equipos.component.css']
 })
-export class EquiposComponent {
-  title = 'Equipos CIMA';
-  
-  constructor(private _formBuilder: FormBuilder, private dialog:MatDialog){
+export class EquiposComponent implements OnInit {
+  title = 'Equipos';
+  displayedColumns: string[] = [
+    'noeco',
+    'tipomaquina',
+    'idunidad',
+    'modelo',
+    'anio',
+    'serie',
+    'motor',
+    'seriemotor',
+    'estatus',
+    'atencion',
+    'costoPesos',
+    'costoDolares'
+  ];
 
+  dataSource !: MatTableDataSource<any>;
+  @ViewChild(MatPaginator) paginator!: MatPaginator;
+  @ViewChild(MatSort) sort!: MatSort;
+
+  constructor(private dialog: MatDialog, private api: ApiequiposService) { }
+
+  ngOnInit(): void {
+    this.getAllEquipos();
   }
 
-  openDialog(){
-    this.dialog.open(DialogagregarequipoComponent,{
-      data: {
-        animal:'PERRO',
-      },
-      width: '30%'
-    });
+  OpenDialogAgregarEquipo() {
+    this.dialog.open(DialogagregarequipoComponent, {
+      // data: {
+      //   animal:'PERRO',
+      // },
+      width: '30%',
+    }).afterClosed().subscribe(val => {
+      if (val === 'save') {
+        this.getAllEquipos();
+      }
+    })
   }
 
-  firstFormGroup = this._formBuilder.group({
-    firstCtrl: ['', Validators.required],
-  });
-  secondFormGroup = this._formBuilder.group({
-    secondCtrl: ['', Validators.required],
-  });
+  getAllEquipos() {
+    this.api.getEquipo()
+      .subscribe({
+        next: (res) => {
+          this.dataSource = new MatTableDataSource(res);
+          this.dataSource.paginator = this.paginator;
+          this.dataSource.sort = this.sort;
+        },
+        error: (err) => {
+          alert("Error while fetching the records")
+        }
+      })
+  }
 
+  applyFilter(event: Event) {
+    const filterValue = (event.target as HTMLInputElement).value;
+    this.dataSource.filter = filterValue.trim().toLowerCase();
+
+    if (this.dataSource.paginator) {
+      this.dataSource.paginator.firstPage();
+    }
+  }
 
 }

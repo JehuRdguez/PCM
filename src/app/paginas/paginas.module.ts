@@ -45,7 +45,12 @@ import { SemanalesFormComponent } from './semanales/elementos/semanales-form/sem
 import { DetallesSemanalesComponent } from './semanales/elementos/detalles-semanales/detalles-semanales.component';
 import { BitacoraFormComponent } from './bitacora/elementos/bitacora-form/bitacora-form.component';
 import { DetallesBitacoraComponent } from './bitacora/elementos/detalles-bitacora/detalles-bitacora.component';
+import {MatCardModule} from '@angular/material/card';
 
+
+
+//DIALOGS EQUIPOS
+import { DialogagregarequipoComponent } from './equipos/elementos/dialogagregarequipo/dialogagregarequipo.component';
 @NgModule({
   declarations: [
     DashboardComponent,
@@ -71,7 +76,8 @@ import { DetallesBitacoraComponent } from './bitacora/elementos/detalles-bitacor
     SemanalesFormComponent,
     DetallesSemanalesComponent,
     BitacoraFormComponent,
-    DetallesBitacoraComponent
+    DetallesBitacoraComponent,
+    DialogagregarequipoComponent
 
   ],
   imports: [
@@ -94,6 +100,7 @@ import { DetallesBitacoraComponent } from './bitacora/elementos/detalles-bitacor
     MatMenuModule,
     MatSidenavModule,
     ReactiveFormsModule,
+    MatCardModule
   ],
   exports: [
     DashboardComponent,
@@ -110,6 +117,7 @@ import { DetallesBitacoraComponent } from './bitacora/elementos/detalles-bitacor
     KpisComponent,
     DialoghoroRegistrarComponent,
     DialoghoroDetallesComponent,
+    DialogagregarequipoComponent
 
   
   ]
