@@ -1,5 +1,5 @@
 
-// En este archivo se guardan los dialogs test
+// En este archivo se guardan los dialogs
 import { PaginasModule } from './paginas/paginas.module';
 import { NgModule, Component } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
@@ -64,11 +64,8 @@ import { FormComponent } from './components/form/form.component';
     MatSortModule,
     MatMenuModule,
     MatSidenavModule,
-<<<<<<< HEAD
-=======
     PaginasModule,
     NgChartsModule
->>>>>>> e23b52cfc8035062711035e28746364f438fcbd0
 
   ],
   providers: [],

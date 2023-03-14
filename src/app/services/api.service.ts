@@ -69,6 +69,22 @@ getSemanalByid(id:Number){
   return this.http.get("http://localhost:3000/Semanal/"+id);
 }
 /////////////////////////////////////////////////////////////////////////////
+postKpis(data: any){
+  return this.http.post<any>("http://localhost:3000/Kpis/", data);
+}
+getKpis(){
+  return this.http.get<any>("http://localhost:3000/Kpis");
+}
+putKpis(data: any, id: number){
+  return this.http.put<any>("http://localhost:3000/Kpis/"+id, data);
+}
+deleteKpis(id: number){
+  return this.http.delete<any>("http://localhost:3000/Kpis/"+id);
+}
+getKpisByid(id:Number){
+  return this.http.get("http://localhost:3000/Kpis/"+id);
+}
+//////////////////////////////////////////////////////////////////////////////////
 postBitacora(data: any){
   return this.http.post<any>("http://localhost:3000/Bitacora/", data);
 }

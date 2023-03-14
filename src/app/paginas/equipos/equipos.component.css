@@ -1,95 +1,19 @@
-#ListAzul{
+#select-header1{
+    display:inline-table;
     width: 300px;
-    height: 50px;
+    margin-left: 30px;
     background-color: #D3E7FF;
-    border-radius: 5px;
-    display: flex;
-    justify-content: center;
-    font-size: 15px;
-    margin-bottom: 10px;
 }
-
-#select-text {
-    margin: 10px;
-    margin-top: 20px;
-
+#select-header{
+    display:inline-table;
+    width: 300px;
+    margin-left: 30px;
+    background-color: #D3E7FF;
 }
-
-#button-header {
-    display: inline-table;
-    width: 200px;
-    height: 50px;
+#button-header{
+    display:inline-table;
+    width: 300px;
     margin-left: 30px;
     color: rgb(255, 255, 255);
     background-color: #002C46;
-}
-
-/* MENU HEADER */
-#menu-header {
-    margin: 0;
-    margin-left: 45px;
-    padding: 0;
-    list-style-type: none;
-}
-
-#menu-header a {
-    width: 100px;
-    text-decoration: none;
-    text-align: center;
-    padding: 3px 5px;
-    display: block;
-}
-
-#menu-header li {
-    float: left;
-}
-
-#Verpor{
-    font-size: 12px;
-    margin-top: -3px;
-    margin-left: -250px;
-    position: absolute;
-}
-
-
-/* DIVS muestra info principal */
-#totalequipos{
-    margin-left:40px;
-    width: 400px;
-    height: 100px;
-    margin-bottom: 20px;
-}
-
-mat-card-title{
-    margin-left: 20px;
-}
-
-/* css table */
-.example-container {
-    height: 100%;
-    width: 100%;
-    max-width: 100%;
-    overflow: auto;
-}
-
-table {
-    width: 100%;
-}
-
-td.mat-column-star {
-    width: 20px;
-    padding-right: 8px;
-}
-
-th.mat-column-position,
-td.mat-column-position {
-    padding-left: 8px;
-}
-
-.mat-mdc-table-sticky-border-elem-right {
-    border-left: 1px solid #e0e0e0;
-}
-
-.mat-mdc-table-sticky-border-elem-left {
-    border-right: 1px solid #e0e0e0;
 }

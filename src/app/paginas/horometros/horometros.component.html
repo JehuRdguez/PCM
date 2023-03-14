@@ -1,5 +1,4 @@
 <br>
-<h1 style="text-align: center;">HORÓMETROS</h1>
 &nbsp;&nbsp;&nbsp;&nbsp;
 <!--&nbsp;&nbsp;&nbsp;&nbsp;
 <button type="button" class="btn btn-outline-dark" (click)="openDialogEditar()">Editar</button>
@@ -7,13 +6,11 @@
 <button type="button" class="btn btn-outline-dark" (click)="openDialogDetalles()">Detalles</button>-->
 <!--Tabla-->
 <div class="container">
-    <button type="button" class="btn btn-outline-dark" (click)="openDialogRegistrar()">Registrar</button>
-    <hr>
-    <mat-form-field>
-        <mat-label>Filtro</mat-label>
-        <input matInput (keyup)="applyFilter($event)" placeholder="Filtro" #input>
-    </mat-form-field>
-
+<h3><b>Reportes</b> | <span>consulta de actividad</span></h3>
+    <div class="btnRegistrarHorometro"><button type="button" class="btnRegistrarHorometro" (click)="openDialogRegistrar()">Registrar</button></div>
+    <div class="btnRegistrarUnidad"><button type="button" class="btnRegistrarUnidad">Unidad de negocio</button></div>
+    <div class="actividaddes"><button type="button" class="btnactividades">000</button><span> Actividades aprobadas</span></div>
+    <h1 style="text-align: star;" id="horometro">Horómetros</h1>
     <div class="mat-elevation-z8">
         <table mat-table [dataSource]="dataSource" matSort>
 
@@ -43,7 +40,7 @@
 
             <!-- UltAct Column -->
             <ng-container matColumnDef="fhUltAct">
-                <th mat-header-cell *matHeaderCellDef mat-sort-header> Ultima actualización </th>
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Última actualización </th>
                 <td mat-cell *matCellDef="let row"> {{row.fhUltAct | date}} </td>
             </ng-container>
 
