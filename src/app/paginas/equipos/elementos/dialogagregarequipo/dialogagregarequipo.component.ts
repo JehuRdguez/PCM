@@ -1,7 +1,7 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { ApiequiposService } from 'src/app/services/apiequipos.service';
+import { ApiequiposService } from 'src/app/services/servicesce/apiequipos.service';
 
 
 @Component({

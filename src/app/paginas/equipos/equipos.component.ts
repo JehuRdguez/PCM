@@ -5,7 +5,7 @@ import { DialogagregarequipoComponent } from './elementos/dialogagregarequipo/di
 import { MatTableDataSource, MatTable } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
-import { ApiequiposService } from 'src/app/services/apiequipos.service';
+import { ApiequiposService } from 'src/app/services/servicesce/apiequipos.service';
 
 
 
