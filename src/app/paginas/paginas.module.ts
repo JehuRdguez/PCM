@@ -44,13 +44,8 @@ import { ManpowerDetallesComponent } from './manpower/elementos/manpower-detalle
 import { SemanalesFormComponent } from './semanales/elementos/semanales-form/semanales-form.component';
 import { DetallesSemanalesComponent } from './semanales/elementos/detalles-semanales/detalles-semanales.component';
 import { BitacoraFormComponent } from './bitacora/elementos/bitacora-form/bitacora-form.component';
+import { NgChartsModule } from 'ng2-charts';
 import { DetallesBitacoraComponent } from './bitacora/elementos/detalles-bitacora/detalles-bitacora.component';
-import {MatCardModule} from '@angular/material/card';
-
-
-
-//DIALOGS EQUIPOS
-import { DialogagregarequipoComponent } from './equipos/elementos/dialogagregarequipo/dialogagregarequipo.component';
 @NgModule({
   declarations: [
     DashboardComponent,
@@ -76,8 +71,7 @@ import { DialogagregarequipoComponent } from './equipos/elementos/dialogagregare
     SemanalesFormComponent,
     DetallesSemanalesComponent,
     BitacoraFormComponent,
-    DetallesBitacoraComponent,
-    DialogagregarequipoComponent
+    DetallesBitacoraComponent
 
   ],
   imports: [
@@ -100,7 +94,7 @@ import { DialogagregarequipoComponent } from './equipos/elementos/dialogagregare
     MatMenuModule,
     MatSidenavModule,
     ReactiveFormsModule,
-    MatCardModule
+    NgChartsModule
   ],
   exports: [
     DashboardComponent,
@@ -117,9 +111,8 @@ import { DialogagregarequipoComponent } from './equipos/elementos/dialogagregare
     KpisComponent,
     DialoghoroRegistrarComponent,
     DialoghoroDetallesComponent,
-    DialogagregarequipoComponent
 
-  
+
   ]
 })
 export class PaginasModule { }

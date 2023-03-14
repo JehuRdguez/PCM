@@ -24,12 +24,24 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatSidenavModule } from '@angular/material/sidenav';
+// fORMULARIO EN PARTE
+import {STEPPER_GLOBAL_OPTIONS} from '@angular/cdk/stepper';
+import { NgChartsModule } from 'ng2-charts';
+
+
+
+
+// CONTROL EQUIPOS DIALOGOS
+import { DialogagregarequipoComponent } from './cedialogos/dialogagregarequipo/dialogagregarequipo.component';
+import { FormComponent } from './components/form/form.component';
 
 
 
 @NgModule({
   declarations: [
     AppComponent,
+    DialogagregarequipoComponent,
+  FormComponent
   ],
   imports: [
     BrowserModule,
@@ -52,7 +64,9 @@ import { MatSidenavModule } from '@angular/material/sidenav';
     MatSortModule,
     MatMenuModule,
     MatSidenavModule,
- 
+    PaginasModule,
+    NgChartsModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]

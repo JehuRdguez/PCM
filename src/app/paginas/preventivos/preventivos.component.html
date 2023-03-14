@@ -1,15 +1,14 @@
 <br>
-<h1 style="text-align: center;">Preventivos</h1>
 &nbsp;&nbsp;&nbsp;&nbsp;
 <div class="container">
-    <button type="button" class="btn btn-outline-dark" (click)="openDialogRegistrar()">Registrar</button>
-    <button type="button" class="btn btn-outline-dark" (click)="openDialogPrimerMant()">500 Horas</button>
-    <hr>
-    <mat-form-field>
-        <mat-label>Filtro</mat-label>
-        <input matInput (keyup)="applyFilter($event)" placeholder="Filtro" #input>
-    </mat-form-field>
-
+  <h3><b>Reportes</b> | <span>consulta de mantenimientos preventivos</span></h3>
+    <div class="btnRegistrar"><button type="button" class="btnRegistrar" (click)="openDialogRegistrar()">Registrar</button></div>
+    <div class="btnRegistrarUnidad"><button type="button" class="btnRegistrarUnidad">Unidad de negocio</button></div>
+    <button type="button" class="fff" (click)="openDialogPrimerMant()">500 Horas</button>
+    <div class="actividaddes1"><button type="button" class="btnrealizados">000</button><span> Preventivos realizados</span></div>
+    <div class="actividaddes2"><button type="button" class="btnproceso">000</button><span> Preventivos en proceso </span></div>
+    <div class="actividaddes3"><button type="button" class="btnnorealizados">000</button><span> Preventivos no realizados</span></div>
+    <h1 style="text-align: star;" id="horometro">Preventivos</h1>
     <div class="mat-elevation-z8">
         <table mat-table [dataSource]="dataSource" matSort>
 
@@ -27,7 +26,7 @@
 
             <!-- UnidadNeg Column -->
             <ng-container matColumnDef="UnidadNeg">
-                <th mat-header-cell *matHeaderCellDef mat-sort-header> Unidad de Negocio</th>
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Unidad de negocio</th>
                 <td mat-cell *matCellDef="let row"> {{row.UnidadNeg}} </td>
             </ng-container>
 
@@ -39,7 +38,7 @@
 
             <!-- UltMant Column -->
             <ng-container matColumnDef="fhUltMant">
-                <th mat-header-cell *matHeaderCellDef mat-sort-header> Ultima actualización </th>
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Última actualización </th>
                 <td mat-cell *matCellDef="let row"> {{row.fhUltMant | date}} </td>
             </ng-container>
 
