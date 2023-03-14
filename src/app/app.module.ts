@@ -1,5 +1,5 @@
 
-// En este archivo se guardan los dialogs
+// En este archivo se guardan los dialogs test
 import { PaginasModule } from './paginas/paginas.module';
 import { NgModule, Component } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
