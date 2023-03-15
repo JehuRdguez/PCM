@@ -1,5 +1,3 @@
-
-// En este archivo se guardan los dialogs
 import { PaginasModule } from './paginas/paginas.module';
 import { NgModule, Component } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
@@ -32,7 +30,6 @@ import { NgChartsModule } from 'ng2-charts';
 
 
 // CONTROL EQUIPOS DIALOGOS
-import { DialogagregarequipoComponent } from './cedialogos/dialogagregarequipo/dialogagregarequipo.component';
 import { FormComponent } from './components/form/form.component';
 
 
@@ -40,7 +37,6 @@ import { FormComponent } from './components/form/form.component';
 @NgModule({
   declarations: [
     AppComponent,
-    DialogagregarequipoComponent,
   FormComponent
   ],
   imports: [
