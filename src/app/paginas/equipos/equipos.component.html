@@ -2,24 +2,27 @@
 <h3 style="text-align: center;"><span> Todos los equipos</span></h3>
 <br>
 <div id="filtroI"></div>
-    <ul id="menu-header">
-        <li><mat-form-field style="width: 410px; height:70px; margin-right: 30px;">
-                <mat-label>Filtrar</mat-label>
-                <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Mia" #input>
-            </mat-form-field></li>
-    </ul>
+<ul id="menu-header">
+    <li><mat-form-field style="width: 410px; height:70px; margin-right: 30px;">
+            <mat-label>Filtrar</mat-label>
+            <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Mia" #input>
+        </mat-form-field></li>
+</ul>
 
 
-<div id="button-header"><button style=" background-color: #002C46; color: rgb(255, 255, 255);" mat-raised-button  mat-raised-button (click)="OpenDialogAgregarEquipo()">Agregar nuevo
-    equipo</button></div>
+<button id="button-header" style=" background-color: #002C46; color: rgb(255, 255, 255);" mat-raised-button
+    mat-raised-button (click)="OpenDialogAgregarEquipo()"><i class="fa-sharp fa-3x fa-solid fa-plus"></i></button>
 <br>
 <br>
 <hr>
-<div id="itemsresumen" >
-<div id="item1" class="totalequipos"><mat-icon>error_outline</mat-icon><span>Total Equipos</span><label for="">000</label></div>
-<div id="item2" class="totaldisponibles"><mat-icon>error_outline</mat-icon><span>Total Equipos</span><label for="">000</label></div>
-<div id="item3" class="graficos"><mat-icon>error_outline</mat-icon><span>Total Equipos</span><label for="">000</label></div>
+<div id="itemsresumen">
+    <div id="item1" class="totalequipos"><mat-icon>error_outline</mat-icon><span>Total Equipos</span><label
+            for="">000</label></div>
+    <div id="item2" class="totaldisponibles"><mat-icon>error_outline</mat-icon><span>Total Equipos</span><label
+            for="">000</label></div>
 </div>
+<button id="item3"><i class="fa-sharp fa-solid fa-3x fa-chart-pie"></i></button>
+
 
 <div class="container">
     <section class="example-container mat-elevation-z8" tabindex="0">

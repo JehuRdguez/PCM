@@ -1,8 +1,18 @@
 #button-header {
+    margin-top: 81px;
     width: 200px;
     height: 50px;
-    left: 800px;
+    left: 1130px;
     position: absolute;
+    width: 100px;
+    height: 60px;
+    margin-bottom: 20px;
+    color: white;
+    font-size: 13px;
+    border-radius: 10px;
+    background-color: #3B8C88;
+    border: none;
+
 }
 
 #filtroI {
@@ -38,28 +48,36 @@
     color: white;
     font-size: 13px;
     border-radius: 10px;
+    background-color: #A92727;
+    margin-left: 40px;
+
+    
     
 }
 #item2 {
-    left: 500px;
     width: 200px;
     height: 60px;
-
     margin-bottom: 20px;
     color: white;
     font-size: 13px;
     border-radius: 10px;
-    position: absolute;
+    margin-left: 100px;
+    background-color: #D54B1A;
 }
 #item3{
-    left: 900px;
+    margin-top: 2px;
     width: 200px;
+    height: 50px;
+    left: 905px;
+    position: absolute;
+    width: 100px;
     height: 60px;
     margin-bottom: 20px;
     color: white;
     font-size: 13px;
     border-radius: 10px;
-    position: absolute;
+    background-color: #3B8C88;
+    border: none;
 }
 label{
     margin-top: 30px;
@@ -72,20 +90,7 @@ span{
 }
 #itemsresumen{
     display: inline-flex;
-    align-items: cent;
-}
-.totalequipos{
-    background-color: #A92727;
-    margin-left: 140px;
-}
-.totaldisponibles{
-    margin-left: 100px;
-    background-color: #3B8C88;
-}
-.graficos{
-    margin-left: 90px;
-    background-color: #0F4571;
-    position: relative;
+    align-items: start;
 }
 
 mat-card-title {
