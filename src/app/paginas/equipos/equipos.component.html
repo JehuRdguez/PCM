@@ -38,45 +38,49 @@
                 <td mat-cell *matCellDef="let row"> {{row.tipomaquina}} </td>
             </ng-container>
             <ng-container matColumnDef="idunidad">
-                <th mat-header-cell *matHeaderCellDef mat-sort-header> Tipo equipo </th>
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Unidad N. </th>
                 <td mat-cell *matCellDef="let row"> {{row.idunidad}} </td>
             </ng-container>
             <ng-container matColumnDef="modelo">
-                <th mat-header-cell *matHeaderCellDef mat-sort-header> Tipo equipo </th>
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Modelo </th>
                 <td mat-cell *matCellDef="let row"> {{row.modelo}} </td>
             </ng-container>
             <ng-container matColumnDef="anio">
-                <th mat-header-cell *matHeaderCellDef mat-sort-header> Tipo equipo </th>
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Año </th>
                 <td mat-cell *matCellDef="let row"> {{row.anio}} </td>
             </ng-container>
             <ng-container matColumnDef="serie">
-                <th mat-header-cell *matHeaderCellDef mat-sort-header> Tipo equipo </th>
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Serie </th>
                 <td mat-cell *matCellDef="let row"> {{row.serie}} </td>
             </ng-container>
             <ng-container matColumnDef="motor">
-                <th mat-header-cell *matHeaderCellDef mat-sort-header> Tipo equipo </th>
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Motor </th>
                 <td mat-cell *matCellDef="let row"> {{row.motor}} </td>
             </ng-container>
             <ng-container matColumnDef="seriemotor">
-                <th mat-header-cell *matHeaderCellDef mat-sort-header> Tipo equipo </th>
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Serie motor  </th>
                 <td mat-cell *matCellDef="let row"> {{row.seriemotor}} </td>
             </ng-container>
             <ng-container matColumnDef="estatus">
-                <th mat-header-cell *matHeaderCellDef mat-sort-header> Tipo equipo </th>
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Estatus</th>
                 <td mat-cell *matCellDef="let row"> {{row.estatus}} </td>
             </ng-container>
             <ng-container matColumnDef="atencion">
-                <th mat-header-cell *matHeaderCellDef mat-sort-header> Tipo equipo </th>
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Atencion</th>
                 <td mat-cell *matCellDef="let row"> {{row.atencion}} </td>
             </ng-container>
             <ng-container matColumnDef="costoPesos">
-                <th mat-header-cell *matHeaderCellDef mat-sort-header> Tipo equipo </th>
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Costo en Pesos</th>
                 <td mat-cell *matCellDef="let row"> {{row.costoPeso}} </td>
             </ng-container>
-            <ng-container matColumnDef="costoDolares" stickyEnd>
-                <th mat-header-cell *matHeaderCellDef mat-sort-header> Tipo equipo </th>
+            <ng-container matColumnDef="costoDolares" >
+                <th mat-header-cell *matHeaderCellDef mat-sort-header>Costo en Dolares</th>
                 <td mat-cell *matCellDef="let row"> {{row.costoDolares}} </td>
             </ng-container>
+            <ng-container matColumnDef="costoDolares" stickyEnd>
+              <th mat-header-cell *matHeaderCellDef mat-sort-header>Acciones</th>
+              <td mat-cell *matCellDef="let row"> {{row.costoDolares}} </td>
+          </ng-container>
             <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
             <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
             <tr class="mat-row" *matNoDataRow>
