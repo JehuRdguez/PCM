@@ -32,6 +32,12 @@
 
 }
 
+#icons{
+  margin-top: 10px;
+  margin-left: 10px;
+  position: absolute;
+}
+
 
 
 #menu-header li {
@@ -70,7 +76,7 @@ label{
 }
 
 span{
-    margin-left: 50px;
+    margin-left: 60px;
 }
 #itemsresumen{
     display: inline-flex;
