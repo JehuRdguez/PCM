@@ -1,9 +1,35 @@
+//PRIMERO QUE NADA, ACTUALICEN LA BDD EN EL pgadmin CON LA BASE DE DATOS DENTRO DE LA CARPETA LLAMADA "BDD"
+
+//EJECUTAN PRIMERO ESTO
+//npm install
+//npm install --save express
+//npm install --save pg
+//npm install --save pg-hstore
+//npm install --save body-parser
+//npm install cors --save
+
+//REINICIEN VISUAL STUDIO CODE
+
+//CUANDO VUELVA A ABRIR EJECUTAN LO SIGUIENTE:
+//ng serve
+//node index.js
+
+//LUEGO PUEDEN ENTRAR COMO ADMIN CON ESTAS CREDENCIALES:
+//No. Trabajador: 20210081
+//Contraseña: contra123
+
+//NOTAAAAAAA IMPORTANTE: UNA VEZ DENTRO YA PUEDEN EJECUTAR JSON SERVER, PERO ANTES HAGAN CONTROL+C EN LA CONEXIÓN DE "node index.js", PORQUE SI NO TIRA ERROR, YA QUE LAS 2 ESTÁN EN EL PUERTO 3000
+//json-server --watch db.json
+//SOLO USENLO PARA PRUEBAS, LO IDEAL SERÍA SEGUIR TRABAJANDO CON POSTGRESQL CON EL "node index.js"
+
 const express = require('express')
 const bodyParser = require('body-parser')
 const app = express()
 const db = require('./queries')
 const port = 3000
+var cors = require('cors')
 
+app.use(cors())
 app.use(bodyParser.json())
 app.use(
     bodyParser.urlencoded({
@@ -87,7 +113,7 @@ app.delete('/unidaddenegocios/:id',db.eliminarUnidadNegocios)
 
 // metodos de usuario
 app.get('/usuario',db.getUsuario)
-app.get('/usuario/:id',db.getUsuarioPorId)
+app.get('/usuario/:enumtrabajador',db.getUsuarioPorId)
 app.post('/usuario',db.crearUsuario)
 app.put('/usuario/:id',db.actualizarUsuario)
 app.delete('/usuario/:id',db.eliminarUsuario)
@@ -101,3 +127,4 @@ app.delete('/kpis/:id',db.eliminarKpis)
 
 app.listen(port, ()=>{console.log(`APP running in port ${port}.`)
 })
+
