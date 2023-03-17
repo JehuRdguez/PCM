@@ -53,6 +53,7 @@ import { NgChartsModule } from 'ng2-charts';
 import { DialogagregarequipoComponent } from './equipos/elementos/dialogagregarequipo/dialogagregarequipo.component';
 
 
+
 @NgModule({
   declarations: [
     DashboardComponent,
@@ -79,7 +80,7 @@ import { DialogagregarequipoComponent } from './equipos/elementos/dialogagregare
     DetallesSemanalesComponent,
     BitacoraFormComponent,
     DetallesBitacoraComponent,
-    DialogagregarequipoComponent
+    DialogagregarequipoComponent,
   ],
   imports: [
     CommonModule,

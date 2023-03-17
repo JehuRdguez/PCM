@@ -21,7 +21,7 @@ export class EquiposComponent implements OnInit {
     'noeco',
     'tipomaquina',
     'idunidad',
-    'modelo',
+    'marca',
     'anio',
     'serie',
     'motor',

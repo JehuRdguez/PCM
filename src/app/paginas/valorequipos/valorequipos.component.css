@@ -1,0 +1,114 @@
+
+
+#filtroI {
+    width: 420px;
+    height: 60px;
+    margin-top: -5px;
+    border: 3px solid #002C46;
+    position: absolute;
+}
+
+/* MENU HEADER */
+#menu-header {
+    margin-top: -30px;
+    padding: 0;
+    list-style-type: none;
+   margin-left: 5px;
+
+}
+
+#icons{
+  margin-top: 10px;
+  margin-left: 10px;
+  position: absolute;
+}
+
+
+
+#menu-header li {
+    float: left;
+}
+
+
+/* DIVS muestra info principal */
+#item1 {
+    width: 200px;
+    height: 60px;
+    margin-bottom: 20px;
+    color: white;
+    font-size: 13px;
+    border-radius: 10px;
+    background-color: #D54B1A;
+
+
+
+
+}
+#item2 {
+    width: 200px;
+    height: 60px;
+    margin-bottom: 20px;
+    color: white;
+    font-size: 13px;
+    border-radius: 10px;
+    margin-left: 100px;
+    background-color: #3f8854;
+}
+#item3 {
+    width: 200px;
+    height: 60px;
+    margin-bottom: 20px;
+    color: white;
+    font-size: 13px;
+    border-radius: 10px;
+    margin-left: 100px;
+    background-color: #A92727;
+}
+
+label{
+    margin-top: 30px;
+    position: absolute;
+    font-size: 20px;
+}
+
+span{
+    margin-left: 60px;
+}
+#itemsresumen{
+    display: inline-flex;
+    align-items: start;
+}
+
+mat-card-title {
+    margin-left: 20px;
+}
+
+/* css table */
+.example-container {
+    height: 100%;
+    width: 100%;
+    max-width: 100%;
+    overflow: auto;
+}
+
+table {
+    width: 100%;
+}
+
+td.mat-column-star {
+    width: 20px;
+    padding-right: 8px;
+}
+
+th.mat-column-position,
+td.mat-column-position {
+    padding-left: 8px;
+}
+
+.mat-mdc-table-sticky-border-elem-right {
+    border-left: 1px solid #e0e0e0;
+}
+
+.mat-mdc-table-sticky-border-elem-left {
+    border-right: 1px solid #e0e0e0;
+}

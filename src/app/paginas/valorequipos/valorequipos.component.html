@@ -1,1 +1,76 @@
-<br><h1 style="text-align: center;">PÁGINA DE VALORES DE EQUIPOS</h1>
+<br>
+<h3 style="text-align: center;"><span>Valor de equipos</span></h3>
+<br>
+
+
+<div class="container">
+    <div id="filtroI"></div>
+    <ul id="menu-header">
+        <li><mat-form-field style="width: 410px; height:70px; margin-right: 30px;">
+                <mat-label>Filtrar</mat-label>
+                <input matInput (keyup)="applyFilter($event)" placeholder="Escriba una característica" #input>
+            </mat-form-field></li>
+    </ul>
+
+
+
+    <br>
+    <br>
+    <hr>
+    <div id="itemsresumen">
+        <div id="item1" class="totalequipos"><i id="icons" class="fa-solid fa-3x fa-truck"></i><span>Valor en
+                pesos</span><label for="">000</label></div>
+        <div id="item2" class="totaldisponibles"><i id="icons"
+                class="fa-sharp fa-3x fa-solid fa-truck-fast"></i><span>Valor en dolares</span><label for="">000</label>
+        </div>
+        <div id="item3" class="totalequiposD"><i id="icons"
+                class="fa-sharp fa-3x fa-solid fa-truck-fast"></i><span>Equipos vendidos</span><label for="">000</label>
+        </div>
+    </div>
+
+    <section class="example-container mat-elevation-z8" tabindex="0">
+        <table mat-table [dataSource]="dataSource" matSort>
+
+
+            <ng-container matColumnDef="noeco" sticky>
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> No. Eco </th>
+                <td mat-cell *matCellDef="let row"> {{row.noeco}} </td>
+            </ng-container>
+            <ng-container matColumnDef="tipomaquina">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Tipo equipo </th>
+                <td mat-cell *matCellDef="let row"> {{row.tipomaquina}} </td>
+            </ng-container>
+            <ng-container matColumnDef="marca">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Marca </th>
+                <td mat-cell *matCellDef="let row"> {{row.marca}} </td>
+            </ng-container>
+            <ng-container matColumnDef="estatus">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Estatus</th>
+                <td mat-cell *matCellDef="let row"> {{row.estatus}} </td>
+            </ng-container>
+            <ng-container matColumnDef="costoPesos">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Costo en Pesos</th>
+                <td mat-cell *matCellDef="let row"> {{row.costoPesos}} </td>
+            </ng-container>
+            <ng-container matColumnDef="costoDolares">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header>Costo en Dolares</th>
+                <td mat-cell *matCellDef="let row"> {{row.costoDolares}} </td>
+            </ng-container>
+
+            <!--we add a new column with the matColumnDef="deleteButton"-->
+            <ng-container matColumnDef="acciones">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header>Acciones</th>
+                <td mat-cell *matCellDef="let row"><button mat-button (click)="OpenDialogEditarValor(row)"><mat-icon>edit</mat-icon> </button></td>
+            </ng-container>
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+            <tr class="mat-row" *matNoDataRow>
+                <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
+            </tr>
+
+        </table>
+
+        <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page of users"></mat-paginator>
+    </section>
+</div>
