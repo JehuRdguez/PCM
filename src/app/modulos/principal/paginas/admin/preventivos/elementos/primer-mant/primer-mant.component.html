@@ -1,0 +1,192 @@
+<h1 mat-dialog-title>Mantenimiento de 500 Horas</h1>
+<div mat-dialog-content>
+  <form [formGroup]="PrimerMantForm">
+    <br>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Unidad</mat-label>
+        <mat-select formControlName="Unidad">
+          <mat-option value="Unidad 1">Unidad 1</mat-option>
+          <mat-option value="Unidad 2">Unidad 2</mat-option>
+          <mat-option value="Unidad 3">Unidad 3</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <h3>1. Cambio de Aceite</h3>
+   
+      <mat-radio-group >
+        <mat-radio-button *ngFor="let Aceite of Estado" [value]="Aceite">
+          {{Aceite}}
+        </mat-radio-button>
+      </mat-radio-group>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Aceite</mat-label>
+        <mat-select formControlName="Aceite">
+          <mat-option value="Unidad 1">Unidad 1</mat-option>
+          <mat-option value="Unidad 2">Unidad 2</mat-option>
+          <mat-option value="Unidad 3">Unidad 3</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <h3>2. Cambio de Filtro de Aceite</h3>
+  
+      <mat-radio-group >
+        <mat-radio-button *ngFor="let Aceite of Estado" [value]="Aceite">
+          {{Aceite}}
+        </mat-radio-button>
+      </mat-radio-group>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Filtro</mat-label>
+        <mat-select formControlName="Aceite">
+          <mat-option value="Unidad 1">Unidad 1</mat-option>
+          <mat-option value="Unidad 2">Unidad 2</mat-option>
+          <mat-option value="Unidad 3">Unidad 3</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <h3>3. Cambio de Filtro de Aire</h3>
+ 
+      <mat-radio-group >
+        <mat-radio-button *ngFor="let Aceite of Estado" [value]="Aceite">
+          {{Aceite}}
+        </mat-radio-button>
+      </mat-radio-group>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Filtro</mat-label>
+        <mat-select formControlName="Aceite">
+          <mat-option value="Unidad 1">Unidad 1</mat-option>
+          <mat-option value="Unidad 2">Unidad 2</mat-option>
+          <mat-option value="Unidad 3">Unidad 3</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <h3>4. Cambio de Filtro de Combustible</h3>
+ 
+      <mat-radio-group >
+        <mat-radio-button *ngFor="let Aceite of Estado" [value]="Aceite">
+          {{Aceite}}
+        </mat-radio-button>
+      </mat-radio-group>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Filtro</mat-label>
+        <mat-select formControlName="Aceite">
+          <mat-option value="Unidad 1">Unidad 1</mat-option>
+          <mat-option value="Unidad 2">Unidad 2</mat-option>
+          <mat-option value="Unidad 3">Unidad 3</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <h3>5. Engrasado de chasis</h3>
+
+      <mat-radio-group >
+        <mat-radio-button *ngFor="let Aceite of Estado" [value]="Aceite">
+          {{Aceite}}
+        </mat-radio-button>
+      </mat-radio-group>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Chasis</mat-label>
+        <mat-select formControlName="Aceite">
+          <mat-option value="Unidad 1">Unidad 1</mat-option>
+          <mat-option value="Unidad 2">Unidad 2</mat-option>
+          <mat-option value="Unidad 3">Unidad 3</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <h4>5.1 Direccion</h4>
+
+      <mat-radio-group >
+        <mat-radio-button *ngFor="let Aceite of Estado" [value]="Aceite">
+          {{Aceite}}
+        </mat-radio-button>
+      </mat-radio-group>
+
+      <h4>5.2 Cruceta</h4>
+
+      <mat-radio-group >
+        <mat-radio-button *ngFor="let Aceite of Estado" [value]="Aceite">
+          {{Aceite}}
+        </mat-radio-button>
+      </mat-radio-group>
+      <h4>5.3 Collarín</h4>
+
+      <mat-radio-group >
+        <mat-radio-button *ngFor="let Aceite of Estado" [value]="Aceite">
+          {{Aceite}}
+        </mat-radio-button>
+      </mat-radio-group>
+      <h4>5.4 Porta gavilán</h4>
+
+      <mat-radio-group >
+        <mat-radio-button *ngFor="let Aceite of Estado" [value]="Aceite">
+          {{Aceite}}
+        </mat-radio-button>
+      </mat-radio-group>
+      <h4>5.5 Gavilán</h4>
+ 
+      <mat-radio-group >
+        <mat-radio-button *ngFor="let Aceite of Estado" [value]="Aceite">
+          {{Aceite}}
+        </mat-radio-button>
+      </mat-radio-group>
+      <h4>5.6 Matraca</h4>
+
+      <mat-radio-group >
+        <mat-radio-button *ngFor="let Aceite of Estado" [value]="Aceite">
+          {{Aceite}}
+        </mat-radio-button>
+      </mat-radio-group>
+      <h4>5.7 Rotula</h4>
+
+      <mat-radio-group >
+        <mat-radio-button *ngFor="let Aceite of Estado" [value]="Aceite">
+          {{Aceite}}
+        </mat-radio-button>
+      </mat-radio-group>
+      <h3>6. Engrasado de quinta</h3>
+      <h4>6.1 Plato</h4>
+   
+      <mat-radio-group >
+        <mat-radio-button *ngFor="let Aceite of Estado" [value]="Aceite">
+          {{Aceite}}
+        </mat-radio-button>
+      </mat-radio-group>
+      <h3>6.2 Mecanismo</h3>
+
+      <mat-radio-group >
+        <mat-radio-button *ngFor="let Aceite of Estado" [value]="Aceite">
+          {{Aceite}}
+        </mat-radio-button>
+      </mat-radio-group>
+      <h3>7. Revisión de quinta</h3>
+
+      <mat-radio-group >
+        <mat-radio-button *ngFor="let Aceite of Estado" [value]="Aceite">
+          {{Aceite}}
+        </mat-radio-button>
+      </mat-radio-group>
+      <h3>8. Revisión de niveles de fluidos</h3>
+      <mat-radio-group >
+        <mat-radio-button *ngFor="let Aceite of Estado" [value]="Aceite">
+          {{Aceite}}
+        </mat-radio-button>
+      </mat-radio-group>
+
+    </form>
+</div>
+
+<div mat-dialog-action [align]="'end'">
+
+<button class="btn btn-outline-danger" mat-dialog-close>Cerrar</button>
+<button style="margin-left: 8px;"  class="btn btn-outline-success">Añadir</button>
+
+</div>
+
+<!---ngFor = bucle-->
+
+
+<!---Create = POST-->
+<!--Read = GET-->
+<!---Edit = PUT-->
+<!--Delete = Del-->

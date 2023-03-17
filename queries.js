@@ -834,10 +834,8 @@ const getUsuario = (request, response) => {
 };
 
 const getUsuarioPorId = (request, response) => {
-    const ecodusuario = parseInt(request.params.id);
-    pool.query(
-      "SELECT * FROM usuario WHERE ecodusuario = $1",
-      [ecodusuario],
+    const enumtrabajador = parseInt(request.params.enumtrabajador);
+    pool.query("SELECT * FROM usuario WHERE enumtrabajador = $1", [enumtrabajador],
       (error, result) => {
         if (error) {
           throw error;

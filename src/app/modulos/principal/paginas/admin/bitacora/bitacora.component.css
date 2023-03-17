@@ -1,0 +1,37 @@
+.example-spacer {
+    flex: 1 1 auto;
+  }
+  
+  table {
+    width: 100%;
+    margin-top: -10px;
+  }
+  
+  .mat-mdc-form-field {
+    font-size: 14px;
+    width: 100%;
+  }
+  
+  .btnRegistrar {
+    background-color: rgb(31, 41, 63);
+    width: 150px;
+    position: absolute;
+    left: 72%;
+    border: 0cm;
+    color: white;
+  }
+  
+  #horometro {
+    background-color: rgba(8, 109, 139, 0.959);
+    margin-top: 50px;
+    color: white;
+    border-radius: 5px;
+  }
+    .btnRegistrarUnidad {
+      background-color: rgb(31, 41, 63);
+      width: 200px;
+      position: absolute;
+      border: 0cm;
+      color: white;
+      margin-top: 3px;
+    }

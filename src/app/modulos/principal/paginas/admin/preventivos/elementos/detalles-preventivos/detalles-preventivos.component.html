@@ -1,0 +1,45 @@
+<h1 mat-dialog-title>Detalles</h1>
+<div mat-dialog-content>
+  <form [formGroup]="PreventivoForm">
+    <br>
+    <mat-form-field appearance="outline">
+        <mat-label>Estado</mat-label>
+        <input formControlName="Estado" type="text" matInput placeholder="0">
+        </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Unidad</mat-label>
+        <input formControlName="Unidad" type="text" matInput placeholder="0">
+        </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Unidad de Negocio</mat-label>
+        <input formControlName="UnidadNeg" type="text" matInput placeholder="0">
+        </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Ultimo Mantenimiento</mat-label>
+        <input formControlName="fhUltMant" matInput [matDatepicker]="picker">
+        <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Horómetro</mat-label>
+        <input formControlName="Horometro" type="number" matInput placeholder="0">
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Odómetro</mat-label>
+          <input formControlName="Odometro" type="number" matInput placeholder="0">
+          </mat-form-field>
+
+
+    </form>
+</div>
+
+<div mat-dialog-action [align]="'end'">
+
+<button class="btn btn-outline-danger" mat-dialog-close>Cerrar</button>
+
+</div>

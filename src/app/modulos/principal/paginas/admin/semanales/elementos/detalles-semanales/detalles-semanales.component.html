@@ -1,0 +1,40 @@
+<h1 mat-dialog-title>Detalles</h1>
+<div mat-dialog-content>
+  <form [formGroup]="SemanalesForm">
+    <br>
+    <mat-form-field appearance="outline">
+        <mat-label>Estado</mat-label>
+        <input formControlName="Estado" type="text" matInput >
+        </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Técnicos</mat-label>
+        <input formControlName="tecnicos" type="text" matInput>
+        </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Unidad</mat-label>
+        <input formControlName="unidad" type="text" matInput >
+        </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Fecha</mat-label>
+        <input formControlName="fecha" matInput [matDatepicker]="picker">
+        <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Comentarios</mat-label>
+        <input formControlName="Comentarios" type="text" matInput >
+        </mat-form-field>
+
+
+    </form>
+</div>
+
+<div mat-dialog-action [align]="'end'">
+
+<button class="btn btn-outline-danger" mat-dialog-close>Cerrar</button>
+
+</div>

@@ -1,0 +1,51 @@
+<h1 mat-dialog-title>Detalles</h1>
+<div mat-dialog-content>
+  <form [formGroup]="BitacoraForm">
+    <br>
+    <mat-form-field appearance="outline">
+        <mat-label>Equipo</mat-label>
+        <input formControlName="equipo" type="text" matInput >
+        </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Unidad de Negocio</mat-label>
+        <input formControlName="unidadNeg" type="text" matInput >
+        </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Capturo</mat-label>
+        <input formControlName="capturo" type="text" matInput >
+        </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Descripción</mat-label>
+        <input formControlName="descripcion" type="text" matInput >
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Tipo de Falla</mat-label>
+          <input formControlName="tipoFalla" type="text" matInput >
+          </mat-form-field>
+
+          <mat-form-field appearance="outline">
+            <mat-label>Fecha inicial</mat-label>
+            <input formControlName="fechainicial" matInput [matDatepicker]="picker">
+            <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+            <mat-label>Fecha final</mat-label>
+            <input formControlName="fechafinal" matInput [matDatepicker]="picker2">
+            <mat-datepicker-toggle matIconSuffix [for]="picker2"></mat-datepicker-toggle>
+            <mat-datepicker #picker2></mat-datepicker>
+        </mat-form-field>
+
+    </form>
+</div>
+
+<div mat-dialog-action [align]="'end'">
+
+<button class="btn btn-outline-danger" mat-dialog-close>Cerrar</button>
+
+</div>

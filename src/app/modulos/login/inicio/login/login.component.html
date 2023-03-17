@@ -1,0 +1,24 @@
+
+<div class="container">
+    <div class="row">
+      <div class="col">
+        <label class="titulo">Iniciar Sesión</label><br>
+        <form [formGroup]="myForm" (ngSubmit)="submitFormulario()">
+          <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon1"><mat-icon>person</mat-icon></span>
+            <input formControlName="usuario" [class.is-invalid]="f.usuario.errors && f.usuario.touched" type="email"
+              class="form-control" id="exampleFormControlInput1" placeholder="No. trabajador">
+          </div>
+          <br>
+          <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon1"><mat-icon>https</mat-icon></span>
+            <input formControlName="password" [class.is-invalid]="f.password.errors && f.password.touched" type="password"
+              class="form-control" id="exampleFormControlInput2" placeholder="Contraseña">
+          </div>
+          <div class="mb-3">
+            <button>Ingresar</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>

@@ -1,0 +1,59 @@
+<h1 mat-dialog-title>Registrar Preventivo</h1>
+<div mat-dialog-content>
+  <form [formGroup]="PreventivoForm">
+    <br>
+    <mat-form-field appearance="outline">
+        <mat-label>Estado</mat-label>
+        <mat-select formControlName="Estado">
+          <mat-option value="Realizado">Realizado</mat-option>
+          <mat-option value="No realizado">No realizado</mat-option>
+          <mat-option value="En proceso">En proceso</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Unidad</mat-label>
+        <mat-select formControlName="Unidad">
+          <mat-option value="Unidad 1">Unidad 1</mat-option>
+          <mat-option value="Unidad 2">Unidad 2</mat-option>
+          <mat-option value="Unidad 3">Unidad 3</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Unidad de Negocio</mat-label>
+        <mat-select formControlName="UnidadNeg">
+          <mat-option value="Manzanillo">Manzanillo</mat-option>
+          <mat-option value="SUKARGA">SUKARGA</mat-option>
+          <mat-option value="Inspeccion">Inspeccion</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Ultimo Mantenimiento</mat-label>
+        <input formControlName="fhUltMant" matInput [matDatepicker]="picker">
+        <mat-hint>MM/DD/YYYY</mat-hint>
+        <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Horómetro</mat-label>
+        <input formControlName="Horometro" type="number" matInput placeholder="0">
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Odómetro</mat-label>
+          <input formControlName="Odometro" type="number" matInput placeholder="0">
+          </mat-form-field>
+
+
+    </form>
+</div>
+
+<div mat-dialog-action [align]="'end'">
+
+<button class="btn btn-outline-danger" mat-dialog-close>Cerrar</button>
+<button style="margin-left: 8px;"  class="btn btn-outline-success" (click)="addPreventivo()">{{actionBtn}}</button>
+
+</div>

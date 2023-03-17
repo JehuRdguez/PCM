@@ -1,0 +1,31 @@
+<h1 mat-dialog-title>Registrar Manpower</h1>
+<div mat-dialog-content>
+  <form [formGroup]="ManpowerForm">
+    <br>
+    <mat-form-field appearance="outline">
+        <mat-label>Nombre</mat-label>
+        <textarea formControlName="nombre" matInput></textarea>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+        <mat-label>Tiempo total</mat-label>
+        <input formControlName="tiempototal" type="number" matInput placeholder="0">
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+        <mat-label>Faltas</mat-label>
+        <input formControlName="faltas" type="number" matInput placeholder="0">
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+        <mat-label>Actas y amonestaciones</mat-label>
+        <input formControlName="actasYamon" type="number" matInput placeholder="0">
+        </mat-form-field>
+    </form>
+</div>
+
+<div mat-dialog-action [align]="'end'">
+
+<button class="btn btn-outline-danger" mat-dialog-close>Cerrar</button>
+<button style="margin-left: 8px;"  class="btn btn-outline-success" (click)="addManpower()">{{actionBtn}}</button>
+
+</div>

@@ -1,0 +1,63 @@
+<h1 mat-dialog-title>Detalles horómetro</h1>
+<div mat-dialog-content>
+    <form [formGroup]="HorometroForm">
+        <br><!--
+        <mat-form-field appearance="outline">
+            <mat-label>Técnico</mat-label>
+            <input formControlName="tecnico" matInput placeholder="Juan Pérez">
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+            <mat-label>Último mantenimiento</mat-label>
+            <input formControlName="ultimoMant" matInput [matDatepicker]="picker1">
+            <mat-datepicker-toggle matIconSuffix [for]="picker1"></mat-datepicker-toggle>
+            <mat-datepicker #picker1></mat-datepicker>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+            <mat-label>Último horómetro</mat-label>
+            <input formControlName="horometro" type="number" matInput placeholder="1500">
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+            <mat-label>Último odómetro</mat-label>
+            <input formControlName="odometro" type="number" matInput placeholder="32930">
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+            <mat-label>Horas trabajadas desde el último servicio</mat-label>
+            <input formControlName="horasUltiServ" type="number" matInput placeholder="230">
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+            <mat-label>Horas restantes</mat-label>
+            <input formControlName="horasRest" type="number" matInput placeholder="270">
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+            <mat-label>Días restantes</mat-label>
+            <input formControlName="diasRest" type="number" matInput placeholder="14 días">
+        </mat-form-field>-->
+        <mat-form-field appearance="outline">
+            <mat-label>Unidad</mat-label>
+            <input formControlName="Unidad" type="text" matInput placeholder="0">
+            </mat-form-field>
+    
+          <mat-form-field appearance="outline">
+            <mat-label>Ultima actualización</mat-label>
+            <input formControlName="fhUltAct" matInput [matDatepicker]="picker">
+            <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+    
+          <mat-form-field appearance="outline">
+            <mat-label>Horómetro</mat-label>
+            <input formControlName="Horometro" type="number" matInput placeholder="0">
+            </mat-form-field>
+    
+            <mat-form-field appearance="outline">
+              <mat-label>Odómetro</mat-label>
+              <input formControlName="Odometro" type="number" matInput placeholder="0">
+            </mat-form-field>
+    </form>
+</div>
+
+<div mat-dialog-action [align]="'end'">
+
+    <button class="btn btn-outline-danger" mat-dialog-close>Cerrar</button>
+
+</div>

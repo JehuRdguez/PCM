@@ -1,0 +1,47 @@
+<h1 mat-dialog-title>Registrar Semanal</h1>
+<div mat-dialog-content>
+  <form [formGroup]="SemanalForm">
+    <br>
+    <mat-form-field appearance="outline">
+        <mat-label>Estado</mat-label>
+        <mat-select formControlName="Estado">
+          <mat-option value="Realizado">Realizado</mat-option>
+          <mat-option value="No realizado">No realizado</mat-option>
+          <mat-option value="En proceso">En proceso</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Técnicos</mat-label>
+        <textarea formControlName="tecnicos" matInput></textarea>
+    </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Unidad</mat-label>
+        <mat-select formControlName="unidad">
+          <mat-option value="Unidad 1">Unidad 1</mat-option>
+          <mat-option value="Unidad 2">Unidad 2</mat-option>
+          <mat-option value="Unidad 3">Unidad 3</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Fecha</mat-label>
+        <input formControlName="fecha" matInput [matDatepicker]="picker">
+        <mat-hint>MM/DD/YYYY</mat-hint>
+        <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+        <mat-label>Comentarios</mat-label>
+        <textarea formControlName="Comentarios" matInput></textarea>
+    </mat-form-field>
+    </form>
+</div>
+
+<div mat-dialog-action [align]="'end'">
+
+<button class="btn btn-outline-danger" mat-dialog-close>Cerrar</button>
+<button style="margin-left: 8px;"  class="btn btn-outline-success" (click)="addSemanal()">{{actionBtn}}</button>
+
+</div>

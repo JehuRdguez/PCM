@@ -1,6 +1,8 @@
-import { PaginasModule } from './paginas/paginas.module';
 import { NgModule, Component } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { LoginModule } from './modulos/login/login.module';
+import { PrincipalModule } from './modulos/principal/principal.module';
+import { SesionesComponent } from './interfaz/publico/sesiones/sesiones.component';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -25,8 +27,7 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 // fORMULARIO EN PARTE
 import {STEPPER_GLOBAL_OPTIONS} from '@angular/cdk/stepper';
 import { NgChartsModule } from 'ng2-charts';
-
-
+import { DashboardComponent } from './modulos/principal/paginas/admin/dashboard/dashboard.component';
 
 
 // CONTROL EQUIPOS DIALOGOS
@@ -37,7 +38,8 @@ import { FormComponent } from './components/form/form.component';
 @NgModule({
   declarations: [
     AppComponent,
-  FormComponent
+  FormComponent,
+  SesionesComponent,
   ],
   imports: [
     BrowserModule,
@@ -60,8 +62,9 @@ import { FormComponent } from './components/form/form.component';
     MatSortModule,
     MatMenuModule,
     MatSidenavModule,
-    PaginasModule,
-    NgChartsModule
+    NgChartsModule,
+    LoginModule,
+    PrincipalModule
 
   ],
   providers: [],

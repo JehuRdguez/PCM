@@ -1,0 +1,39 @@
+<h1 mat-dialog-title>Registrar horómetro</h1>
+<div mat-dialog-content>
+  <form [formGroup]="HorometroForm">
+    <br>
+      <mat-form-field appearance="outline">
+        <mat-label>Unidad</mat-label>
+        <mat-select formControlName="Unidad">
+          <mat-option value="Unidad 1">Unidad 1</mat-option>
+          <mat-option value="Unidad 2">Unidad 2</mat-option>
+          <mat-option value="Unidad 3">Unidad 3</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Horómetro</mat-label>
+        <input formControlName="Horometro" type="number" matInput placeholder="0">
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Odómetro</mat-label>
+          <input formControlName="Odometro" type="number" matInput placeholder="0">
+          </mat-form-field>
+          
+          <mat-form-field appearance="outline">
+            <mat-label>Ultima actualización</mat-label>
+            <input formControlName="fhUltAct" matInput [matDatepicker]="picker">
+            <mat-hint>MM/DD/YYYY</mat-hint>
+            <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+    </form>
+</div>
+
+<div mat-dialog-action [align]="'end'">
+
+<button class="btn btn-outline-danger" mat-dialog-close>Cerrar</button>
+<button style="margin-left: 8px;"  class="btn btn-outline-success" (click)="addTicket()">{{actionBtn}}</button>
+
+</div>
