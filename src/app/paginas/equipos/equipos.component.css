@@ -1,25 +1,24 @@
 #button-header {
-    margin-top: 81px;
+    margin-top: 5px;
     width: 200px;
     height: 50px;
-    left: 1130px;
+    left: 1030px;
     position: absolute;
-    width: 100px;
-    height: 60px;
     margin-bottom: 20px;
     color: white;
     font-size: 13px;
     border-radius: 10px;
     background-color: #3B8C88;
     border: none;
+}
+#text-header{
 
 }
 
 #filtroI {
     width: 420px;
     height: 60px;
-    margin-left: 40px;
-    margin-top: -19px;
+    margin-top: -5px;
     border: 3px solid #002C46;
     position: absolute;
 }
@@ -27,9 +26,9 @@
 /* MENU HEADER */
 #menu-header {
     margin-top: -30px;
-    margin-left: 45px;
     padding: 0;
     list-style-type: none;
+   margin-left: 5px;
 
 }
 
@@ -49,10 +48,10 @@
     font-size: 13px;
     border-radius: 10px;
     background-color: #A92727;
-    margin-left: 40px;
 
-    
-    
+
+
+
 }
 #item2 {
     width: 200px;
@@ -63,21 +62,6 @@
     border-radius: 10px;
     margin-left: 100px;
     background-color: #D54B1A;
-}
-#item3{
-    margin-top: 2px;
-    width: 200px;
-    height: 50px;
-    left: 905px;
-    position: absolute;
-    width: 100px;
-    height: 60px;
-    margin-bottom: 20px;
-    color: white;
-    font-size: 13px;
-    border-radius: 10px;
-    background-color: #3B8C88;
-    border: none;
 }
 label{
     margin-top: 30px;
