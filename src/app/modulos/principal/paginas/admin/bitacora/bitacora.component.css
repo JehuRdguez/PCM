@@ -39,11 +39,12 @@ table {
   border-radius: 5px;
   font-family: 'Rokkitt', serif;
 }
-  .btnRegistrarUnidad {
-    background-color: rgb(31, 41, 63);
-    width: 200px;
-    position: absolute;
-    color: white;
-    border-radius: 8px;
-  }
+.btnRegistrarUnidad {
+  background-color: rgb(31, 41, 63);
+  width: 200px;
+  position: absolute;
+  color: white;
+  border-radius: 8px;
+}
+
 

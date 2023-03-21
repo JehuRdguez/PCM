@@ -118,6 +118,8 @@ export class BitacoraFormComponent {
       tturno: this.BitacoraForm.value.tturno,
       ecodbitacora: this.editData.ecodbitacora
     };
+    var confirmacion = confirm("¿Esta seguro que desea actualizar el registro?");
+    if(confirmacion == true){
     this.api.putBitacora(data, this.editData.ecodbitacora)
       .subscribe({
         next: (res) => {
@@ -129,7 +131,7 @@ export class BitacoraFormComponent {
           alert("Error!!!");
         }
       })
-
+    }
   }
 
 }

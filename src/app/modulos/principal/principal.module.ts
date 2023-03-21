@@ -30,7 +30,8 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatTableModule } from '@angular/material/table';
-import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatPaginatorModule, MatPaginatorIntl } from '@angular/material/paginator';
+import {Subject} from 'rxjs';
 import { MatSortModule } from '@angular/material/sort';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatSidenavModule } from '@angular/material/sidenav';
@@ -149,9 +150,12 @@ import { ManpowerFormComponent } from './paginas/admin/manpower/elementos/manpow
     //DialoghoroRegistrarComponent,
     //DialoghoroDetallesComponent,
     //DialogagregarequipoComponent
-    
+
 
 
   ]
 })
-export class PrincipalModule { }
+export class PrincipalModule {
+
+
+}

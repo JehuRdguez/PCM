@@ -60,6 +60,8 @@ export class BitacoraComponent {
     })
   }
     deleteBitacora(id: number) {
+      var confirmacion = confirm("¿Esta seguro que desea eliminar el registro?");
+      if (confirmacion == true){
     this.api.deleteBitacora(id).subscribe({
       next: (res) => {
         alert("Bitacora eliminado!!")
@@ -67,9 +69,10 @@ export class BitacoraComponent {
       },
       error: () => {
         alert("Error!!!")
-      }
+    }
     })
   }
+}
   getBitacoraByid(row: any) {
     this.dialog.open(DetallesBitacoraComponent, {
       width: '50%',
@@ -92,24 +95,37 @@ export class BitacoraComponent {
     const doc = new jsPDF();
     //'tunidad','ttiporeporte', 'tcaptura','tunidadnegocios', 'fhfecha','tdescripcion'
     const data = {
-      ecodbitacora: bitacora.ecodbitacora,
       tunidad: bitacora.tunidad,
       ttiporeporte: bitacora.ttiporeporte,
       tcaptura: bitacora.tcaptura,
       tunidadnegocios: bitacora.tunidadnegocios,
       fhfecha: bitacora.fhfecha,
       tdescripcion: bitacora.tdescripcion,
-    };
+      tdisponibilidad: bitacora.tdisponibilidad,
+      tefectosfalla: bitacora.tefectosfalla,
+      tpiezasutilizadas: bitacora.tpiezasutilizadas,
+      ttecnico: bitacora.ttecnico,
+      tsupervisor: bitacora.tsupervisor,
+      tsistema: bitacora.tsistema,
+      tsubsistema: bitacora.tsubsistema,
+      tturno: bitacora.tturno
 
-    /*const image = new Image();
-    image.src = '../../img/LOGO.png';
-    doc.addImage('../../img/LOGO.png', 'PNG', 10, 10, 50, 50);*/
+    };
+    const image = new Image();
+    image.src = '../../../../../assets/dist/img/CIMA.png';
+    doc.addImage(image, 'PNG', 10, 10, 50, 50);
 
     autoTable(doc, {
-      head: [['tunidad', 'Unidad de negocio', 'Capturista', 'Descripción', 'Tipo de reporte', 'Fecha']],
+      styles: {},
+      head: [['Unidad', 'Unidad de negocio', 'Capturista', 'Descripción', 'Tipo de reporte', 'Fecha', 'Turno']],
       body: [
-        [data.tunidad, data.tunidadnegocios, data.tcaptura, data.tdescripcion, data.ttiporeporte, data.fhfecha]
-
+        [data.tunidad, data.tunidadnegocios, data.tcaptura, data.tdescripcion, data.ttiporeporte, data.fhfecha, data.tturno]
+      ],
+    })
+    autoTable(doc, {
+      head: [['Disponibilidad', 'Efectos de falla', 'Piezas utilizadas', 'Tecnico', 'Supervisor', 'Sistema', 'Subsistema']],
+      body: [
+        [data.tdisponibilidad, data.tefectosfalla, data.tpiezasutilizadas, data.ttecnico, data.tsupervisor, data.tsistema, data.tsubsistema]
       ],
     })
     /*doc.autoTable({
