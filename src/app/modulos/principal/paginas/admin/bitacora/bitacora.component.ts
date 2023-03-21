@@ -20,12 +20,20 @@ export class BitacoraComponent {
   displayedColumns: string[] = ['tunidad','ttiporeporte', 'tcaptura','tunidadnegocios', 'fhfecha','tdescripcion','acciones'];
   dataSource!: MatTableDataSource<any>;
 
-  @ViewChild(MatPaginator) paginator!: MatPaginator;
+  @ViewChild(MatPaginator, {static:true}) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
 
   constructor(public dialog: MatDialog, private api: ApiService){}
   ngOnInit(): void {
     this.getAllBitacora();
+    //paginator
+    this.paginator._intl.itemsPerPageLabel="Objetos por página";
+
+    this.paginator._intl.getRangeLabel = function(page: number, pageSize: number, lenght: number): string {
+      const start = page * pageSize + 1;
+      const end = (page + 1) * pageSize;
+      return `${start} - ${end} de ${lenght}`;
+    }
   }
   openDialogRegistrar(){
     this.dialog.open(BitacoraFormComponent,{

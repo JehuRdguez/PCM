@@ -26,10 +26,12 @@
   }
   .container {
       text-align: center;
+      justify-content: center;
+      align-items: ce;
   }
   .CIMA {
-      width: 50%;
-      height: 80%;
+      width: 0%;
+      height: 0%;
   }
   .glassmorfism {
       margin-top: 2em;
@@ -46,17 +48,14 @@
       text-align: center;
   }
   .slogan {
-      font-family: 'Rokkitt', serif;
-      color: #36499b;
-      text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
-      font-size: 50px;
+      font-size: 0px;
   }
   .title{
       font-family: 'Rokkitt', serif;
       justify-content: center;
       text-align: center;
       text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
-      font-size: 40px;
+      font-size: 20px;
   }
 
 }

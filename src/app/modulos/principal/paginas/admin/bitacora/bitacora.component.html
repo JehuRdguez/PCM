@@ -53,11 +53,13 @@
 
       <!-- acciones Column -->
       <ng-container matColumnDef="acciones">
+        <div class="center">
         <th mat-header-cell *matHeaderCellDef mat-sort-header> Acciones </th>
+      </div>
         <td mat-cell *matCellDef="let row">
           <button (click)="editBitacora(row)" mat-icon-button>
             <div class="fond-1">
-            <i class="fa-solid fa-pen-to-square"></i>
+            <i class="fa-solid fa-pen-to-square" style="color: #17aa43;"></i>
           </div>
           </button>
           <button mat-icon-button color="warn" (click)="deleteBitacora(row.ecodbitacora)">
@@ -67,12 +69,12 @@
           </button>
           <button mat-icon-button color="success" (click)="getBitacoraByid(row)">
             <div class="fond-3">
-            <i class="fa-solid fa-ellipsis"></i>
+            <i class="fa-solid fa-ellipsis" style="color: #1866ec;"></i>
             </div>
           </button>
           <button mat-icon-button color="success" (click)="generarPDF(row)">
             <div class="fond-4">
-            <i class="fa-solid fa-file-pdf"></i>
+            <i class="fa-solid fa-file-pdf" ></i>
             </div>
           </button>
         </td>
