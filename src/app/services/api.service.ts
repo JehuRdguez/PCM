@@ -86,18 +86,18 @@ getKpisByid(id:Number){
 }
 //////////////////////////////////////////////////////////////////////////////////
 postBitacora(data: any){
-  return this.http.post<any>("http://localhost:3000/Bitacora/", data);
+  return this.http.post<any>("http://localhost:3000/bitacora/", data);
 }
 getBitacora(){
-  return this.http.get<any>("http://localhost:3000/Bitacora");
+  return this.http.get<any>("http://localhost:3000/bitacora");
 }
 putBitacora(data: any, id: number){
-  return this.http.put<any>("http://localhost:3000/Bitacora/"+id, data);
+  return this.http.put<any>("http://localhost:3000/bitacora/"+id, data);
 }
 deleteBitacora(id: number){
-  return this.http.delete<any>("http://localhost:3000/Bitacora/"+id);
+  return this.http.delete<any>("http://localhost:3000/bitacora/"+id);
 }
 getBitacoraByid(id:Number){
-  return this.http.get("http://localhost:3000/Bitacora/"+id);
+  return this.http.get("http://localhost:3000/bitacora/"+id);
 }
 }

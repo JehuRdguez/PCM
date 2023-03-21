@@ -10,7 +10,7 @@ const pool = new Pool({
 //api de bitacora
 const ObtencionRegistro = (request, response) => {
   pool.query(
-    "SELECT * FROM bitacora ORDER BY ecodbitacora ASC",
+    'SELECT * FROM bitacora ORDER BY ecodbitacora ASC',
     (error, results) => {
       if (error) {
         throw error;
@@ -23,7 +23,7 @@ const ObtencionRegistro = (request, response) => {
 const ObtencionRegistroPorId = (request, response) => {
   const ecodbitacora = parseInt(request.params.id);
   pool.query(
-    "SELECT * FROM bitacora WHERE ecodbitacora = $1",
+    'SELECT * FROM bitacora WHERE ecodbitacora = $1',
     [ecodbitacora],
     (error, result) => {
       if (error) {
@@ -37,44 +37,42 @@ const ObtencionRegistroPorId = (request, response) => {
 const crearRegistro = (request, response) => {
   const {
     ecodbitacora,
-    fk_eunidad,
-    fk_eunidadnegocio,
-    fk_ecaptura,
+    tunidad,
+    tunidadnegocios,
+    tcaptura,
     tdescripcion,
-    fk_etiporeporte,
-    fhfechainicial,
-    fhfechafinal,
-    fk_piezasutilizadas,
+    ttiporeporte,
+    fhfecha,
+    tpiezasutilizadas,
     hhorainicial,
     hhorafinal,
     tdisponibilidad,
-    fk_esistema,
-    fk_esubsistema,
-    fk_etecnico,
-    fk_esupervisor,
+    tsistema,
+    tsubsistema,
+    ttecnico,
+    tsupervisor,
     tturno,
     tefectosfalla,
   } = request.body;
 
   pool.query(
-    "INSERT INTO bitacora (ecodbitacora, fk_eunidad, fk_eunidadnegocio, fk_ecaptura, tdescripcion, fk_etiporeporte, fhfechainicial, fhfechafinal, fk_piezasutilizadas, hhorainicial, hhorafinal, tdisponibilidad, fk_esistema, fk_esubsistema, fk_etecnico, fk_esupervisor, tturno, tefectosfalla)VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13,$14,$15,$16,$17,$18) RETURNING * ",
+    'INSERT INTO bitacora ("ecodbitacora", "tunidad", "tunidadnegocios", "tcaptura", "tdescripcion", "ttiporeporte", "fhfecha", "tpiezasutilizadas", "hhorainicial", "hhorafinal", "tdisponibilidad", "tsistema", "tsubsistema", "ttecnico", "tsupervisor", "tturno", "tefectosfalla")VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13,$14,$15,$16,$17) RETURNING * ',
     [
       ecodbitacora,
-      fk_eunidad,
-      fk_eunidadnegocio,
-      fk_ecaptura,
+      tunidad,
+      tunidadnegocios,
+      tcaptura,
       tdescripcion,
-      fk_etiporeporte,
-      fhfechainicial,
-      fhfechafinal,
-      fk_piezasutilizadas,
+      ttiporeporte,
+      fhfecha,
+      tpiezasutilizadas,
       hhorainicial,
       hhorafinal,
       tdisponibilidad,
-      fk_esistema,
-      fk_esubsistema,
-      fk_etecnico,
-      fk_esupervisor,
+      tsistema,
+      tsubsistema,
+      ttecnico,
+      tsupervisor,
       tturno,
       tefectosfalla,
     ],
@@ -82,7 +80,7 @@ const crearRegistro = (request, response) => {
       if (error) {
         throw error;
       }
-      response.status(200).send("Registro agregado con exito");
+      response.status(200).send(result);
     }
   );
 };
@@ -90,42 +88,40 @@ const crearRegistro = (request, response) => {
 const actualizarRegistro = (request, response) => {
   const {
     ecodbitacora,
-    fk_eunidad,
-    fk_eunidadnegocio,
-    fk_ecaptura,
+    tunidad,
+    tunidadnegocio,
+    tcaptura,
     tdescripcion,
-    fk_etiporeporte,
-    fhfechainicial,
-    fhfechafinal,
-    fk_piezasutilizadas,
+    ttiporeporte,
+    fhfecha,
+    tpiezasutilizadas,
     hhorainicial,
     hhorafinal,
     tdisponibilidad,
-    fk_esistema,
-    fk_esubsistema,
-    fk_etecnico,
-    fk_esupervisor,
+    tsistema,
+    tsubsistema,
+    ttecnico,
+    tsupervisor,
     tturno,
     tefectosfalla,
   } = request.body;
   pool.query(
-    "UPDATE bitacora SET fk_eunidad = $1, fk_eunidadnegocio = $2, fk_ecaptura  = $3, tdescripcion = $4, fk_etiporeporte = $5, fhfechainicial = $6, fhfechafinal = $7,fk_piezasutilizadas = $8, hhorainicial = $9, hhorafinal = $10, tdisponibilidad = $11, fk_esistema = $12, fk_esubsistema = $13, fk_etecnico = $14,fk_esupervisor = $15,tturno = $16, tefectosfalla = $17 WHERE ecodbitacora = $18 RETURNING * ",
+    "UPDATE bitacora SET tunidad = $p1, tunidadnegocio = $2, tcaptura  = $3, tdescricion = $4, ttiporeporte = $5, fhfecha = $6, tpiezasutilizadas = $7, hhorainicial = $8, hhorafinal = $9, tdisponibilidad = $10, tsistema = $11, tsubsistema = $12, ttecnico = $13,tsupervisor = $14,tturno = $15, tefectosfalla = $16 WHERE ecodbitacora = $17 RETURNING * ",
     [
-      fk_eunidad,
-      fk_eunidadnegocio,
-      fk_ecaptura,
+      tunidad,
+      tunidadnegocio,
+      tcaptura,
       tdescripcion,
-      fk_etiporeporte,
-      fhfechainicial,
-      fhfechafinal,
-      fk_piezasutilizadas,
+      ttiporeporte,
+      fhfecha,
+      tpiezasutilizadas,
       hhorainicial,
       hhorafinal,
       tdisponibilidad,
-      fk_esistema,
-      fk_esubsistema,
-      fk_etecnico,
-      fk_esupervisor,
+      tsistema,
+      tsubsistema,
+      ttecnico,
+      tsupervisor,
       tturno,
       tefectosfalla,
       ecodbitacora,
@@ -134,7 +130,7 @@ const actualizarRegistro = (request, response) => {
       if (error) {
         throw error;
       }
-      response.status(200).send("Registro actualizado con exito");
+      response.status(200).send(result);
     }
   );
 };
@@ -142,13 +138,13 @@ const actualizarRegistro = (request, response) => {
 const eliminarRegistro = (request, response) => {
   const ecodbitacora = parseInt(request.params.id);
   pool.query(
-    "DELETE FROM bitacora WHERE ecodbitacora = $1",
+    'DELETE FROM bitacora WHERE ecodbitacora = $1',
     [ecodbitacora],
     (error, result) => {
       if (error) {
         throw error;
       }
-      response.status(200).send("Registro eliminado con exito");
+      response.status(200).send(result);
     }
   );
 };
