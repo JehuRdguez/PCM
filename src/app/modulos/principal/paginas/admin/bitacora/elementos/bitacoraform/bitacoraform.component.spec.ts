@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { BitacoraformComponent } from './bitacoraform.component';
+import { BitacoraFormComponent } from './bitacoraform.component';
 
-describe('BitacoraformComponent', () => {
-  let component: BitacoraformComponent;
-  let fixture: ComponentFixture<BitacoraformComponent>;
+describe('BitacoraFormComponent', () => {
+  let component: BitacoraFormComponent;
+  let fixture: ComponentFixture<BitacoraFormComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ BitacoraformComponent ]
+      declarations: [ BitacoraFormComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(BitacoraformComponent);
+    fixture = TestBed.createComponent(BitacoraFormComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

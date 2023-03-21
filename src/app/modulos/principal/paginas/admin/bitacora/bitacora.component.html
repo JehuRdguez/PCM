@@ -1,59 +1,50 @@
 <br>
 &nbsp;&nbsp;&nbsp;&nbsp;
 <div class="container">
-  <h3><b>Reportes</b> | <span>consulta de bitacora</span></h3>
+  <h3><b>Registros</b> | <span>Consulta de bitácora</span></h3>
   <div class="btnRegistrar"><button type="button" class="btnRegistrar"
       (click)="openDialogRegistrar()">Registrar</button></div>
   <div class="btnRegistrarUnidad"><button type="button" class="btnRegistrarUnidad">Unidad de negocio</button></div>
 
-  <h1 style="text-align: star;" id="horometro">Bitacora</h1>
+  <h1 style="text-align: star;" id="horometro">Bitácora</h1>
   <div class="mat-elevation-z8">
     <table mat-table [dataSource]="dataSource" matSort>
 
-      <!-- ID Column -->
-      <ng-container matColumnDef="id">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header> ID </th>
-        <td mat-cell *matCellDef="let row"> {{row.id}} </td>
-      </ng-container>
 
       <!-- equipo Column -->
-      <ng-container matColumnDef="equipo">
+      <ng-container matColumnDef="tunidad">
         <th mat-header-cell *matHeaderCellDef mat-sort-header>Equipo</th>
-        <td mat-cell *matCellDef="let row"> {{row.equipo}} </td>
+        <td mat-cell *matCellDef="let row"> {{row.tunidad}} </td>
       </ng-container>
 
       <!-- unidadNeg Column -->
-      <ng-container matColumnDef="unidadNeg">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header>Unidad de negocio</th>
-        <td mat-cell *matCellDef="let row"> {{row.unidadNeg}} </td>
+      <ng-container matColumnDef="ttiporeporte">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Tipo de reporte</th>
+        <td mat-cell *matCellDef="let row"> {{row.ttiporeporte}} </td>
       </ng-container>
 
       <!-- capturo Column -->
-      <ng-container matColumnDef="capturo">
+      <ng-container matColumnDef="tcaptura">
         <th mat-header-cell *matHeaderCellDef mat-sort-header> Capturó </th>
-        <td mat-cell *matCellDef="let row"> {{row.capturo}} </td>
+        <td mat-cell *matCellDef="let row"> {{row.tcaptura}} </td>
       </ng-container>
       <!-- descripcion Column -->
-      <ng-container matColumnDef="descripcion">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header> Descripción </th>
-        <td mat-cell *matCellDef="let row"> {{row.descripcion}} </td>
+      <ng-container matColumnDef="tunidadnegocios">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Unidad de negocios </th>
+        <td mat-cell *matCellDef="let row"> {{row.tunidadnegocios}} </td>
       </ng-container>
       <!-- tipoFalla Column -->
-      <ng-container matColumnDef="tipoFalla">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header> Tipo de falla </th>
-        <td mat-cell *matCellDef="let row"> {{row.tipoFalla}} </td>
-      </ng-container>
-      <!--fechainicial Column -->
-      <ng-container matColumnDef="fechainicial">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header> Fecha inicial </th>
-        <td mat-cell *matCellDef="let row"> {{row.fechainicial | date}} </td>
+
+      <ng-container matColumnDef="fhfecha">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Fecha</th>
+        <td mat-cell *matCellDef="let row"> {{row.fhfecha | date}} </td>
       </ng-container>
 
-      <!--fechafinal Column -->
-      <ng-container matColumnDef="fechafinal">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header> Fecha inicial </th>
-        <td mat-cell *matCellDef="let row"> {{row.fechafinal | date}} </td>
+      <ng-container matColumnDef="tdescripcion">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Descripción </th>
+        <td mat-cell *matCellDef="let row"> {{row.tdescripcion}} </td>
       </ng-container>
+      <!--fechainicial Column -->
 
       <!-- acciones Column -->
       <ng-container matColumnDef="acciones">
@@ -62,7 +53,7 @@
           <button (click)="editBitacora(row)" mat-icon-button color="primary">
             <mat-icon>edit</mat-icon>
           </button>
-          <button mat-icon-button color="warn" (click)="deleteBitacora(row.id)">
+          <button mat-icon-button color="warn" (click)="deleteBitacora(row.ecodbitacora)">
             <mat-icon>delete</mat-icon>
           </button>
           <button mat-icon-button color="success" (click)="getBitacoraByid(row)">

@@ -17,36 +17,65 @@ export class BitacoraFormComponent {
     private dialogRef: MatDialogRef<FormComponent>) { }
   ngOnInit(): void {
     this.BitacoraForm = this.formBuilder.group({
-      equipo: ['', Validators.required],
-      unidadNeg: ['', Validators.required],
-      capturo: ['', Validators.required],
-      descripcion: ['', Validators.required],
-      tipoFalla: ['', Validators.required],
-      fechainicial: ['', Validators.required],
-      fechafinal: ['', Validators.required]
+      tunidad: ['', Validators.required],
+      ttiporeporte: ['', Validators.required],
+      tcaptura: ['', Validators.required],
+      tunidadnegocios: ['', Validators.required],
+      fhfecha: ['', Validators.required],
+      tdescripcion: ['', Validators.required],
+      tdisponibilidad: ['', Validators.required],
+      tefectosfalla: ['', Validators.required],
+      tpiezasutilizadas: ['', Validators.required],
+      ttecnico: ['', Validators.required],
+      tsupervisor: ['', Validators.required],
+      tsistema: ['', Validators.required],
+      tsubsistema: ['', Validators.required],
+      tturno: ['', Validators.required]
+
     })
     if (this.editData) {
       this.actionBtn = "Actualizar";
-      this.BitacoraForm.controls['equipo'].setValue(
-        this.editData.equipo
+      this.BitacoraForm.controls['tunidad'].setValue(
+        this.editData.tunidad
       );
-      this.BitacoraForm.controls['unidadNeg'].setValue(
-        this.editData.unidadNeg
+      this.BitacoraForm.controls['ttiporeporte'].setValue(
+        this.editData.ttiporeporte
       );
-      this.BitacoraForm.controls['capturo'].setValue(
-        this.editData.capturo
+      this.BitacoraForm.controls['tcaptura'].setValue(
+        this.editData.tcaptura
       );
-      this.BitacoraForm.controls['descripcion'].setValue(
-        this.editData.descripcion
+      this.BitacoraForm.controls['tunidadnegocios'].setValue(
+        this.editData.tunidadnegocios
       );
-      this.BitacoraForm.controls['tipoFalla'].setValue(
-        this.editData.tipoFalla
+      this.BitacoraForm.controls['fhfecha'].setValue(
+        this.editData.fhfecha
       );
-      this.BitacoraForm.controls['fechainicial'].setValue(
-        this.editData.fechainicial
+      this.BitacoraForm.controls['tdescripcion'].setValue(
+        this.editData.tdescripcion
       );
-      this.BitacoraForm.controls['fechafinal'].setValue(
-        this.editData.fechafinal
+      this.BitacoraForm.controls['tdisponibilidad'].setValue(
+        this.editData.tdisponibilidad
+      );
+      this.BitacoraForm.controls['tefectosfalla'].setValue(
+        this.editData.tefectosfalla
+      );
+      this.BitacoraForm.controls['tpiezasutilizadas'].setValue(
+        this.editData.tpiezasutilizadas
+      );
+      this.BitacoraForm.controls['ttecnico'].setValue(
+        this.editData.ttecnico
+      );
+      this.BitacoraForm.controls['tsupervisor'].setValue(
+        this.editData.tsupervisor
+      );
+      this.BitacoraForm.controls['tsistema'].setValue(
+        this.editData.tsistema
+      );
+      this.BitacoraForm.controls['tsubsistema'].setValue(
+        this.editData.tsubsistema
+      );
+      this.BitacoraForm.controls['tturno'].setValue(
+        this.editData.tturno
       );
 
     }
@@ -57,7 +86,7 @@ export class BitacoraFormComponent {
         this.api.postBitacora(this.BitacoraForm.value)
           .subscribe({
             next: (res) => {
-              alert("Bitacora agregado exitosamente")
+              alert("Bitácora agregado exitosamente")
               this.BitacoraForm.reset();
               this.dialogRef.close('Guardar');
             },
@@ -72,12 +101,27 @@ export class BitacoraFormComponent {
     }
   }
   updateBitacora() {
-    this.api.putBitacora(
-      this.BitacoraForm.value, this.editData.id
-    )
+    const data = {
+      tunidad: this.BitacoraForm.value.tunidad,
+      ttiporeporte: this.BitacoraForm.value.ttiporeporte,
+      tcaptura: this.BitacoraForm.value.tcaptura,
+      tunidadnegocios: this.BitacoraForm.value.tunidadnegocios,
+      fhfecha: this.BitacoraForm.value.fhfecha,
+      tdescripcion: this.BitacoraForm.value.tdescripcion,
+      tdisponibilidad: this.BitacoraForm.value.tdisponibilidad,
+      tefectosfalla: this.BitacoraForm.value.tefectosfalla,
+      tpiezasutilizadas: this.BitacoraForm.value.tpiezasutilizadas,
+      ttecnico: this.BitacoraForm.value.ttecnico,
+      tsupervisor: this.BitacoraForm.value.tsupervisor,
+      tsistema: this.BitacoraForm.value.tsistema,
+      tsubsistema: this.BitacoraForm.value.tsubsistema,
+      tturno: this.BitacoraForm.value.tturno,
+      ecodbitacora: this.editData.ecodbitacora
+    };
+    this.api.putBitacora(data, this.editData.ecodbitacora)
       .subscribe({
         next: (res) => {
-          alert("Bitacora actualizado exitosamente");
+          alert("Bitácora actualizado exitosamente");
           this.BitacoraForm.reset();
           this.dialogRef.close('Actualizar');
         },

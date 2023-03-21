@@ -16,44 +16,50 @@ export class DetallesBitacoraComponent implements OnInit{
     @Inject(MAT_DIALOG_DATA) public detallesData: any) { }
   ngOnInit(): void {
     this.BitacoraForm = this.formBuilder.group({
-      equipo: [''],
-      unidadNeg: [''],
-      capturo: [''],
-      descripcion: [''],
-      tipoFalla: [''],
-      fechainicial: [''],
-      fechafinal: ['']
+      tdisponibilidad: [''],
+      tefectosfalla: [''],
+      tpiezasutilizadas: [''],
+      ttecnico: [''],
+      tsupervisor: [''],
+      tsistema: [''],
+      tsubsistema: [''],
+      tturno: ['']
     })
     if (this.detallesData) {
       this.actionBtn = "Aceptar";
-      this.BitacoraForm.controls['equipo'].setValue(
-        this.detallesData.equipo
+      this.BitacoraForm.controls['tdisponibilidad'].setValue(
+        this.detallesData.tdisponibilidad
       );
-      this.BitacoraForm.controls['unidadNeg'].setValue(
-        this.detallesData.unidadNeg
+      this.BitacoraForm.controls['tefectosfalla'].setValue(
+        this.detallesData.tefectosfalla
       );
-      this.BitacoraForm.controls['capturo'].setValue(
-        this.detallesData.capturo
+      this.BitacoraForm.controls['tpiezasutilizadas'].setValue(
+        this.detallesData.tpiezasutilizadas
       );
-      this.BitacoraForm.controls['descripcion'].setValue(
-        this.detallesData.descripcion
+      this.BitacoraForm.controls['ttecnico'].setValue(
+        this.detallesData.ttecnico
       );
-      this.BitacoraForm.controls['tipoFalla'].setValue(
-        this.detallesData.tipoFalla
+      this.BitacoraForm.controls['tsupervisor'].setValue(
+        this.detallesData.tsupervisor
       );
-      this.BitacoraForm.controls['fechainicial'].setValue(
-        this.detallesData.fechainicial
+      this.BitacoraForm.controls['tsistema'].setValue(
+        this.detallesData.tsistema
       );
-      this.BitacoraForm.controls['fechafinal'].setValue(
-        this.detallesData.fechafinal
+      this.BitacoraForm.controls['tsubsistema'].setValue(
+        this.detallesData.tsubsistema
       );
-      this.BitacoraForm.controls['equipo'].disable();
-      this.BitacoraForm.controls['unidadNeg'].disable();
-      this.BitacoraForm.controls['capturo'].disable();
-      this.BitacoraForm.controls['descripcion'].disable();
-      this.BitacoraForm.controls['tipoFalla'].disable();
-      this.BitacoraForm.controls['fechainicial'].disable();
-      this.BitacoraForm.controls['fechafinal'].disable();
+      this.BitacoraForm.controls['tturno'].setValue(
+        this.detallesData.tturno
+      );
+      this.BitacoraForm.controls['tdisponibilidad'].disable();
+      this.BitacoraForm.controls['tefectosfalla'].disable();
+      this.BitacoraForm.controls['tpiezasutilizadas'].disable();
+      this.BitacoraForm.controls['ttecnico'].disable();
+      this.BitacoraForm.controls['tsupervisor'].disable();
+      this.BitacoraForm.controls['tsistema'].disable();
+      this.BitacoraForm.controls['tsubsistema'].disable();
+      this.BitacoraForm.controls['tturno'].disable();
+
     }
   }
 }

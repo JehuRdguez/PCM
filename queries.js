@@ -34,9 +34,9 @@ const ObtencionRegistroPorId = (request, response) => {
   );
 };
 
+
 const crearRegistro = (request, response) => {
   const {
-    ecodbitacora,
     tunidad,
     tunidadnegocios,
     tcaptura,
@@ -44,8 +44,6 @@ const crearRegistro = (request, response) => {
     ttiporeporte,
     fhfecha,
     tpiezasutilizadas,
-    hhorainicial,
-    hhorafinal,
     tdisponibilidad,
     tsistema,
     tsubsistema,
@@ -56,9 +54,8 @@ const crearRegistro = (request, response) => {
   } = request.body;
 
   pool.query(
-    'INSERT INTO bitacora ("ecodbitacora", "tunidad", "tunidadnegocios", "tcaptura", "tdescripcion", "ttiporeporte", "fhfecha", "tpiezasutilizadas", "hhorainicial", "hhorafinal", "tdisponibilidad", "tsistema", "tsubsistema", "ttecnico", "tsupervisor", "tturno", "tefectosfalla")VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13,$14,$15,$16,$17) RETURNING * ',
+    'INSERT INTO bitacora ( "tunidad", "tunidadnegocios", "tcaptura", "tdescripcion", "ttiporeporte", "fhfecha", "tpiezasutilizadas", "tdisponibilidad", "tsistema", "tsubsistema", "ttecnico", "tsupervisor", "tturno", "tefectosfalla")VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13,$14) RETURNING * ',
     [
-      ecodbitacora,
       tunidad,
       tunidadnegocios,
       tcaptura,
@@ -66,8 +63,6 @@ const crearRegistro = (request, response) => {
       ttiporeporte,
       fhfecha,
       tpiezasutilizadas,
-      hhorainicial,
-      hhorafinal,
       tdisponibilidad,
       tsistema,
       tsubsistema,
@@ -89,14 +84,12 @@ const actualizarRegistro = (request, response) => {
   const {
     ecodbitacora,
     tunidad,
-    tunidadnegocio,
+    tunidadnegocios,
     tcaptura,
     tdescripcion,
     ttiporeporte,
     fhfecha,
     tpiezasutilizadas,
-    hhorainicial,
-    hhorafinal,
     tdisponibilidad,
     tsistema,
     tsubsistema,
@@ -106,17 +99,15 @@ const actualizarRegistro = (request, response) => {
     tefectosfalla,
   } = request.body;
   pool.query(
-    "UPDATE bitacora SET tunidad = $p1, tunidadnegocio = $2, tcaptura  = $3, tdescricion = $4, ttiporeporte = $5, fhfecha = $6, tpiezasutilizadas = $7, hhorainicial = $8, hhorafinal = $9, tdisponibilidad = $10, tsistema = $11, tsubsistema = $12, ttecnico = $13,tsupervisor = $14,tturno = $15, tefectosfalla = $16 WHERE ecodbitacora = $17 RETURNING * ",
+    "UPDATE bitacora SET tunidad = $1, tunidadnegocios = $2, tcaptura  = $3, tdescripcion = $4, ttiporeporte = $5, fhfecha = $6, tpiezasutilizadas = $7, tdisponibilidad = $8, tsistema = $9, tsubsistema = $10, ttecnico = $11,tsupervisor = $12,tturno = $13, tefectosfalla = $14 WHERE ecodbitacora = $15 RETURNING * ",
     [
       tunidad,
-      tunidadnegocio,
+      tunidadnegocios,
       tcaptura,
       tdescripcion,
       ttiporeporte,
       fhfecha,
       tpiezasutilizadas,
-      hhorainicial,
-      hhorafinal,
       tdisponibilidad,
       tsistema,
       tsubsistema,

@@ -14,7 +14,7 @@ import { DetallesBitacoraComponent } from './elementos/bitacoradetalles/bitacora
 })
 export class BitacoraComponent {
   title = 'PlanMant'
-  displayedColumns: string[] = ['id','equipo','unidadNeg', 'capturo','descripcion', 'tipoFalla','fechainicial','fechafinal','acciones'];
+  displayedColumns: string[] = ['tunidad','ttiporeporte', 'tcaptura','tunidadnegocios', 'fhfecha','tdescripcion','acciones'];
   dataSource!: MatTableDataSource<any>;
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;

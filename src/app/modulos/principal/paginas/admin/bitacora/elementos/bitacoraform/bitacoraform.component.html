@@ -1,55 +1,130 @@
-<h1 mat-dialog-title>Registrar Bitacora</h1>
+<h1 mat-dialog-title>Registrar bitácora</h1>
 <div mat-dialog-content>
   <form [formGroup]="BitacoraForm">
     <br>
       <mat-form-field appearance="outline">
         <mat-label>Equipo</mat-label>
-        <mat-select formControlName="equipo">
-          <mat-option value="Unidad 1">Unidad 1</mat-option>
-          <mat-option value="Unidad 2">Unidad 2</mat-option>
-          <mat-option value="Unidad 3">Unidad 3</mat-option>
+        <mat-select formControlName="tunidad">
+          <mat-option value="JHS67">JHS67</mat-option>
+          <mat-option value="HDY67">HDY67</mat-option>
+          <mat-option value="HSJ72">HSJ72</mat-option>
+          <mat-option value="HUI82">HUI82</mat-option>
+          <mat-option value="KSJ62">KSJ62</mat-option>
+          <mat-option value="DSW38">DSW38</mat-option>
         </mat-select>
       </mat-form-field>
 
       <mat-form-field appearance="outline">
-        <mat-label>Unidad de Negocio</mat-label>
-        <mat-select formControlName="unidadNeg">
-          <mat-option value="Manzanillo">Manzanillo</mat-option>
-          <mat-option value="SUKARGA">SUKARGA</mat-option>
-          <mat-option value="Inspeccion">Inspeccion</mat-option>
+        <mat-label>Tipo de falla</mat-label>
+        <mat-select formControlName="ttiporeporte">
+          <mat-option value="Preventiva">Preventiva</mat-option>
+          <mat-option value="Correctiva">Correctiva</mat-option>
         </mat-select>
       </mat-form-field>
 
       <mat-form-field appearance="outline">
         <mat-label>Capturó</mat-label>
-        <input formControlName="capturo" type="text" matInput placeholder="0">
+        <input formControlName="tcaptura" type="text" matInput placeholder="0">
         </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Unidad de Negocio</mat-label>
+        <mat-select formControlName="tunidadnegocios">
+          <mat-option value="Deposito Veracruz">Deposito Veracruz</mat-option>
+          <mat-option value="Deposito Lazaro">Deposito Lazaro</mat-option>
+          <mat-option value="Deposito Ensenada">Deposito Ensenada</mat-option>
+          <mat-option value="Deposito Manzanillo">Deposito Manzanillo</mat-option>
+          <mat-option value="Deposito Tultepec">Deposito Tultepec</mat-option>
+          <mat-option value="SUKARGA">SUKARGA</mat-option>
+          <mat-option value="RFE">RFE</mat-option>
+
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Fecha</mat-label>
+        <input formControlName="fhfecha" matInput [matDatepicker]="picker">
+        <mat-hint>MM/DD/YYYY</mat-hint>
+        <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
 
         <mat-form-field appearance="outline">
           <mat-label>Descripción</mat-label>
-          <input formControlName="descripcion" type="text" matInput placeholder="0">
+          <input formControlName="tdescripcion" type="text" matInput placeholder="Descripción">
           </mat-form-field>
 
           <mat-form-field appearance="outline">
-            <mat-label>Tipo de Falla</mat-label>
-            <input formControlName="tipoFalla" type="text" matInput placeholder="0">
-            </mat-form-field>
+            <mat-label>Disponibilidad</mat-label>
+            <mat-select formControlName="tdisponibilidad">
+              <mat-option value="Disponible">Disponible</mat-option>
+              <mat-option value="No disponible">No disponible</mat-option>
+            </mat-select>
+          </mat-form-field>
 
           <mat-form-field appearance="outline">
-            <mat-label>Fecha inicial</mat-label>
-            <input formControlName="fechainicial" matInput [matDatepicker]="picker">
-            <mat-hint>MM/DD/YYYY</mat-hint>
-            <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
-            <mat-datepicker #picker></mat-datepicker>
-        </mat-form-field>
+            <mat-label>Efectos de falla</mat-label>
+            <input formControlName="tefectosfalla" type="text" matInput placeholder="Descripción">
+            </mat-form-field>
 
-        <mat-form-field appearance="outline">
-            <mat-label>Fecha final</mat-label>
-            <input formControlName="fechafinal" matInput [matDatepicker]="picker2">
-            <mat-hint>MM/DD/YYYY</mat-hint>
-            <mat-datepicker-toggle matIconSuffix [for]="picker2"></mat-datepicker-toggle>
-            <mat-datepicker #picker2></mat-datepicker>
-        </mat-form-field>
+            <mat-form-field appearance="outline">
+              <mat-label>Piezas utilizadas</mat-label>
+              <mat-select formControlName="tpiezasutilizadas">
+                <mat-option value="N/A">N/A</mat-option>
+                <mat-option value="Filtros y aceites">Filtros y aceites</mat-option>
+              </mat-select>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+              <mat-label>Técnico</mat-label>
+              <mat-select formControlName="ttecnico">
+                <mat-option value="Marco Solis">Marco Solis</mat-option>
+                <mat-option value="Antonio Solis">Antonio Solis</mat-option>
+              </mat-select>
+            </mat-form-field>
+
+            
+            <mat-form-field appearance="outline">
+              <mat-label>Supervisor</mat-label>
+              <mat-select formControlName="tsupervisor">
+                <mat-option value="Kevin Guetta">Kevin Guetta</mat-option>
+                <mat-option value="Ryan Mortinger">Ryan Mortinger</mat-option>
+              </mat-select>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+              <mat-label>Sistema</mat-label>
+              <mat-select formControlName="tsistema">
+                <mat-option value="Transmisión">Transmisión</mat-option>
+                <mat-option value="Soldadura">Soldadura</mat-option>
+                <mat-option value="Tracción">Tracción</mat-option>
+                <mat-option value="Frenos">Frenos</mat-option>
+                <mat-option value="Neumática">Neumática</mat-option>
+                <mat-option value="Refrigeración">Refrigeración</mat-option>
+              </mat-select>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+              <mat-label>Subsistema</mat-label>
+              <mat-select formControlName="tsubsistema">
+                <mat-option value="Aire">Aire</mat-option>
+                <mat-option value="Alineación">Alineación</mat-option>
+                <mat-option value="Apoyo">Apoyo</mat-option>
+                <mat-option value="Balatas">Balatas</mat-option>
+                <mat-option value="Amortiguadores">Amortiguadores</mat-option>
+                <mat-option value="Compresor">Compresor</mat-option>
+              </mat-select>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+              <mat-label>Turno</mat-label>
+              <mat-select formControlName="tturno">
+                <mat-option value="Matutino">Matutino</mat-option>
+                <mat-option value="Vespertirno">Vespertirno</mat-option>
+                <mat-option value="Nocturno">Nocturno</mat-option>
+              </mat-select>
+            </mat-form-field>
+
     </form>
 </div>
 
