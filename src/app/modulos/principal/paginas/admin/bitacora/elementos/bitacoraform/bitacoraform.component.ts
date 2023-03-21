@@ -21,7 +21,7 @@ export class BitacoraFormComponent {
       ttiporeporte: ['', Validators.required],
       tcaptura: ['', Validators.required],
       tunidadnegocios: ['', Validators.required],
-      fhfecha: ['', Validators.required],
+      fhfecha: [new Date(), Validators.required],
       tdescripcion: ['', Validators.required],
       tdisponibilidad: ['', Validators.required],
       tefectosfalla: ['', Validators.required],

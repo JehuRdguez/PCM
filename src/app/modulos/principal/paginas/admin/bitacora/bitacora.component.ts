@@ -7,6 +7,9 @@ import { ApiService } from 'src/app/services/api.service';
 import { BitacoraFormComponent } from './elementos/bitacoraform/bitacoraform.component';
 import { DetallesBitacoraComponent } from './elementos/bitacoradetalles/bitacoradetalles.component';
 
+import jsPDF from 'jspdf';
+import autoTable  from 'jspdf-autotable';
+
 @Component({
   selector: 'app-bitacora',
   templateUrl: './bitacora.component.html',
@@ -84,5 +87,37 @@ export class BitacoraComponent {
     if (this.dataSource.paginator) {
       this.dataSource.paginator.firstPage();
     }
+  }
+  generarPDF(bitacora: any) {
+    const doc = new jsPDF();
+    //'tunidad','ttiporeporte', 'tcaptura','tunidadnegocios', 'fhfecha','tdescripcion'
+    const data = {
+      ecodbitacora: bitacora.ecodbitacora,
+      tunidad: bitacora.tunidad,
+      ttiporeporte: bitacora.ttiporeporte,
+      tcaptura: bitacora.tcaptura,
+      tunidadnegocios: bitacora.tunidadnegocios,
+      fhfecha: bitacora.fhfecha,
+      tdescripcion: bitacora.tdescripcion,
+    };
+
+    /*const image = new Image();
+    image.src = '../../img/LOGO.png';
+    doc.addImage('../../img/LOGO.png', 'PNG', 10, 10, 50, 50);*/
+
+    autoTable(doc, {
+      head: [['tunidad', 'Unidad de negocio', 'Capturista', 'Descripción', 'Tipo de reporte', 'Fecha']],
+      body: [
+        [data.tunidad, data.tunidadnegocios, data.tcaptura, data.tdescripcion, data.ttiporeporte, data.fhfecha]
+
+      ],
+    })
+    /*doc.autoTable({
+      head: [['ID', 'Equipo', 'Unidad de negocio', 'Capturista', 'Descripcion', 'Tipo de falla', 'Fecha']],
+      body: [[data.id, data.equipo, data.unidadNegocio, data.capturista, data.descripcion, data.tipoFalla, data.fecha]]
+    });*/
+
+    // Descargar el PDF
+    doc.save(`bitacora-${bitacora.tunidad}.pdf`);
   }
 }
