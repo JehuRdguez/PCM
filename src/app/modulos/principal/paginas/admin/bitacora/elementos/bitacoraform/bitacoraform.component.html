@@ -49,11 +49,6 @@
         <mat-datepicker #picker></mat-datepicker>
     </mat-form-field>
 
-        <mat-form-field appearance="outline">
-          <mat-label>Descripción</mat-label>
-          <input formControlName="tdescripcion" maxlength="300" type="text" matInput placeholder="Descripción">
-          </mat-form-field>
-
           <mat-form-field appearance="outline">
             <mat-label>Disponibilidad</mat-label>
             <mat-select formControlName="tdisponibilidad">
@@ -61,11 +56,6 @@
               <mat-option value="No disponible">No disponible</mat-option>
             </mat-select>
           </mat-form-field>
-
-          <mat-form-field appearance="outline">
-            <mat-label>Efectos de falla</mat-label>
-            <input formControlName="tefectosfalla" maxlength="300" type="text" matInput placeholder="Descripción">
-            </mat-form-field>
 
             <mat-form-field appearance="outline">
               <mat-label>Piezas utilizadas</mat-label>
@@ -82,7 +72,6 @@
                 <mat-option value="Antonio Solis">Antonio Solis</mat-option>
               </mat-select>
             </mat-form-field>
-
 
             <mat-form-field appearance="outline">
               <mat-label>Supervisor</mat-label>
@@ -125,12 +114,22 @@
               </mat-select>
             </mat-form-field>
 
+            <mat-form-field appearance="outline">
+              <mat-label>Efectos de falla</mat-label>
+              <input formControlName="tefectosfalla" maxlength="300" type="text" matInput placeholder="Descripción">
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+              <mat-label>Descripción</mat-label>
+              <textarea matInput formControlName="tdescripcion" maxlength="300" type="text" matInput placeholder="Descripción"></textarea>
+            </mat-form-field>
+
     </form>
 </div>
 
 <div mat-dialog-action [align]="'end'">
 
-<button class="btn btn-outline-danger" mat-dialog-close>Cerrar</button>
-<button style="margin-left: 8px;"  class="btn btn-outline-success" (click)="addBitacora()">{{actionBtn}}</button>
+<button class="btn btn-danger" mat-dialog-close>Cerrar</button>
+<button style="margin-left: 8px;"  class="btn btn-success" (click)="addBitacora()">{{actionBtn}}</button>
 
 </div>

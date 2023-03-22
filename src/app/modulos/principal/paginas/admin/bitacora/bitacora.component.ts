@@ -27,7 +27,7 @@ export class BitacoraComponent {
   ngOnInit(): void {
     this.getAllBitacora();
     //paginator
-    this.paginator._intl.itemsPerPageLabel="Objetos por página";
+    this.paginator._intl.itemsPerPageLabel="Registros por página";
 
     this.paginator._intl.getRangeLabel = function(page: number, pageSize: number, lenght: number): string {
       const start = page * pageSize + 1;

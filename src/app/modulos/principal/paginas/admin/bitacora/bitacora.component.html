@@ -7,14 +7,20 @@
   <br>
   <div class="btnRegistrar"><button type="button" class="btnRegistrar"
       (click)="openDialogRegistrar()">Registrar</button></div>
+  <!--
   <div class="btnRegistrarUnidad"><button type="button" class="btnRegistrarUnidad">Unidad de negocio</button></div>
+  -->
 
   <h1 style="text-align: star;" id="horometro">
   <i class="fa-solid fa-clipboard-list" id="icon"></i>
-  Bitácora</h1>
+  Bitácora
+  <mat-form-field>
+    <mat-label style="width:3%">Filtro</mat-label>
+    <input matInput (keyup)="applyFilter($event)" placeholder="Ex. ium" #input>
+  </mat-form-field></h1>
   <div class="mat-elevation-z8">
-    <table mat-table [dataSource]="dataSource" matSort>
 
+    <table mat-table [dataSource]="dataSource" matSort>
 
       <!-- equipo Column -->
       <ng-container matColumnDef="tunidad">

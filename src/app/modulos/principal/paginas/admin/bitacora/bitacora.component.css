@@ -1,49 +1,234 @@
-.example-spacer {
-  flex: 1 1 auto;
+/*Phones*/
+@media only screen and (min-width: 600px) {
+  .example-spacer {
+    flex: 1 1 auto;
+  }
+
+  table {
+    margin-top: -10px;
+    width: 100%;
+  }
+
+  .mat-column-tdescripcion{
+    word-wrap: break-word !important;
+    white-space: unset !important;
+    flex: 0 0 28% !important;
+    width: 28% !important;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+
+    word-break: break-word;
+
+    -ms-hyphens: auto;
+    -moz-hyphens: auto;
+    -webkit-hyphens: auto;
+    hyphens: auto;
+  }
+
+  .mat-form-field {
+    
+  }
+
+  #horometro {
+    background-ycolor: rgba(8, 109, 139, 0.959);
+    margin-top: 50px;
+    width: 100%;
+    color: white;
+    border-radius: 5px;
+    font-family: 'Rokkitt', serif;
+  }
+
+  .container {
+    font-family: 'Rokkitt', serif;
+  }
+
+  .mat-mdc-form-field {
+    font-size: 14px;
+    width: 100%;
+  }
+
+  #icon{
+    margin-left: 10px;
+    font-size: 35px;
+    margin-bottom: 5px;
+    margin-top: 5px;
+  }
+
+  .btnRegistrar {
+    background-color: rgb(31, 41, 63);
+    width: 150px;
+    position: absolute;
+    left: 72%;
+    border-radius: 8px;
+    color: white;
+  }
+
+  .btnRegistrarUnidad {
+    background-color: rgb(31, 41, 63);
+    width: 200px;
+    position: absolute;
+    color: white;
+    border-radius: 8px;
+  }
 }
 
-table {
-  width: 100%;
-  margin-top: -10px;
+/*Tablet*/
+@media only screen and (min-width: 768px) {
+  .example-spacer {
+    flex: 1 1 auto;
+  }
+
+  table {
+    margin-top: -10px;
+  }
+
+  #horometro {
+    background-color: rgba(8, 109, 139, 0.959);
+    margin-top: 50px;
+    width: 100%;
+    color: white;
+    border-radius: 5px;
+    font-family: 'Rokkitt', serif;
+  }
+
+  .container {
+    font-family: 'Rokkitt', serif;
+  }
+
+  .mat-mdc-form-field {
+    font-size: 14px;
+    width: 100%;
+  }
+
+  #icon{
+    margin-left: 10px;
+    font-size: 35px;
+    margin-bottom: 5px;
+    margin-top: 5px;
+  }
+
+  .btnRegistrar {
+    background-color: rgb(31, 41, 63);
+    width: 150px;
+    position: absolute;
+    left: 72%;
+    border-radius: 8px;
+    color: white;
+  }
+
+  .btnRegistrarUnidad {
+    background-color: rgb(31, 41, 63);
+    width: 200px;
+    position: absolute;
+    color: white;
+    border-radius: 8px;
+  }
 }
 
-.container {
-  font-family: 'Rokkitt', serif;
+/*Laptop*/
+@media only screen and (min-width: 992px) {
+  .example-spacer {
+    flex: 1 1 auto;
+  }
+
+  table {
+    margin-top: -10px;
+  }
+
+  #horometro {
+    background-color: rgba(8, 109, 139, 0.959);
+    margin-top: 50px;
+    width: 100%;
+    color: white;
+    border-radius: 5px;
+    font-family: 'Rokkitt', serif;
+  }
+
+  .container {
+    font-family: 'Rokkitt', serif;
+  }
+
+  .mat-mdc-form-field {
+    font-size: 14px;
+    width: 100%;
+  }
+
+  #icon{
+    margin-left: 10px;
+    font-size: 35px;
+    margin-bottom: 5px;
+    margin-top: 5px;
+  }
+
+  .btnRegistrar {
+    background-color: rgb(31, 41, 63);
+    width: 150px;
+    position: absolute;
+    left: 72%;
+    border-radius: 8px;
+    color: white;
+  }
+
+  .btnRegistrarUnidad {
+    background-color: rgb(31, 41, 63);
+    width: 200px;
+    position: absolute;
+    color: white;
+    border-radius: 8px;
+  }
 }
 
-.mat-mdc-form-field {
-  font-size: 14px;
-  width: 100%;
-}
+/*Desktop*/
+@media only screen and (min-width: 1200px) {
 
-#icon{
-  margin-left: 10px;
-  font-size: 35px;
-  margin-bottom: 5px;
-  margin-top: 5px;
-}
+  .example-spacer {
+    flex: 1 1 auto;
+  }
 
-.btnRegistrar {
-  background-color: rgb(31, 41, 63);
-  width: 150px;
-  position: absolute;
-  left: 72%;
-  border-radius: 8px;
-  color: white;
-}
+  table {
+    margin-top: -10px;
+  }
 
-#horometro {
-  background-color: rgba(8, 109, 139, 0.959);
-  margin-top: 50px;
-  color: white;
-  border-radius: 5px;
-  font-family: 'Rokkitt', serif;
-}
-.btnRegistrarUnidad {
-  background-color: rgb(31, 41, 63);
-  width: 200px;
-  position: absolute;
-  color: white;
-  border-radius: 8px;
-}
+  #horometro {
+    background-color: rgba(8, 109, 139, 0.959);
+    margin-top: 50px;
+    width: 100%;
+    color: white;
+    border-radius: 5px;
+    font-family: 'Rokkitt', serif;
+  }
 
+  .container {
+    font-family: 'Rokkitt', serif;
+  }
+
+  .mat-mdc-form-field {
+    font-size: 14px;
+    width: 100%;
+  }
+
+  #icon{
+    margin-left: 10px;
+    font-size: 35px;
+    margin-bottom: 5px;
+    margin-top: 5px;
+  }
+
+  .btnRegistrar {
+    background-color: rgb(31, 41, 63);
+    width: 150px;
+    position: absolute;
+    left: 72%;
+    border-radius: 8px;
+    color: white;
+  }
+
+  .btnRegistrarUnidad {
+    background-color: rgb(31, 41, 63);
+    width: 200px;
+    position: absolute;
+    color: white;
+    border-radius: 8px;
+  }
+
+}

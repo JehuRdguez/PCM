@@ -3,7 +3,6 @@
 //EJECUTAN PRIMERO ESTO
 //npm install && npm install jspdf jspdf-autotable && npm install --save express && npm install --save pg && npm install --save pg-hstore && npm install --save body-parser && npm install cors --save && npm i --save crypto-js @types/crypto-js
 
-
 //REINICIEN VISUAL STUDIO CODE
 
 //CUANDO VUELVA A ABRIR EJECUTAN LO SIGUIENTE:
