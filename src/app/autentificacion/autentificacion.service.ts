@@ -12,11 +12,14 @@ export class AutentificacionService {
 
   public ingresarAplicativo(id:number) {
 
-     return this.http.get<any>("http://localhost:3000/usuario/"+id);
-
+     return this.http.get<any>("http://localhost:3000/usuario/"+id)
   }
 
   public habilitarlogeo() {
     return this.ingresar;
+  }
+
+  getAutentificacionByToken(){
+    
   }
 }

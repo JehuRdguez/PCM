@@ -29,11 +29,14 @@ import {STEPPER_GLOBAL_OPTIONS} from '@angular/cdk/stepper';
 import { NgChartsModule } from 'ng2-charts';
 import { DashboardComponent } from './modulos/principal/paginas/admin/dashboard/dashboard.component';
 
-
 // CONTROL EQUIPOS DIALOGOS
 import { FormComponent } from './components/form/form.component';
 
+import { JwtModule } from "@auth0/angular-jwt";
 
+export function tokenGetter() {
+  return localStorage.getItem("access_token");
+}
 
 @NgModule({
   declarations: [
@@ -64,7 +67,14 @@ import { FormComponent } from './components/form/form.component';
     MatSidenavModule,
     NgChartsModule,
     LoginModule,
-    PrincipalModule
+    PrincipalModule,
+    JwtModule.forRoot({
+      config: {
+        tokenGetter: tokenGetter,
+        allowedDomains: ["example.com"],
+        disallowedRoutes: ["http://example.com/examplebadroute/"],
+      },
+    }),
 
   ],
   providers: [],

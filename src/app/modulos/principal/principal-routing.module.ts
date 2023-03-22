@@ -17,7 +17,7 @@ import { BitacoraComponent } from './paginas/admin/bitacora/bitacora.component';
 
 const rutas: Routes = [
   {path:'', component:LoginComponent},
-  {path:'administrador',  component: PrincipalComponent,
+  {path:'administrador',  component: PrincipalComponent, 
   children:[
     {path:'dashboard', component: DashboardComponent},
     {path:'administrador', component: DashboardComponent},

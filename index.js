@@ -8,6 +8,7 @@
 //npm install --save pg-hstore
 //npm install --save body-parser
 //npm install cors --save
+//npm install ngx-cookie-service --save
 
 //REINICIEN VISUAL STUDIO CODE
 

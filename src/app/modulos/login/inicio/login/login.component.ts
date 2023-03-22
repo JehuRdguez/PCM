@@ -3,6 +3,7 @@ import {FormBuilder,FormGroup, Validators} from '@angular/forms'
 import { Router } from '@angular/router';
 import { AutentificacionService } from 'src/app/autentificacion/autentificacion.service';
 
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -35,37 +36,38 @@ export class LoginComponent {
     });
   }
 
-  public submitFormulario(){
-    if(this.myForm.invalid){
-      Object.values(this.myForm.controls).forEach(control=>{
-        control.markAllAsTouched();
-      });
-      return;
-    }
-
-       this.loginPrd.ingresarAplicativo(this.myForm.value.usuario).subscribe({
-        next:(res)=>{
-
-          console.log(res[0].enumtrabajador);
-          console.log("CONSOLA")
-
-            if((this.myForm.value.usuario==(res[0].enumtrabajador)) && (this.myForm.value.password==(res[0].tcontra))){
-              if(res[0].ttipousuario=='Administrador'){
-                this.routerprd.navigateByUrl("/administrador/dashboard")
-              }else if(res[0].ttipousuario=='Visitante'){
-                this.routerprd.navigateByUrl("/visitante/kpis")
-              }
-            }else{
-              alert("Credenciales incorrectas")
-            }
+  public submitFormulario() {
+    if (this.myForm.valid) {
+      const { usuario, password } = this.myForm.value;
+  
+      this.loginPrd.ingresarAplicativo(usuario).subscribe({
+        next: (res) => {
+          const [userData] = res;
+  
+          if (usuario === userData.enumtrabajador && password === userData.tcontra) {
+            const url = userData.ttipousuario === 'Administrador' ? '/administrador/bitacora' : '/visitante/kpis';
+            this.routerprd.navigateByUrl(url);
+          } else {
+            alert('Credenciales incorrectas');
+          }
         },
-        error:(err)=>{
-          alert("Usuario no encontrado");
-        }
-       }
-       )
-
+        error: () => {
+          alert('Usuario no encontrado');
+        },
+      });
+    } else {
+      this.myForm.markAllAsTouched();
     }
+  }
+
+      handleCredentialResponse(response:any){
+    console.log(response);
+    console.log(this.routerprd);
+    if(response.credential){
+      sessionStorage.setItem("token",response.credential);
+      document.location.href = "/sesion/principal";
+    }
+  }
 
   public get f():any{
     return this.myForm.controls;
