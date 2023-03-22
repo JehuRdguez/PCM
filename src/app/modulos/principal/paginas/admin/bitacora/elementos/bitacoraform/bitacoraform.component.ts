@@ -35,6 +35,8 @@ export class BitacoraFormComponent {
     })
     if (this.editData) {
       this.actionBtn = "Actualizar";
+      this.BitacoraForm.markAllAsTouched();
+
       this.BitacoraForm.controls['tunidad'].setValue(
         this.editData.tunidad
       );
@@ -94,6 +96,8 @@ export class BitacoraFormComponent {
               alert("Error en la obtención de datos")
             }
           })
+      } else {
+        this.BitacoraForm.markAllAsTouched();
       }
     }
     else {

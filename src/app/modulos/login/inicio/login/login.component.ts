@@ -14,11 +14,10 @@ import * as CryptoJS from 'crypto-js';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
-export class LoginComponent implements OnInit, OnDestroy{
+export class LoginComponent implements OnInit{
 
   //INTENTO2
   formLogin!: FormGroup;
-  subRef$: Subscription | undefined;
 
   usuario={
     ecodusuario:0,
@@ -44,28 +43,6 @@ export class LoginComponent implements OnInit, OnDestroy{
 
   }
 
-  //INTENTO 2
-  login(){
-    const usuarioLogin: Ilogin = {
-      enumtrabajador: this.formLogin.value.enumtrabajador,
-      tcontra: this.formLogin.value.tcontra,
-
-    };
-    this.subRef$ = this.http.post<Iresponse>('http://localhost:3000/usuario/',
-    usuarioLogin, {observe: 'response'}).subscribe(res => {
-      const token: string | undefined = res.body?.response;
-      console.log('token',token);
-      sessionStorage.setItem('token', JSON.stringify(token));
-      this.routerprd.navigate(['administrador/bitacora'])
-    }, err => { console.log('Error en el login', err);
-  });
-  }
-
-  ngOnDestroy(): void {
-    if(this.subRef$){
-      this.subRef$.unsubscribe();
-    }
-  }
 
   private createMyForm():FormGroup{
     return this.fb.group({
@@ -78,11 +55,11 @@ export class LoginComponent implements OnInit, OnDestroy{
   public submitFormulario() {
     if (this.myForm.valid) {
       const { usuario, password } = this.myForm.value;
-  
+
       this.loginPrd.ingresarAplicativo(usuario).subscribe({
         next: (res) => {
           const [userData] = res;
-  
+
           if (usuario === userData.enumtrabajador && password === userData.tcontra) {
             const tokenData = {
               usuario: userData.enumtrabajador,
@@ -91,9 +68,6 @@ export class LoginComponent implements OnInit, OnDestroy{
             const token = this.signToken(tokenData, 'mi_clave_secreta');
             console.log('token', token);
             sessionStorage.setItem('token', JSON.stringify(token));
-
-
-
 
             const url = userData.ttipousuario === 'Administrador' ? '/administrador/bitacora' : '/visitante/kpis';
             this.routerprd.navigateByUrl(url);
@@ -136,7 +110,7 @@ export class LoginComponent implements OnInit, OnDestroy{
     var token = encodedHeader + "." + encodedData;
     return token;
   }
- 
+
   signToken(payload:any,key:string) {
     var secret = key;
     let token:any = this.encodeToken(payload);
