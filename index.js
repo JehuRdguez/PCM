@@ -1,16 +1,7 @@
 //PRIMERO QUE NADA, ACTUALICEN LA BDD EN EL pgadmin CON LA BASE DE DATOS DENTRO DE LA CARPETA LLAMADA "BDD"
 
 //EJECUTAN PRIMERO ESTO
-//npm install
-//npm install jspdf jspdf-autotable
-//npm install --save express
-//npm install --save pg
-//npm install --save pg-hstore
-//npm install --save body-parser
-//npm install cors --save
-//npm install crypto-js
-//npm i --save crypto-js @types/crypto-js
-
+//npm install && npm install jspdf jspdf-autotable && npm install --save express && npm install --save pg && npm install --save pg-hstore && npm install --save body-parser && npm install cors --save && npm i --save crypto-js @types/crypto-js
 
 
 //REINICIEN VISUAL STUDIO CODE
@@ -26,6 +17,17 @@
 //NOTAAAAAAA IMPORTANTE: UNA VEZ DENTRO YA PUEDEN EJECUTAR JSON SERVER, PERO ANTES HAGAN CONTROL+C EN LA CONEXIÓN DE "node index.js", PORQUE SI NO TIRA ERROR, YA QUE LAS 2 ESTÁN EN EL PUERTO 3000
 //json-server --watch db.json
 //SOLO USENLO PARA PRUEBAS, LO IDEAL SERÍA SEGUIR TRABAJANDO CON POSTGRESQL CON EL "node index.js"
+
+//AHORA ESTOS SOLO ESTAN DE ADORNO
+//npm install
+//npm install jspdf jspdf-autotable
+//npm install --save express
+//npm install --save pg
+//npm install --save pg-hstore
+//npm install --save body-parser
+//npm install cors --save
+//npm install crypto-js
+//npm i --save crypto-js @types/crypto-js
 
 const express = require('express')
 const bodyParser = require('body-parser')
