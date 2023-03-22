@@ -8,7 +8,7 @@ import { BitacoraFormComponent } from './elementos/bitacoraform/bitacoraform.com
 import { DetallesBitacoraComponent } from './elementos/bitacoradetalles/bitacoradetalles.component';
 
 import jsPDF from 'jspdf';
-import autoTable  from 'jspdf-autotable';
+import autoTable from 'jspdf-autotable';
 
 @Component({
   selector: 'app-bitacora',
@@ -17,26 +17,26 @@ import autoTable  from 'jspdf-autotable';
 })
 export class BitacoraComponent {
   title = 'PlanMant'
-  displayedColumns: string[] = ['tunidad','ttiporeporte', 'tcaptura','tunidadnegocios', 'fhfecha','tdescripcion','acciones'];
+  displayedColumns: string[] = ['tunidad', 'ttiporeporte', 'tcaptura', 'tunidadnegocios', 'fhfecha', 'tdescripcion', 'acciones'];
   dataSource!: MatTableDataSource<any>;
 
-  @ViewChild(MatPaginator, {static:true}) paginator!: MatPaginator;
+  @ViewChild(MatPaginator, { static: true }) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
 
-  constructor(public dialog: MatDialog, private api: ApiService){}
+  constructor(public dialog: MatDialog, private api: ApiService) { }
   ngOnInit(): void {
     this.getAllBitacora();
     //paginator
-    this.paginator._intl.itemsPerPageLabel="Registros por página";
+    this.paginator._intl.itemsPerPageLabel = "Registros por página";
 
-    this.paginator._intl.getRangeLabel = function(page: number, pageSize: number, lenght: number): string {
+    this.paginator._intl.getRangeLabel = function (page: number, pageSize: number, lenght: number): string {
       const start = page * pageSize + 1;
       const end = (page + 1) * pageSize;
       return `${start} - ${end} de ${lenght}`;
     }
   }
-  openDialogRegistrar(){
-    this.dialog.open(BitacoraFormComponent,{
+  openDialogRegistrar() {
+    this.dialog.open(BitacoraFormComponent, {
       width: '30%'
     }).afterClosed().subscribe(val => {
       if (val === 'Guardar') {
@@ -44,7 +44,7 @@ export class BitacoraComponent {
       }
     });
   }
-    getAllBitacora() {
+  getAllBitacora() {
     this.api.getBitacora()
       .subscribe({
         next: (res) => {
@@ -57,7 +57,7 @@ export class BitacoraComponent {
         }
       })
   }
-    editBitacora(row: any) {
+  editBitacora(row: any) {
     this.dialog.open(BitacoraFormComponent, {
       width: '50%',
       data: row
@@ -67,20 +67,20 @@ export class BitacoraComponent {
       }
     })
   }
-    deleteBitacora(id: number) {
-      var confirmacion = confirm("¿Esta seguro que desea eliminar el registro?");
-      if (confirmacion == true){
-    this.api.deleteBitacora(id).subscribe({
-      next: (res) => {
-        alert("Bitacora eliminado!!")
-        this.getAllBitacora();
-      },
-      error: () => {
-        alert("Error!!!")
+  deleteBitacora(id: number) {
+    var confirmacion = confirm("¿Esta seguro que desea eliminar el registro?");
+    if (confirmacion == true) {
+      this.api.deleteBitacora(id).subscribe({
+        next: (res) => {
+          alert("Bitacora eliminado!!")
+          this.getAllBitacora();
+        },
+        error: () => {
+          alert("Error!!!")
+        }
+      })
     }
-    })
   }
-}
   getBitacoraByid(row: any) {
     this.dialog.open(DetallesBitacoraComponent, {
       width: '50%',
@@ -91,7 +91,7 @@ export class BitacoraComponent {
       }
     })
   }
-    applyFilter(event: Event) {
+  applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
 
@@ -101,7 +101,7 @@ export class BitacoraComponent {
   }
   generarPDF(bitacora: any) {
     const doc = new jsPDF();
-    //'tunidad','ttiporeporte', 'tcaptura','tunidadnegocios', 'fhfecha','tdescripcion'
+
     const data = {
       tunidad: bitacora.tunidad,
       ttiporeporte: bitacora.ttiporeporte,
@@ -117,31 +117,62 @@ export class BitacoraComponent {
       tsistema: bitacora.tsistema,
       tsubsistema: bitacora.tsubsistema,
       tturno: bitacora.tturno
-
     };
-    const image = new Image();
-    image.src = '../../../../../assets/dist/img/CIMA.png';
-    doc.addImage(image, 'PNG', 10, 10, 50, 50);
 
-    autoTable(doc, {
-      styles: {},
-      head: [['Unidad', 'Unidad de negocio', 'Capturista', 'Descripción', 'Tipo de reporte', 'Fecha', 'Turno']],
-      body: [
-        [data.tunidad, data.tunidadnegocios, data.tcaptura, data.tdescripcion, data.ttiporeporte, data.fhfecha, data.tturno]
-      ],
-    })
-    autoTable(doc, {
-      head: [['Disponibilidad', 'Efectos de falla', 'Piezas utilizadas', 'Tecnico', 'Supervisor', 'Sistema', 'Subsistema']],
-      body: [
-        [data.tdisponibilidad, data.tefectosfalla, data.tpiezasutilizadas, data.ttecnico, data.tsupervisor, data.tsistema, data.tsubsistema]
-      ],
-    })
-    /*doc.autoTable({
-      head: [['ID', 'Equipo', 'Unidad de negocio', 'Capturista', 'Descripcion', 'Tipo de falla', 'Fecha']],
-      body: [[data.id, data.equipo, data.unidadNegocio, data.capturista, data.descripcion, data.tipoFalla, data.fecha]]
-    });*/
+    const img = new Image();
+    img.src = '../../../../../assets/dist/img/CIMA.png';
 
-    // Descargar el PDF
-    doc.save(`bitacora-${bitacora.tunidad}.pdf`);
+    img.onload = function () {
+      const imgWidth = 50;
+      const imgHeight = 50;
+      const docWidth = doc.internal.pageSize.width;
+      const x = (docWidth - imgWidth) / 2;
+      doc.addImage(img, 'PNG', x, 10, imgWidth, imgHeight);
+
+      const tableHeight = 100; // Altura estimada de una fila de la tabla
+
+      // Calcular la posición en la que se debe agregar la tabla
+      const tableY = (doc.internal.pageSize.getHeight() - (2 * tableHeight)) / 2;
+
+      autoTable(doc, {
+        headStyles: { fillColor: [0, 0, 0] },
+        theme: 'grid',
+        head: [['Unidad', 'Unidad de negocio', 'Tipo de reporte', 'Fecha', 'Turno', 'Capturista']],
+        body: [
+          [data.tunidad, data.tunidadnegocios, data.ttiporeporte, data.fhfecha, data.tturno, data.tcaptura]
+        ],
+        startY: tableY + 20// Agregar la tabla en la posición calculada
+      })
+      autoTable(doc, {
+        headStyles: { fillColor: [0, 0, 0] },
+        theme: 'grid',
+        head: [['Disponibilidad', 'Piezas utilizadas', 'Tecnico', 'Supervisor', 'Sistema', 'Subsistema']],
+        body: [
+          [data.tdisponibilidad, data.tpiezasutilizadas, data.ttecnico, data.tsupervisor, data.tsistema, data.tsubsistema]
+        ],
+        startY: tableY + 40 // Agregar la tabla debajo de la segunda tabla
+      })
+
+      autoTable(doc, {
+        headStyles: { fillColor: [0, 0, 0] },
+        theme: 'grid',
+        head: [['Descripción', 'Efectos de falla']],
+        body: [
+          [data.tdescripcion, data.tefectosfalla]
+        ],
+        startY: tableY + 60 // Agregar la tabla debajo de la primera tabla
+      })
+
+
+
+
+      // Agregar línea para la parte de la firma
+      doc.line(40, 230, 170, 230);
+      // Agregar texto indicando que el espacio es para firma y centrarlo
+      doc.text('Firma', doc.internal.pageSize.width / 2, 240, { align: 'center' });
+
+      // Descargar el PDF
+      doc.save(`bitacora-${bitacora.tunidad}.pdf`);
+    }
   }
 }
