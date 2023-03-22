@@ -63,7 +63,8 @@ export class LoginComponent implements OnInit{
           if (usuario === userData.enumtrabajador && password === userData.tcontra) {
             const tokenData = {
               usuario: userData.enumtrabajador,
-              tipo: userData.ttipousuario
+              tipo: userData.ttipousuario,
+              nombre: userData.tnombre
             };
             const token = this.signToken(tokenData, 'mi_clave_secreta');
             console.log('token', token);

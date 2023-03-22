@@ -20,7 +20,7 @@ export class AutentificacionService {
   }
 
 
-  getAutentificacionByToken(){
-    
+  public getAutentificacionByToken(){
+    return sessionStorage.getItem("token") 
   }
 }

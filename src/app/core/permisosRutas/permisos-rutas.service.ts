@@ -1,16 +1,19 @@
 import { Injectable } from '@angular/core';
-import { ActivatedRouteSnapshot, CanActivate, RouterStateSnapshot, UrlTree } from '@angular/router';
+import { ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot, UrlTree } from '@angular/router';
 import { Observable } from 'rxjs';
+import { AutentificacionService } from 'src/app/autentificacion/autentificacion.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class PermisosRutasService implements CanActivate{
 
-  constructor() { }
+  constructor(private router: Router, private AutentificacionService: AutentificacionService) { }
 
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean | UrlTree | Observable<boolean | UrlTree> | Promise<boolean | UrlTree> {
-    throw false;
+    if(!Boolean(this.AutentificacionService.getAutentificacionByToken())){
+      return this.router.parseUrl("");
+    } 
+    return true;
   }
-
 }

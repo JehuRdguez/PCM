@@ -10,16 +10,23 @@ import { ApiService } from 'src/app/services/api.service';
   styleUrls: ['./bitacoraform.component.css']
 })
 export class BitacoraFormComponent {
+
+  public objetounico:any = {};
   BitacoraForm!: FormGroup;
   actionBtn: String = "Guardar"
+
   constructor(private formBuilder: FormBuilder, private api: ApiService,
     @Inject(MAT_DIALOG_DATA) public editData: any,
     private dialogRef: MatDialogRef<FormComponent>) { }
   ngOnInit(): void {
+
+    let token = sessionStorage.getItem("token") as string;
+    this.objetounico = this.decodificarJwt(token);    
+
     this.BitacoraForm = this.formBuilder.group({
       tunidad: ['', Validators.required],
       ttiporeporte: ['', Validators.required],
-      tcaptura: ['', Validators.required],
+      tcaptura: [this.objetounico.nombre, Validators.required],
       tunidadnegocios: ['', Validators.required],
       fhfecha: [new Date(), Validators.required],
       tdescripcion: ['', Validators.required],
@@ -88,12 +95,12 @@ export class BitacoraFormComponent {
         this.api.postBitacora(this.BitacoraForm.value)
           .subscribe({
             next: (res) => {
-              alert("Bitácora agregado exitosamente")
+              alert("Registro agregado exitosamente.")
               this.BitacoraForm.reset();
               this.dialogRef.close('Guardar');
             },
             error: () => {
-              alert("Error en la obtención de datos")
+              alert("¡Error!")
             }
           })
       } else {
@@ -127,15 +134,26 @@ export class BitacoraFormComponent {
     this.api.putBitacora(data, this.editData.ecodbitacora)
       .subscribe({
         next: (res) => {
-          alert("Bitácora actualizado exitosamente");
+          alert("Registro actualizado exitosamente.");
           this.BitacoraForm.reset();
           this.dialogRef.close('Actualizar');
         },
         error: () => {
-          alert("Error!!!");
+          alert("¡Error!");
         }
       })
     }
+  }
+
+  private decodificarJwt(token:string):any
+  {
+    var base64Url = token.split('.')[1];
+    var base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+    var jsonPayload = decodeURIComponent(window.atob(base64).split('').map(function(c) {
+        return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
+    }).join(''));
+
+    return JSON.parse(jsonPayload);
   }
 
 }

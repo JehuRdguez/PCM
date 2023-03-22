@@ -14,10 +14,11 @@ import { DashboardComponent } from './paginas/admin/dashboard/dashboard.componen
 import { PrincipalComponent } from './principal.component';
 import { LoginComponent } from '../login/inicio/login/login.component';
 import { BitacoraComponent } from './paginas/admin/bitacora/bitacora.component';
+import { PermisosRutasService } from 'src/app/core/permisosRutas/permisos-rutas.service';
 
 const rutas: Routes = [
   {path:'', component:LoginComponent},
-  {path:'administrador',  component: PrincipalComponent, 
+  {path:'administrador',  component: PrincipalComponent, canActivate: [PermisosRutasService], 
   children:[
     {path:'dashboard', component: DashboardComponent},
     {path:'administrador', component: DashboardComponent},
