@@ -1,15 +1,24 @@
-import { Component } from '@angular/core';
-import {FormBuilder,FormGroup, Validators} from '@angular/forms'
+import { HttpClient } from '@angular/common/http';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import {FormBuilder,FormControl,FormGroup, Validators} from '@angular/forms'
 import { Router } from '@angular/router';
+import { Subscription } from 'rxjs';
 import { AutentificacionService } from 'src/app/autentificacion/autentificacion.service';
-
+import { Ilogin } from 'src/app/modelos/ilogin';
+import { Iresponse } from 'src/app/modelos/iresponse';
+//import { sign } from 'jsonwebtoken';
+import * as CryptoJS from 'crypto-js';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
-export class LoginComponent {
+export class LoginComponent implements OnInit, OnDestroy{
+
+  //INTENTO2
+  formLogin!: FormGroup;
+  subRef$: Subscription | undefined;
 
   usuario={
     ecodusuario:0,
@@ -22,11 +31,40 @@ export class LoginComponent {
   public myForm!:FormGroup;
 
   constructor(private fb:FormBuilder, private loginPrd:AutentificacionService,
-    private routerprd:Router){}
+    private routerprd:Router, private http:HttpClient){
+      this.formLogin = fb.group({
+        enumtrabajador:['',[Validators.required]],
+        tcontra:['',[Validators.required]]
+      });
+    }
+
 
   ngOnInit():void{
     this.myForm = this.createMyForm();
 
+  }
+
+  //INTENTO 2
+  login(){
+    const usuarioLogin: Ilogin = {
+      enumtrabajador: this.formLogin.value.enumtrabajador,
+      tcontra: this.formLogin.value.tcontra,
+
+    };
+    this.subRef$ = this.http.post<Iresponse>('http://localhost:3000/usuario/',
+    usuarioLogin, {observe: 'response'}).subscribe(res => {
+      const token: string | undefined = res.body?.response;
+      console.log('token',token);
+      sessionStorage.setItem('token', JSON.stringify(token));
+      this.routerprd.navigate(['administrador/bitacora'])
+    }, err => { console.log('Error en el login', err);
+  });
+  }
+
+  ngOnDestroy(): void {
+    if(this.subRef$){
+      this.subRef$.unsubscribe();
+    }
   }
 
   private createMyForm():FormGroup{
@@ -35,6 +73,7 @@ export class LoginComponent {
       password:['',[Validators.required]]
     });
   }
+
 
   public submitFormulario() {
     if (this.myForm.valid) {
@@ -45,6 +84,17 @@ export class LoginComponent {
           const [userData] = res;
   
           if (usuario === userData.enumtrabajador && password === userData.tcontra) {
+            const tokenData = {
+              usuario: userData.enumtrabajador,
+              tipo: userData.ttipousuario
+            };
+            const token = this.signToken(tokenData, 'mi_clave_secreta');
+            console.log('token', token);
+            sessionStorage.setItem('token', JSON.stringify(token));
+
+
+
+
             const url = userData.ttipousuario === 'Administrador' ? '/administrador/bitacora' : '/visitante/kpis';
             this.routerprd.navigateByUrl(url);
           } else {
@@ -58,6 +108,44 @@ export class LoginComponent {
     } else {
       this.myForm.markAllAsTouched();
     }
+  }
+
+  base64url(source: any) {
+    let encodedSource = CryptoJS.enc.Base64.stringify(source);
+
+    encodedSource = encodedSource.replace(/=+$/, '');
+
+    encodedSource = encodedSource.replace(/\+/g, '-');
+    encodedSource = encodedSource.replace(/\//g, '_');
+
+    return encodedSource;
+  }
+
+  encodeToken(payload:any) {
+    var header = {
+      "alg": "HS256",
+      "typ": "JWT"
+    };
+
+    var stringifiedHeader = CryptoJS.enc.Utf8.parse(JSON.stringify(header));
+    var encodedHeader = this.base64url(stringifiedHeader);
+
+    var stringifiedData = CryptoJS.enc.Utf8.parse(JSON.stringify(payload));
+    var encodedData = this.base64url(stringifiedData);
+
+    var token = encodedHeader + "." + encodedData;
+    return token;
+  }
+ 
+  signToken(payload:any,key:string) {
+    var secret = key;
+    let token:any = this.encodeToken(payload);
+
+    var signature:any = CryptoJS.HmacSHA256(token, secret);
+    signature = this.base64url(signature);
+
+    var signedToken = token + "." + signature;
+    return signedToken;
   }
 
       handleCredentialResponse(response:any){

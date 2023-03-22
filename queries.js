@@ -833,16 +833,16 @@ const getUsuarioPorId = (request, response) => {
 };
 
 const crearUsuario = (request, response) => {
-    const { ecodusuario, bstatus, tnombre, tapellidopaterno, tapellidomaterno, fk_ecodtipousuario } = request.body;
+    const { ecodusuario, bstatus, tnombre, tapellidopaterno, tapellidomaterno, ttipousuario, enumtrabajador, tcontra } = request.body;
 
     pool.query(
-      "INSERT INTO usuario (ecodunidadnegocios, bstatus, tnombre, tapellidopaterno, tapellidomaterno, fk_ecodtipousuario)VALUES ($1,$2,$3,$4,$5,$6) RETURNING * ",
-      [ecodusuario, bstatus, tnombre, tapellidopaterno, tapellidomaterno, fk_ecodtipousuario ],
+      "INSERT INTO usuario (enumtrabajador, tcontra)VALUES ($1,$2,$3,$4,$5,$6,$7,$8) RETURNING * ",
+      [ecodusuario, bstatus, tnombre, tapellidopaterno, tapellidomaterno, ttipousuario, enumtrabajador, tcontra ],
       (error, result) => {
         if (error) {
           throw error;
         }
-        response.status(200).send("Agregado con exito");
+        response.status(200).send(result);
       }
     );
 };

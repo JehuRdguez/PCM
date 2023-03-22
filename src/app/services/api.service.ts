@@ -100,4 +100,5 @@ deleteBitacora(id: number){
 getBitacoraByid(id:Number){
   return this.http.get("http://localhost:3000/bitacora/"+id);
 }
+
 }

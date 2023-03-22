@@ -32,8 +32,6 @@ import { DashboardComponent } from './modulos/principal/paginas/admin/dashboard/
 // CONTROL EQUIPOS DIALOGOS
 import { FormComponent } from './components/form/form.component';
 
-import { JwtModule } from "@auth0/angular-jwt";
-
 export function tokenGetter() {
   return localStorage.getItem("access_token");
 }
@@ -68,13 +66,6 @@ export function tokenGetter() {
     NgChartsModule,
     LoginModule,
     PrincipalModule,
-    JwtModule.forRoot({
-      config: {
-        tokenGetter: tokenGetter,
-        allowedDomains: ["example.com"],
-        disallowedRoutes: ["http://example.com/examplebadroute/"],
-      },
-    }),
 
   ],
   providers: [],
