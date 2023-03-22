@@ -25,12 +25,15 @@
     hyphens: auto;
   }
 
-  .mat-form-field {
-    
+  .filtro {
+    background-color: none;
+    background: none;
+    border-radius: 5px;
+    width: 10%;
   }
 
   #horometro {
-    background-ycolor: rgba(8, 109, 139, 0.959);
+    background-color: rgba(8, 109, 139, 0.959);
     margin-top: 50px;
     width: 100%;
     color: white;
@@ -80,59 +83,30 @@
 
   table {
     margin-top: -10px;
+    width: 100%;
   }
 
-  #horometro {
-    background-color: rgba(8, 109, 139, 0.959);
-    margin-top: 50px;
-    width: 100%;
-    color: white;
+  .mat-column-tdescripcion{
+    word-wrap: break-word !important;
+    white-space: unset !important;
+    flex: 0 0 28% !important;
+    width: 28% !important;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+
+    word-break: break-word;
+
+    -ms-hyphens: auto;
+    -moz-hyphens: auto;
+    -webkit-hyphens: auto;
+    hyphens: auto;
+  }
+
+  .filtro {
+    background-color: none;
+    background: none;
     border-radius: 5px;
-    font-family: 'Rokkitt', serif;
-  }
-
-  .container {
-    font-family: 'Rokkitt', serif;
-  }
-
-  .mat-mdc-form-field {
-    font-size: 14px;
-    width: 100%;
-  }
-
-  #icon{
-    margin-left: 10px;
-    font-size: 35px;
-    margin-bottom: 5px;
-    margin-top: 5px;
-  }
-
-  .btnRegistrar {
-    background-color: rgb(31, 41, 63);
-    width: 150px;
-    position: absolute;
-    left: 72%;
-    border-radius: 8px;
-    color: white;
-  }
-
-  .btnRegistrarUnidad {
-    background-color: rgb(31, 41, 63);
-    width: 200px;
-    position: absolute;
-    color: white;
-    border-radius: 8px;
-  }
-}
-
-/*Laptop*/
-@media only screen and (min-width: 992px) {
-  .example-spacer {
-    flex: 1 1 auto;
-  }
-
-  table {
-    margin-top: -10px;
+    width: 10%;
   }
 
   #horometro {
@@ -180,13 +154,38 @@
 
 /*Desktop*/
 @media only screen and (min-width: 1200px) {
-
   .example-spacer {
     flex: 1 1 auto;
   }
 
   table {
     margin-top: -10px;
+    width: 100%;
+  }
+
+  .mat-column-tdescripcion{
+    word-wrap: break-word !important;
+    white-space: unset !important;
+    flex: 0 0 28% !important;
+    width: 28% !important;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+
+    word-break: break-word;
+
+    -ms-hyphens: auto;
+    -moz-hyphens: auto;
+    -webkit-hyphens: auto;
+    hyphens: auto;
+  }
+
+  .filtro {
+    background-color: none;
+    background: none;
+    border-radius: 5px;
+    width: 10%;
+    text-align: left;
+    left: 100%;
   }
 
   #horometro {
@@ -230,5 +229,4 @@
     color: white;
     border-radius: 8px;
   }
-
 }
