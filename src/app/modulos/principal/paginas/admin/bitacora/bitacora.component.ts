@@ -172,7 +172,17 @@ export class BitacoraComponent {
       doc.text('Firma', doc.internal.pageSize.width / 2, 240, { align: 'center' });
 
       // Descargar el PDF
-      doc.save(`bitacora-${bitacora.tunidad}.pdf`);
+      //doc.save(`bitacora-${bitacora.tunidad}.pdf`);
+
+      const pdfOutput = doc.output();
+      const buffer = new ArrayBuffer(pdfOutput.length);
+      const array = new Uint8Array(buffer);
+      for (let i = 0; i < pdfOutput.length; i++) {
+        array[i] = pdfOutput.charCodeAt(i);
+      }
+      const blob = new Blob([array], { type: "application/pdf" });
+      const url = URL.createObjectURL(blob);
+      window.open(url);
     }
   }
 }
