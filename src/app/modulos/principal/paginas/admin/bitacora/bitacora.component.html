@@ -2,12 +2,12 @@
 &nbsp;&nbsp;&nbsp;&nbsp;
 <div class="container">
   <div class="text">
-  <h3><b>Registros</b> | <span>Consulta de bitácora</span></h3>
+    <h3><b>Registros</b> | <span>Consulta de bitácora</span></h3>
   </div>
   <br>
   <div class="btnRegistrar"><button type="button" class="btnRegistrar"
       (click)="openDialogRegistrar()">Registrar</button></div>
-      
+
   <!--
   <div class="btnRegistrarUnidad"><button type="button" class="btnRegistrarUnidad">Unidad de negocio</button></div>
   -->
@@ -25,7 +25,7 @@
   <div class="mat-elevation-z8">
 
     <table mat-table [dataSource]="dataSource" matSort>
-
+      
       <!-- equipo Column -->
       <ng-container matColumnDef="tunidad">
         <th mat-header-cell *matHeaderCellDef mat-sort-header>Equipo</th>
@@ -64,14 +64,14 @@
       <!-- acciones Column -->
       <ng-container matColumnDef="acciones">
         <div class="center">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header> Acciones </th>
-      </div>
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Acciones </th>
+        </div>
         <td mat-cell *matCellDef="let row">
           <!--
           <button (click)="editBitacora(row)" mat-icon-button>
             <div class="fond-1">
-            <i class="fa-solid fa-pen-to-square" style="color: #17aa43;"></i>
-          </div>
+              <i class="fa-solid fa-pen-to-square" style="color: #17aa43;"></i>
+            </div>
           </button>
           -->
           <button mat-icon-button class="btn btn-danger" (click)="deleteBitacora(row.ecodbitacora)">
