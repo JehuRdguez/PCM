@@ -1,4 +1,4 @@
-<h1 mat-dialog-title>Registrar bitácora</h1>
+<h1 mat-dialog-title>{{actionTxt}} bitácora</h1>
 <div mat-dialog-content>
   <form [formGroup]="BitacoraForm">
     <br>
@@ -76,29 +76,23 @@
               </mat-select>
             </mat-form-field>
 
-            <mat-form-field appearance="outline">
-              <mat-label>Sistema</mat-label>
-              <mat-select formControlName="tsistema">
-                <mat-option value="Transmisión">Transmisión</mat-option>
-                <mat-option value="Soldadura">Soldadura</mat-option>
-                <mat-option value="Tracción">Tracción</mat-option>
-                <mat-option value="Frenos">Frenos</mat-option>
-                <mat-option value="Neumática">Neumática</mat-option>
-                <mat-option value="Refrigeración">Refrigeración</mat-option>
-              </mat-select>
-            </mat-form-field>
-
-            <mat-form-field appearance="outline">
-              <mat-label>Subsistema</mat-label>
-              <mat-select formControlName="tsubsistema">
-                <mat-option value="Aire">Aire</mat-option>
-                <mat-option value="Alineación">Alineación</mat-option>
-                <mat-option value="Apoyo">Apoyo</mat-option>
-                <mat-option value="Balatas">Balatas</mat-option>
-                <mat-option value="Amortiguadores">Amortiguadores</mat-option>
-                <mat-option value="Compresor">Compresor</mat-option>
-              </mat-select>
-            </mat-form-field>
+           
+              <mat-form-field appearance="outline">
+                <mat-label>Sistema</mat-label>
+                <mat-select formControlName="tsistema"  [(ngModel)]="sistemaSeleccionado" (selectionChange)="actualizarSubsistemas()">
+                  <mat-option *ngFor="let s of sistemas" [value]="s.nombre">{{s.nombre}}</mat-option>
+                </mat-select>
+              </mat-form-field>
+           
+            
+          
+              <mat-form-field appearance="outline">
+                <mat-label>Subsistema</mat-label>
+                <mat-select formControlName="tsubsistema" [(ngModel)]="subsistemaSeleccionado">
+                  <mat-option *ngFor="let s of subsistemas" [value]="s">{{s}}</mat-option>
+                </mat-select>
+              </mat-form-field>
+            
 
             <mat-form-field appearance="outline">
               <mat-label>Turno</mat-label>

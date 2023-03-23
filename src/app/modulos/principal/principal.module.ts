@@ -66,6 +66,8 @@ import { ManpowerFormComponent } from './paginas/admin/manpower/elementos/manpow
 //DIALOGS EQUIPOS
 //import { DialogagregarequipoComponent } from './equipos/elementos/dialogagregarequipo/dialogagregarequipo.component';
 
+import { FormsModule } from '@angular/forms';
+
 
 @NgModule({
   declarations: [
@@ -132,7 +134,8 @@ import { ManpowerFormComponent } from './paginas/admin/manpower/elementos/manpow
     MatSidenavModule,
     ReactiveFormsModule,
     NgChartsModule,
-    MatCardModule
+    MatCardModule,
+    FormsModule
   ],
   exports: [
     DashboardComponent,
