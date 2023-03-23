@@ -102,7 +102,9 @@ export class BitacoraComponent {
   generarPDF(bitacora: any) {
     const doc = new jsPDF();
 
+
     const data = {
+      ecodbitacora: bitacora.ecodbitacora,
       tunidad: bitacora.tunidad,
       ttiporeporte: bitacora.ttiporeporte,
       tcaptura: bitacora.tcaptura,
@@ -116,7 +118,7 @@ export class BitacoraComponent {
       tsupervisor: bitacora.tsupervisor,
       tsistema: bitacora.tsistema,
       tsubsistema: bitacora.tsubsistema,
-      tturno: bitacora.tturno
+      tturno: bitacora.tturno,
     };
 
     const img = new Image();
@@ -127,7 +129,17 @@ export class BitacoraComponent {
       const imgHeight = 50;
       const docWidth = doc.internal.pageSize.width;
       const x = (docWidth - imgWidth) / 2;
-      doc.addImage(img, 'PNG', x, 10, imgWidth, imgHeight);
+      doc.addImage(img, 'PNG', 20, 10, imgWidth, imgHeight);
+
+      const date = new Date();
+
+      doc.text('Reporte de incidencias', 90, 30);
+      doc.text('Fecha de Reporte: ', 90, 40);
+      doc.text(date.toISOString(), 140, 40); 
+      doc.text('Id-', 90, 50);
+      doc.text(data.tunidad, 98, 50);
+      doc.text('-', 115, 50);
+      doc.text(data.ecodbitacora.toString(), 118, 50);
 
       const tableHeight = 100; // Altura estimada de una fila de la tabla
 
