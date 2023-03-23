@@ -70,7 +70,7 @@ export class LoginComponent implements OnInit{
             console.log('token', token);
             sessionStorage.setItem('token', JSON.stringify(token));
 
-            const url = userData.ttipousuario === 'Administrador' ? '/administrador/bitacora' : '/visitante/kpis';
+            const url = userData.ttipousuario === 'Administrador' ? '/administrador/bitacora' : '/visitante/bitacora';
             this.routerprd.navigateByUrl(url);
           } else {
             alert('Credenciales incorrectas');

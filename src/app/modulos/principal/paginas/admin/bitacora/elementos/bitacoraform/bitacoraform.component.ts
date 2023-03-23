@@ -1,7 +1,6 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { FormsModule } from '@angular/forms';
 import { FormComponent } from 'src/app/components/form/form.component';
 import { ApiService } from 'src/app/services/api.service';
 
@@ -12,16 +11,16 @@ import { ApiService } from 'src/app/services/api.service';
 })
 export class BitacoraFormComponent {
 
-  sistemas = [
-    { nombre: 'Transmisión', subsistemas: ['Aire', 'Aceite', 'Embrague'] },
-    { nombre: 'Soldadura', subsistemas: ['Electrodos', 'MIG', 'TIG'] },
-    { nombre: 'Tracción', subsistemas: ['Caja de transferencia', 'Eje de transmisión', 'Diferencial'] },
-    { nombre: 'Frenos', subsistemas: ['Pastillas', 'Discos', 'Calipers'] },
-    { nombre: 'Neumática', subsistemas: ['Válvulas', 'Cilindros', 'Mangueras'] },
-    { nombre: 'Refrigeración', subsistemas: ['Radiador', 'Termostato', 'Bomba de agua'] }
+  tsistemas = [
+    { nombre: 'Transmisión', tsubsistemas: ['Aire', 'Aceite', 'Embrague'] },
+    { nombre: 'Soldadura', tsubsistemas: ['Electrodos', 'MIG', 'TIG'] },
+    { nombre: 'Tracción', tsubsistemas: ['Caja de transferencia', 'Eje de transmisión', 'Diferencial'] },
+    { nombre: 'Frenos', tsubsistemas: ['Pastillas', 'Discos', 'Calipers'] },
+    { nombre: 'Neumática', tsubsistemas: ['Válvulas', 'Cilindros', 'Mangueras'] },
+    { nombre: 'Refrigeración', tsubsistemas: ['Radiador', 'Termostato', 'Bomba de agua'] }
   ];
 
-  subsistemas: string[] = [];
+  tsubsistemas: string[] = [];
 
   sistemaSeleccionado = '';
   subsistemaSeleccionado = '';
@@ -166,9 +165,9 @@ export class BitacoraFormComponent {
   }
 
   actualizarSubsistemas(){
-    const sistemaSeleccionado = this.sistemas.find(sistema => sistema.nombre === this.sistemaSeleccionado);
+    const sistemaSeleccionado = this.tsistemas.find(tsistema => tsistema.nombre === this.sistemaSeleccionado);
     if (sistemaSeleccionado) {
-      this.subsistemas = sistemaSeleccionado.subsistemas;
+      this.tsubsistemas = sistemaSeleccionado.tsubsistemas;
     } 
   }
   

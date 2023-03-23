@@ -25,6 +25,13 @@
     hyphens: auto;
   }
 
+  .mat-column-acciones{
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+  }
+
   .filtro {
     background-color: none;
     background: none;
@@ -41,6 +48,10 @@
     font-family: 'Rokkitt', serif;
   }
 
+  .btn {
+    color: white;
+  }
+
   .container {
     font-family: 'Rokkitt', serif;
   }
@@ -48,6 +59,10 @@
   .mat-mdc-form-field {
     font-size: 14px;
     width: 100%;
+  }
+
+  .fond-2 {
+    color: white ;
   }
 
   #icon{

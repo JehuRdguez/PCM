@@ -15,6 +15,7 @@ import { PrincipalComponent } from './principal.component';
 import { LoginComponent } from '../login/inicio/login/login.component';
 import { BitacoraComponent } from './paginas/admin/bitacora/bitacora.component';
 import { PermisosRutasService } from 'src/app/core/permisosRutas/permisos-rutas.service';
+import { BitacoravComponent } from './paginas/visitante/bitacorav/bitacorav.component';
 
 const rutas: Routes = [
   {path:'', component:LoginComponent},
@@ -33,6 +34,11 @@ const rutas: Routes = [
     //{path:'checklist', component:ChecklistComponent},
     //{path:'disponibilidaddiaria', component: DisponibilidaddiariaComponent}
 
+  ]
+},
+{path:'visitante',  component: PrincipalComponent, canActivate: [PermisosRutasService], 
+  children:[
+    {path:'bitacora', component: BitacoravComponent},
   ]
 },
 ];

@@ -1,3 +1,5 @@
+const { response } = require("express");
+
 const Pool = require("pg").Pool;
 const pool = new Pool({
   user: "postgres",
@@ -945,12 +947,22 @@ const eliminarKpis = (request, response) => {
     );
 };
 
-
-
+const fltrarFecha = (reuqest, response)=>{ 
+  pool.query(
+    "SELECT fhfecha FROM bitacora WHERE ecodbitacora = fhfecha",
+    (error, results) => {
+      if (error) {
+        throw error;
+      }
+      response.status(200).json(results.rows);
+    }
+  );
+};
 
 
 module.exports = {
   actualizarKpis,
+  fltrarFecha,
   getKpisPorId,
   crearKpis,
   eliminarKpis,

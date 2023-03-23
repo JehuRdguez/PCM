@@ -80,7 +80,7 @@
               <mat-form-field appearance="outline">
                 <mat-label>Sistema</mat-label>
                 <mat-select formControlName="tsistema"  [(ngModel)]="sistemaSeleccionado" (selectionChange)="actualizarSubsistemas()">
-                  <mat-option *ngFor="let s of sistemas" [value]="s.nombre">{{s.nombre}}</mat-option>
+                  <mat-option *ngFor="let s of tsistemas" [value]="s.nombre">{{s.nombre}}</mat-option>
                 </mat-select>
               </mat-form-field>
            
@@ -89,7 +89,7 @@
               <mat-form-field appearance="outline">
                 <mat-label>Subsistema</mat-label>
                 <mat-select formControlName="tsubsistema" [(ngModel)]="subsistemaSeleccionado">
-                  <mat-option *ngFor="let s of subsistemas" [value]="s">{{s}}</mat-option>
+                  <mat-option *ngFor="let s of tsubsistemas" [value]="s">{{s}}</mat-option>
                 </mat-select>
               </mat-form-field>
             

@@ -63,6 +63,7 @@ import { DetallesSemanalesComponent } from './paginas/admin/semanales/elementos/
 import { SemanalesFormComponent } from './paginas/admin/semanales/elementos/semanales-form/semanales-form.component';
 import { ManpowerDetallesComponent } from './paginas/admin/manpower/elementos/manpower-detalles/manpower-detalles.component';
 import { ManpowerFormComponent } from './paginas/admin/manpower/elementos/manpower-form/manpower-form.component';
+import { BitacoravComponent } from './paginas/visitante/bitacorav/bitacorav.component';
 //DIALOGS EQUIPOS
 //import { DialogagregarequipoComponent } from './equipos/elementos/dialogagregarequipo/dialogagregarequipo.component';
 
@@ -98,6 +99,7 @@ import { FormsModule } from '@angular/forms';
     SemanalesFormComponent,
     ManpowerDetallesComponent,
     ManpowerFormComponent,
+    BitacoravComponent
     //ManpowerComponent,
     //KpisComponent,
     //DialoghoroRegistrarComponent,
