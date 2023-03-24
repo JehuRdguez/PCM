@@ -67,6 +67,7 @@ export class BitacoraComponent {
       }
     })
   }
+  /*
   deleteBitacora(id: number) {
     var confirmacion = confirm("¿Esta seguro que desea eliminar el registro?");
     if (confirmacion == true) {
@@ -81,6 +82,23 @@ export class BitacoraComponent {
       })
     }
   }
+*/
+  deleteBitacora(id: number) {
+    var confirmacion = confirm("¿Está seguro que desea eliminar el registro?");
+    if (confirmacion == true) {
+      this.api.patchBitacora(id, "0").subscribe({
+        next: (res) => {
+          alert("Bitacora eliminado!!")
+          this.getAllBitacora();
+          alert("LLEGO AL FINAL")
+        },
+        error: () => {
+          alert("Error!!!")
+        }
+      })
+    }
+  }
+
   getBitacoraByid(row: any) {
     this.dialog.open(DetallesBitacoraComponent, {
       width: '50%',
@@ -153,7 +171,7 @@ export class BitacoraComponent {
         body: [
           [data.tunidad, data.tunidadnegocios, data.ttiporeporte, data.fhfecha, data.tturno, data.tcaptura]
         ],
-        startY: tableY + 20// Agregar la tabla en la posición calculada
+        startY: tableY + 20
       })
       autoTable(doc, {
         headStyles: { fillColor: [0, 0, 0] },
@@ -162,7 +180,7 @@ export class BitacoraComponent {
         body: [
           [data.tdisponibilidad, data.tpiezasutilizadas, data.ttecnico, data.tsupervisor, data.tsistema, data.tsubsistema]
         ],
-        startY: tableY + 40 // Agregar la tabla debajo de la segunda tabla
+        startY: tableY + 40 
       })
 
       autoTable(doc, {
@@ -172,15 +190,13 @@ export class BitacoraComponent {
         body: [
           [data.tdescripcion, data.tefectosfalla]
         ],
-        startY: tableY + 60 // Agregar la tabla debajo de la primera tabla
+        startY: tableY + 60 
       })
 
 
 
 
-      // Agregar línea para la parte de la firma
       doc.line(40, 230, 170, 230);
-      // Agregar texto indicando que el espacio es para firma y centrarlo
       doc.text('Firma', doc.internal.pageSize.width / 2, 240, { align: 'center' });
 
       // Descargar el PDF

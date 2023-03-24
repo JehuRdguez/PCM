@@ -100,5 +100,8 @@ deleteBitacora(id: number){
 getBitacoraByid(id:Number){
   return this.http.get("http://localhost:3000/bitacora/"+id);
 }
+patchBitacora(id: number, estado: any) {
+  return this.http.patch<any>("http://localhost:3000/bitacora/" + id, { estado: estado.toString() });
+}
 
 }
