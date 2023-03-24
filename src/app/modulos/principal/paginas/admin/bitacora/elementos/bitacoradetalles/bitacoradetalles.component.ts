@@ -51,14 +51,14 @@ export class DetallesBitacoraComponent implements OnInit{
       this.BitacoraForm.controls['tturno'].setValue(
         this.detallesData.tturno
       );
-      this.BitacoraForm.controls['tdisponibilidad'].disable();
-      this.BitacoraForm.controls['tefectosfalla'].disable();
-      this.BitacoraForm.controls['tpiezasutilizadas'].disable();
-      this.BitacoraForm.controls['ttecnico'].disable();
-      this.BitacoraForm.controls['tsupervisor'].disable();
-      this.BitacoraForm.controls['tsistema'].disable();
-      this.BitacoraForm.controls['tsubsistema'].disable();
-      this.BitacoraForm.controls['tturno'].disable();
+      this.BitacoraForm.controls['tdisponibilidad'];
+      this.BitacoraForm.controls['tefectosfalla'];
+      this.BitacoraForm.controls['tpiezasutilizadas'];
+      this.BitacoraForm.controls['ttecnico'];
+      this.BitacoraForm.controls['tsupervisor'];
+      this.BitacoraForm.controls['tsistema'];
+      this.BitacoraForm.controls['tsubsistema'];
+      this.BitacoraForm.controls['tturno'];
 
     }
   }
