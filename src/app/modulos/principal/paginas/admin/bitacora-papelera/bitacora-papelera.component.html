@@ -2,12 +2,20 @@
 &nbsp;&nbsp;&nbsp;&nbsp;
 <div class="container">
   <div class="text">
-    <h3><b>Bitácora</b> | <span>Papelera</span></h3>
+    <h3><b>Registros</b> | <span>Papelera de bitácora</span></h3>
   </div>
   <br>
 
+  <div class="container text-right">
+    <div class="row">
+      <div class="col">
 
-  <div><a routerLink="../../bitacora" type="button" >Regresar</a></div>
+        <button type="button" class="btn btn-labeled btn-primary" routerLink="../../bitacora">
+          <span class="btn-label"><i class="fa-solid fa-rotate-left"></i></span>Regresar</button>
+
+      </div>
+    </div>
+  </div>
 
   <!--
   <div class="btnRegistrarUnidad"><button type="button" class="btnRegistrarUnidad">Unidad de negocio</button></div>
@@ -73,8 +81,8 @@
               <i class="fa-solid fa-pen-to-square" style="color: #17aa43;"></i>
           </button>
           -->
-          <button mat-icon-button class="btn btn-danger" (click)="deleteBitacora(row.ecodbitacora)">
-              <i class="fa-solid fa-trash"></i>
+          <button mat-icon-button class="btn btn-secondary" (click)="deleteBitacora(row.ecodbitacora)">
+            <i class="fa-solid fa-rotate-left"></i>
           </button>
           <button mat-icon-button class="btn btn-success" (click)="getBitacoraByid(row)">
               <i class="fa-solid fa-file-circle-question"></i>

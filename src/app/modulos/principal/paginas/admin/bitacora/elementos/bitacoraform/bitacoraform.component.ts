@@ -52,7 +52,9 @@ export class BitacoraFormComponent {
       tsupervisor: ['', Validators.required],
       tsistema: ['', Validators.required],
       tsubsistema: ['', Validators.required],
-      tturno: ['', Validators.required]
+      tturno: ['', Validators.required],
+      estado: ['1', Validators.required]
+
 
     })
     if (this.editData) {
