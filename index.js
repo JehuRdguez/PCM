@@ -53,6 +53,7 @@ app.get('/bitacora/:id',db.ObtencionRegistroPorId)
 app.post('/bitacora',db.crearRegistro)
 app.put('/bitacora/:id',db.actualizarRegistro)
 app.delete('/bitacora/:id',db.eliminarRegistro)
+app.patch('/bitacora/:id',db.bajaRegistro);
 
 // metodos de la tabla mantpreventivos
 app.get('/mantpreventivo',db.getMantPrev)

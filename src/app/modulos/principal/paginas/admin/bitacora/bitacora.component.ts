@@ -67,6 +67,7 @@ export class BitacoraComponent {
       }
     })
   }
+  /*
   deleteBitacora(id: number) {
     var confirmacion = confirm("¿Esta seguro que desea eliminar el registro?");
     if (confirmacion == true) {
@@ -81,6 +82,23 @@ export class BitacoraComponent {
       })
     }
   }
+*/
+  deleteBitacora(id: number) {
+    var confirmacion = confirm("¿Está seguro que desea eliminar el registro?");
+    if (confirmacion == true) {
+      this.api.patchBitacora(id, "0").subscribe({
+        next: (res) => {
+          alert("Bitacora eliminado!!")
+          this.getAllBitacora();
+          alert("LLEGO AL FINAL")
+        },
+        error: () => {
+          alert("Error!!!")
+        }
+      })
+    }
+  }
+
   getBitacoraByid(row: any) {
     this.dialog.open(DetallesBitacoraComponent, {
       width: '50%',

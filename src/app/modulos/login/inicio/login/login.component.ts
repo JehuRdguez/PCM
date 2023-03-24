@@ -1,12 +1,8 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, OnDestroy, OnInit } from '@angular/core';
-import {FormBuilder,FormControl,FormGroup, Validators} from '@angular/forms'
+import { Component, OnInit } from '@angular/core';
+import {FormBuilder,FormGroup, Validators} from '@angular/forms'
 import { Router } from '@angular/router';
-import { Subscription } from 'rxjs';
 import { AutentificacionService } from 'src/app/autentificacion/autentificacion.service';
-import { Ilogin } from 'src/app/modelos/ilogin';
-import { Iresponse } from 'src/app/modelos/iresponse';
-//import { sign } from 'jsonwebtoken';
 import * as CryptoJS from 'crypto-js';
 
 @Component({
@@ -73,7 +69,7 @@ export class LoginComponent implements OnInit{
             const url = userData.ttipousuario === 'Administrador' ? '/administrador/bitacora' : '/visitante/bitacora';
             this.routerprd.navigateByUrl(url);
           } else {
-            alert('Credenciales incorrectas');
+            alert('Contraseña incorrecta');
           }
         },
         error: () => {
