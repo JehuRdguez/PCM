@@ -143,23 +143,30 @@ export class BitacoraComponent {
     img.src = '../../../../../assets/dist/img/CIMA.png';
 
     img.onload = function () {
-      const imgWidth = 50;
-      const imgHeight = 50;
+      const imgWidth = 30;
+      const imgHeight = 30;
       const docWidth = doc.internal.pageSize.width;
       const x = (docWidth - imgWidth) / 2;
-      doc.addImage(img, 'PNG', 20, 10, imgWidth, imgHeight);
+      doc.addImage(img, 'PNG', 20, 0, imgWidth, imgHeight);
 
       const date = new Date();
+      const day = date.getDate();
+      const month = date.getMonth() + 1; // Los meses comienzan en 0, así que sumamos 1
+      const year = date.getFullYear();
+      const dateString = `${day}/${month}/${year}`;
 
-      doc.text('Reporte de incidencias', 90, 30);
-      doc.text('Fecha de Reporte: ', 90, 40);
-      doc.text(date.toISOString(), 140, 40); 
-      doc.text('Id-', 90, 50);
-      doc.text(data.tunidad, 98, 50);
-      doc.text('-', 115, 50);
-      doc.text(data.ecodbitacora.toString(), 118, 50);
+      doc.setFont("helvetica");
+      doc.setFontSize(18);
+      doc.text('Reporte de incidencias', doc.internal.pageSize.width / 2, 20, {align: 'center'});
+      doc.setFontSize(12);
+      doc.text('Creación: ', 150, 10);
+      doc.text(dateString, 170, 10);
+      doc.text('Id:', 165, 20);
+      doc.text(data.tunidad, 170, 20);
+      doc.text('-', 183, 20);
+      doc.text(data.ecodbitacora.toString(), 185, 20);
 
-      const tableHeight = 100; // Altura estimada de una fila de la tabla
+      const tableHeight = 120; // Altura estimada de una fila de la tabla
 
       // Calcular la posición en la que se debe agregar la tabla
       const tableY = (doc.internal.pageSize.getHeight() - (2 * tableHeight)) / 2;
@@ -171,7 +178,7 @@ export class BitacoraComponent {
         body: [
           [data.tunidad, data.tunidadnegocios, data.ttiporeporte, data.fhfecha, data.tturno, data.tcaptura]
         ],
-        startY: tableY + 20
+        startY: tableY + 0// Agregar la tabla en la posición calculada
       })
       autoTable(doc, {
         headStyles: { fillColor: [0, 0, 0] },
@@ -180,7 +187,7 @@ export class BitacoraComponent {
         body: [
           [data.tdisponibilidad, data.tpiezasutilizadas, data.ttecnico, data.tsupervisor, data.tsistema, data.tsubsistema]
         ],
-        startY: tableY + 40 
+        startY: tableY + 20 // Agregar la tabla debajo de la segunda tabla
       })
 
       autoTable(doc, {
@@ -190,14 +197,74 @@ export class BitacoraComponent {
         body: [
           [data.tdescripcion, data.tefectosfalla]
         ],
-        startY: tableY + 60 
+        startY: tableY + 40 // Agregar la tabla debajo de la primera tabla
       })
 
+      // Agregar línea para la parte de la firma
+      doc.line(40, 130, 170, 130);
+      // Agregar texto indicando que el espacio es para firma y centrarlo
+      doc.text(data.tsupervisor, doc.internal.pageSize.width / 2, 135, { align: 'center' });
+      doc.setFontSize(10);
+      doc.text('Supervisor', doc.internal.pageSize.width / 2, 140, { align: 'center' });
+
+      const tableHeight2 = 100; // Altura estimada de una fila de la tabla
+      const imgHeight2 = 40; // Altura de la imagen
+      const imgMarginTop = 5; // Margen superior de la imagen
+      const lineY = imgHeight2 + imgMarginTop + tableHeight2; // Posición Y de la línea
+      const lineX1 = 0; // Posición X inicial de la línea
+      const lineX2 = doc.internal.pageSize.width - 0; // Posición X final de la línea
+      doc.line(lineX1, lineY, lineX2, lineY); // Agregar la línea al documento
+      /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////77
+
+      doc.addImage(img, 'PNG', 20, 142, imgWidth, imgHeight);
+      doc.setFontSize(18);
+      doc.text('Reporte de incidencias', doc.internal.pageSize.width / 2, 160, {align: 'center'});
+      doc.setFontSize(12);
+      doc.text('Creación: ', 150, 150);
+      doc.text(dateString, 170, 150);
+      doc.text('Id:', 165, 160);
+      doc.text(data.tunidad, 170, 160);
+      doc.text('-', 183, 160);
+      doc.text(data.ecodbitacora.toString(), 185, 160);
+
+      autoTable(doc, {
+        headStyles: { fillColor: [0, 0, 0] },
+        theme: 'grid',
+        head: [['Unidad', 'Unidad de negocio', 'Tipo de reporte', 'Fecha', 'Turno', 'Capturista']],
+        body: [
+          [data.tunidad, data.tunidadnegocios, data.ttiporeporte, data.fhfecha, data.tturno, data.tcaptura]
+        ],
+        startY: tableY + 140// Agregar la tabla en la posición calculada
+      })
+      autoTable(doc, {
+        headStyles: { fillColor: [0, 0, 0] },
+        theme: 'grid',
+        head: [['Disponibilidad', 'Piezas utilizadas', 'Tecnico', 'Supervisor', 'Sistema', 'Subsistema']],
+        body: [
+          [data.tdisponibilidad, data.tpiezasutilizadas, data.ttecnico, data.tsupervisor, data.tsistema, data.tsubsistema]
+        ],
+        startY: tableY + 160 // Agregar la tabla debajo de la segunda tabla
+      })
+
+      autoTable(doc, {
+        headStyles: { fillColor: [0, 0, 0] },
+        theme: 'grid',
+        head: [['Descripción', 'Efectos de falla']],
+        body: [
+          [data.tdescripcion, data.tefectosfalla]
+        ],
+        startY: tableY + 180 // Agregar la tabla debajo de la primera tabla
+      })
+
+      // Agregar línea para la parte de la firma
+      doc.line(40, 270, 170, 270);
+      // Agregar texto indicando que el espacio es para firma y centrarlo
+      doc.text('Juan de la Cruz Lopez Ochoa', doc.internal.pageSize.width / 2, 280, { align: 'center' });
+      doc.setFontSize(10);
+      doc.text('Coordinador', doc.internal.pageSize.width / 2, 285, { align: 'center' });
 
 
 
-      doc.line(40, 230, 170, 230);
-      doc.text('Firma', doc.internal.pageSize.width / 2, 240, { align: 'center' });
 
       // Descargar el PDF
       //doc.save(`bitacora-${bitacora.tunidad}.pdf`);

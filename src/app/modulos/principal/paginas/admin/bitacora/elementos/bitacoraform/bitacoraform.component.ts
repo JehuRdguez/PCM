@@ -43,7 +43,7 @@ export class BitacoraFormComponent {
       ttiporeporte: ['', Validators.required],
       tcaptura: [this.objetounico.nombre, Validators.required],
       tunidadnegocios: ['', Validators.required],
-      fhfecha: [new Date(), Validators.required],
+      fhfecha: ['', Validators.required],
       tdescripcion: ['', Validators.required],
       tdisponibilidad: ['', Validators.required],
       tefectosfalla: ['', Validators.required],
