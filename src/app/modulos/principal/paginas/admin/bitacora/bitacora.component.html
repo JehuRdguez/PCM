@@ -5,24 +5,29 @@
     <h3><b>Registros</b> | <span>Consulta de bitácora</span></h3>
   </div>
   <br>
-  <div class="registrar">
-    <button type="button" class="btn btn-labeled btn-primary btnRegistrar" (click)="openDialogRegistrar()">
-    <span class="btn-label"><i class="fa-solid fa-plus"></i></span>Registrar</button>
-  </div>
-  <mat-form-field appearance="fill">
-    <mat-label>Enter a date range</mat-label>
-    <mat-date-range-input [rangePicker]="picker">
-      <input matStartDate (dateChange)="applyStartDateFilter($event)" placeholder="Start date">
-      <input matEndDate (dateChange)="applyEndDateFilter($event)"  placeholder="End date">
-    </mat-date-range-input>
-    <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
-    <mat-date-range-picker #picker></mat-date-range-picker>
-  </mat-form-field>
 
-
-  <div class="container text-right">
+  <div class="container">
     <div class="row">
-      <div class="col">
+      <div class="col text-left">
+        
+        <mat-form-field appearance="fill" style="width:48%; border-radius: 10px;">
+          <mat-label>Ingrese un rango de fechas</mat-label>
+          <mat-date-range-input [rangePicker]="picker">
+            <input matStartDate (dateChange)="applyStartDateFilter($event)" placeholder="Fecha de inicio">
+            <input matEndDate (dateChange)="applyEndDateFilter($event)"  placeholder="Fecha final">
+          </mat-date-range-input>
+          <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-date-range-picker #picker></mat-date-range-picker>
+        </mat-form-field>
+
+          <mat-form-field class="filtro" style="width:48%; border-radius: 10px; margin-left: 10px;" class="side">
+            <mat-label>Filtro</mat-label>
+            <input matInput (keyup)="applyFilter($event)" placeholder="Buscar" #input>
+          </mat-form-field>
+
+      </div>
+
+      <div class="col text-right">
 
         <button routerLink="papelera" type="button" class="btn btn-labeled btn-danger btnPapelera">
           <span class="btn-label"><i class="fa-solid fa-delete-left"></i></span>Papelera</button>
@@ -32,15 +37,12 @@
 
       </div>
       </div>
-    </div>
+      </div>
   <!--
   <div class="btnRegistrarUnidad"><button type="button" class="btnRegistrarUnidad">Unidad de negocio</button></div>
   -->
-  <div class="container text-left" id="horometro">
-    <div class="row">
-      <div class="col">
 
-  <h1 class="bitacora">
+  <h1 class="bitacora" id="horometro">
   <i class="fa-solid fa-clipboard-list" id="icon"></i>
   Bitácora
   <!--

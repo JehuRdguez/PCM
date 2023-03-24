@@ -260,4 +260,6 @@ export class BitacoraPapeleraComponent {
       window.open(url);
     }
   }
+
+  
 }
