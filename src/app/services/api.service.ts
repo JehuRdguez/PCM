@@ -91,6 +91,9 @@ postBitacora(data: any){
 getBitacora(){
   return this.http.get<any>("http://localhost:3000/bitacora");
 }
+getPapelera(){
+  return this.http.get<any>("http://localhost:3000/bitacora/papelera");
+}
 putBitacora(data: any, id: number){
   return this.http.put<any>("http://localhost:3000/bitacora/"+id, data);
 }

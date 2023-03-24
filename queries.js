@@ -23,6 +23,19 @@ const ObtencionRegistro = (request, response) => {
   );
 };
 
+const ObtencionPapelera = (request, response) => {
+  pool.query(
+    'SELECT * FROM bitacora WHERE estado = $1 ORDER BY ecodbitacora ASC',
+    ['0'],
+    (error, results) => {
+      if (error) {
+        throw error;
+      }
+      response.status(200).json(results.rows);
+    }
+  );
+};
+
 const ObtencionRegistroPorId = (request, response) => {
   const ecodbitacora = parseInt(request.params.id);
   pool.query(
@@ -1042,5 +1055,6 @@ module.exports = {
   crearUsuario,
   actualizarUsuario,
   eliminarUsuario,
-  bajaRegistro
+  bajaRegistro,
+  ObtencionPapelera
 };

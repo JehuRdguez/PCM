@@ -49,6 +49,7 @@ app.get('/',(request, response)=>{
 
 // metodos de la tabla bitacora
 app.get('/bitacora',db.ObtencionRegistro)
+app.get('/bitacora/papelera', db.ObtencionPapelera);
 app.get('/bitacora/:id',db.ObtencionRegistroPorId)
 app.post('/bitacora',db.crearRegistro)
 app.put('/bitacora/:id',db.actualizarRegistro)

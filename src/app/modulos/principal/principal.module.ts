@@ -68,6 +68,7 @@ import { BitacoravComponent } from './paginas/visitante/bitacorav/bitacorav.comp
 //import { DialogagregarequipoComponent } from './equipos/elementos/dialogagregarequipo/dialogagregarequipo.component';
 
 import { FormsModule } from '@angular/forms';
+import { BitacoraPapeleraComponent } from './paginas/admin/bitacora-papelera/bitacora-papelera.component';
 
 
 @NgModule({
@@ -99,7 +100,8 @@ import { FormsModule } from '@angular/forms';
     SemanalesFormComponent,
     ManpowerDetallesComponent,
     ManpowerFormComponent,
-    BitacoravComponent
+    BitacoravComponent,
+    BitacoraPapeleraComponent
     //ManpowerComponent,
     //KpisComponent,
     //DialoghoroRegistrarComponent,

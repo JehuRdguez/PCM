@@ -16,6 +16,7 @@ import { LoginComponent } from '../login/inicio/login/login.component';
 import { BitacoraComponent } from './paginas/admin/bitacora/bitacora.component';
 import { PermisosRutasService } from 'src/app/core/permisosRutas/permisos-rutas.service';
 import { BitacoravComponent } from './paginas/visitante/bitacorav/bitacorav.component';
+import { BitacoraPapeleraComponent } from './paginas/admin/bitacora-papelera/bitacora-papelera.component';
 
 const rutas: Routes = [
   {path:'', component:LoginComponent},
@@ -29,11 +30,7 @@ const rutas: Routes = [
     {path:'bitacora', component: BitacoraComponent},
     {path:'manpower', component: ManpowerComponent},
     {path:'kpis', component: KpisComponent},
-    //{path:'equipos', component: EquiposComponent},
-    //{path:'valorequipos', component: ValorequiposComponent},
-    //{path:'checklist', component:ChecklistComponent},
-    //{path:'disponibilidaddiaria', component: DisponibilidaddiariaComponent}
-
+    {path:'bitacora/papelera', component: BitacoraPapeleraComponent},
   ]
 },
 {path:'visitante',  component: PrincipalComponent, canActivate: [PermisosRutasService], 
