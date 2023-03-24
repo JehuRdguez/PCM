@@ -50,7 +50,7 @@ export class BitacoravComponent {
           this.dataSource.sort = this.sort;
         },
         error: (err) => {
-          alert("Error en la obtención de datos")
+          alert("Error en la obtención de datos.")
         }
       })
   }
@@ -76,7 +76,7 @@ export class BitacoravComponent {
     if (confirmacion == true) {
       this.api.patchBitacora(id, "0").subscribe({
         next: (res) => {
-          alert("Registo de la bitácora eliminado")
+          alert("Registo de la bitácora eliminado.")
           this.getAllBitacora();
         },
         error: () => {
@@ -293,4 +293,9 @@ export class BitacoravComponent {
       }
     }
   }
+
+  limpiar() {
+    location.reload();
+  }
+
 }

@@ -69,11 +69,11 @@ export class LoginComponent implements OnInit{
             const url = userData.ttipousuario === 'Administrador' ? '/administrador/bitacora' : '/visitante/bitacora';
             this.routerprd.navigateByUrl(url);
           } else {
-            alert('Contraseña incorrecta');
+            alert('Contraseña incorrecta.');
           }
         },
         error: () => {
-          alert('Usuario no encontrado');
+          alert('Usuario no encontrado.');
         },
       });
     } else {

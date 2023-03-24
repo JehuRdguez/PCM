@@ -69,6 +69,7 @@ import { BitacoravComponent } from './paginas/visitante/bitacorav/bitacorav.comp
 
 import { FormsModule } from '@angular/forms';
 import { BitacoraPapeleraComponent } from './paginas/admin/bitacora-papelera/bitacora-papelera.component';
+import {MatTooltipModule} from '@angular/material/tooltip';
 
 
 @NgModule({
@@ -139,7 +140,8 @@ import { BitacoraPapeleraComponent } from './paginas/admin/bitacora-papelera/bit
     ReactiveFormsModule,
     NgChartsModule,
     MatCardModule,
-    FormsModule
+    FormsModule,
+    MatTooltipModule
   ],
   exports: [
     DashboardComponent,

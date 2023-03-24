@@ -20,10 +20,14 @@
           <mat-date-range-picker #picker></mat-date-range-picker>
         </mat-form-field>
 
-          <mat-form-field class="filtro" style="width: 25%; border-radius: 10px; margin-left: 10px;" class="side">
+          <mat-form-field class="filtro" style="width: 25%; border-radius: 10px; margin-left: 10px; margin-right: 10px;" class="side">
             <mat-label>Filtro</mat-label>
             <input matInput (keyup)="applyFilter($event)" placeholder="Buscar" #input>
           </mat-form-field>
+
+          <button type="button" matTooltip="Limpiar filtros"  matTooltipPosition="after" class="btn btn-secondary" (click)="limpiar()">
+            <i class="fa-solid fa-eraser"></i>
+          </button>
 
       </div>
       </div>

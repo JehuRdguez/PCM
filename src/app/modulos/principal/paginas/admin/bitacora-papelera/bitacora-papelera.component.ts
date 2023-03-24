@@ -50,7 +50,7 @@ export class BitacoraPapeleraComponent {
           this.dataSource.sort = this.sort;
         },
         error: (err) => {
-          alert("Error en la obtención de datos")
+          alert("Error en la obtención de datos.")
         }
       })
   }
@@ -75,7 +75,7 @@ export class BitacoraPapeleraComponent {
     if (confirmacion == true) {
       this.api.patchBitacora(id, "1").subscribe({
         next: (res) => {
-          alert("El registro ha sido recuperado ")
+          alert("El registro ha sido recuperado.")
           this.getAllBitacora();
         },
         error: () => {
@@ -294,5 +294,7 @@ export class BitacoraPapeleraComponent {
     }
   }
 
-  
+  limpiar() {
+    location.reload();
+  }
 }
