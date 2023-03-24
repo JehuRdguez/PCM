@@ -9,6 +9,15 @@
     <button type="button" class="btn btn-labeled btn-primary btnRegistrar" (click)="openDialogRegistrar()">
     <span class="btn-label"><i class="fa-solid fa-plus"></i></span>Registrar</button>
   </div>
+  <mat-form-field appearance="fill">
+    <mat-label>Enter a date range</mat-label>
+    <mat-date-range-input [rangePicker]="picker">
+      <input matStartDate (dateChange)="applyStartDateFilter($event)" placeholder="Start date">
+      <input matEndDate (dateChange)="applyEndDateFilter($event)"  placeholder="End date">
+    </mat-date-range-input>
+    <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-date-range-picker #picker></mat-date-range-picker>
+  </mat-form-field>
 
       <div><a routerLink="papelera" type="button" >Papelera</a></div>
 
@@ -19,12 +28,12 @@
   <h1 style="text-align: star;" id="horometro">
   <i class="fa-solid fa-clipboard-list" id="icon"></i>
   Bitácora
-  
+  <!--
   <mat-form-field class="filtro" style="width:20%; border-radius: 10px; margin-top: 20px; justify-content: left; text-align: left; left: 100%; margin-left: 63%;">
     <mat-label>Filtro</mat-label>
     <input matInput (keyup)="applyFilter($event)" placeholder="Ex. ium" #input>
   </mat-form-field>
-
+-->
 </h1>
   <div class="mat-elevation-z8">
 

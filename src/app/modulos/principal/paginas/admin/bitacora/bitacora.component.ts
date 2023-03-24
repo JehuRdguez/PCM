@@ -6,6 +6,8 @@ import { MatTableDataSource } from '@angular/material/table';
 import { ApiService } from 'src/app/services/api.service';
 import { BitacoraFormComponent } from './elementos/bitacoraform/bitacoraform.component';
 import { DetallesBitacoraComponent } from './elementos/bitacoradetalles/bitacoradetalles.component';
+import { MatDatepickerInputEvent } from '@angular/material/datepicker';
+
 
 import jsPDF from 'jspdf';
 import autoTable from 'jspdf-autotable';
@@ -19,6 +21,9 @@ export class BitacoraComponent {
   title = 'PlanMant'
   displayedColumns: string[] = ['tunidad', 'ttiporeporte', 'tcaptura', 'tunidadnegocios', 'fhfecha', 'tdescripcion', 'acciones'];
   dataSource!: MatTableDataSource<any>;
+  startDate: Date = new Date();
+  endDate: Date = new Date();
+  filasOriginales: Array<any> = [];
 
   @ViewChild(MatPaginator, { static: true }) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
@@ -48,6 +53,7 @@ export class BitacoraComponent {
     this.api.getBitacora()
       .subscribe({
         next: (res) => {
+          this.filasOriginales = res;
           this.dataSource = new MatTableDataSource(res);
           this.dataSource.paginator = this.paginator;
           this.dataSource.sort = this.sort;
@@ -108,14 +114,14 @@ export class BitacoraComponent {
       }
     })
   }
-  applyFilter(event: Event) {
+  /*applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
 
     if (this.dataSource.paginator) {
       this.dataSource.paginator.firstPage();
     }
-  }
+  }*/
   generarPDF(bitacora: any) {
     const doc = new jsPDF();
 
@@ -156,10 +162,10 @@ export class BitacoraComponent {
 
       doc.setFont("helvetica");
       doc.setFontSize(18);
-      doc.text('Reporte de incidencias', doc.internal.pageSize.width / 2, 20, {align: 'center'});
+      doc.text('Reporte de incidencias', doc.internal.pageSize.width / 2, 20, { align: 'center' });
       doc.setFontSize(12);
       doc.text('Creación:' + dateString, 150, 10);
-      doc.text('Código:'+ data.ecodbitacora.toString() + '-' + data.tunidad, 165, 20);
+      doc.text('Código:' + data.ecodbitacora.toString() + '-' + data.tunidad, 165, 20);
 
       const tableHeight = 120; // Altura estimada de una fila de la tabla
 
@@ -213,7 +219,7 @@ export class BitacoraComponent {
 
       doc.addImage(img, 'PNG', 20, 142, imgWidth, imgHeight);
       doc.setFontSize(18);
-      doc.text('Reporte de incidencias', doc.internal.pageSize.width / 2, 160, {align: 'center'});
+      doc.text('Reporte de incidencias', doc.internal.pageSize.width / 2, 160, { align: 'center' });
       doc.setFontSize(12);
       doc.text('Creación:' + dateString, 150, 150);
       doc.text('Código:' + data.ecodbitacora.toString() + '-' + data.tunidad, 165, 160);
@@ -269,6 +275,40 @@ export class BitacoraComponent {
       const blob = new Blob([array], { type: "application/pdf" });
       const url = URL.createObjectURL(blob);
       window.open(url);
+    }
+  }
+  applyFilter(event: Event) {
+    const filterValue = (event.target as HTMLInputElement).value;
+    this.dataSource.filter = filterValue.trim().toLowerCase();
+
+    if (this.dataSource.paginator) {
+      this.dataSource.paginator.firstPage();
+    }
+  }
+
+  applyStartDateFilter(event: MatDatepickerInputEvent<Date>) {
+    if (!event.value) return;
+
+    this.startDate = event.value;
+  }
+
+  applyEndDateFilter(event: MatDatepickerInputEvent<Date>) {
+    if (!event.value) return;
+
+    this.endDate = event.value;
+
+    if (this.startDate && this.endDate) {
+      const filtrados = this.filasOriginales.filter((fila) => {
+        const fecha = Date.parse(fila.fhfecha)
+
+        return fecha >= this.startDate.getTime() && fecha <= this.endDate.getTime();
+      })
+
+      this.dataSource.data = filtrados;
+
+      if (this.dataSource.paginator) {
+        this.dataSource.paginator.firstPage();
+      }
     }
   }
 }
