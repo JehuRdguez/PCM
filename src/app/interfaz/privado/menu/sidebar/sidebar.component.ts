@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { SidebarService } from '../../servicios/sidebar.service';
 
@@ -31,5 +31,5 @@ export class SidebarComponent implements OnInit {
     }).join(''));
     return JSON.parse(jsonPayload);
   }
-
+  
 }
