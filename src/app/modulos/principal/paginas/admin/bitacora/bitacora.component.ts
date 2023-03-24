@@ -198,7 +198,7 @@ export class BitacoraComponent {
         body: [
           [data.tdescripcion, data.tefectosfalla]
         ],
-        startY: tableY + 40 // Agregar la tabla debajo de la primera tabla
+        startY: tableY + 50 // Agregar la tabla debajo de la primera tabla
       })
 
       // Agregar línea para la parte de la firma
@@ -250,7 +250,7 @@ export class BitacoraComponent {
         body: [
           [data.tdescripcion, data.tefectosfalla]
         ],
-        startY: tableY + 180 // Agregar la tabla debajo de la primera tabla
+        startY: tableY + 190 // Agregar la tabla debajo de la primera tabla
       })
 
       // Agregar línea para la parte de la firma
