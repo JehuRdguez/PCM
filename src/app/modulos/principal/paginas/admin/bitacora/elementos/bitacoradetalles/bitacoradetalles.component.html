@@ -1,46 +1,75 @@
-<h1 mat-dialog-title>Detalles</h1>
+<h1 mat-dialog-title class="text"><b>Detalles</b></h1>
 <div mat-dialog-content>
   <form [formGroup]="BitacoraForm">
     <br>
-    <mat-form-field appearance="outline">
-      <mat-label>Disponibilidad</mat-label>
-      <input formControlName="tdisponibilidad" type="text" matInput>
-    </mat-form-field>
+    <div class="container text-left" id="horometro">
+      <div class="row">
+        <div class="col">
 
-    <mat-form-field appearance="outline">
-      <mat-label>Efectos de falla</mat-label>
-      <input formControlName="tefectosfalla" type="text" matInput>
-    </mat-form-field>
+          <mat-form-field appearance="outline">
+            <mat-label>Disponibilidad</mat-label>
+            <input formControlName="tdisponibilidad" type="text" [readonly]="true" matInput>
+          </mat-form-field>
 
-    <mat-form-field appearance="outline">
-      <mat-label>Piezas utilizadas</mat-label>
-      <input formControlName="tpiezasutilizadas" type="text" matInput>
-    </mat-form-field>
+          </div>
+          <div class="col">
 
-    <mat-form-field appearance="outline">
-      <mat-label>Técnico</mat-label>
-      <input formControlName="ttecnico" type="text" matInput>
-    </mat-form-field>
+            <mat-form-field appearance="outline">
+              <mat-label>Efectos de falla</mat-label>
+              <input formControlName="tefectosfalla" type="text" [readonly]="true" matInput>
+            </mat-form-field>
 
-    <mat-form-field appearance="outline">
-      <mat-label>Supervisor</mat-label>
-      <input formControlName="tsupervisor" type="text" matInput>
-    </mat-form-field>
+          </div>
+          <div class="col">
 
-    <mat-form-field appearance="outline">
-      <mat-label>Sistema</mat-label>
-      <input formControlName="tsistema" type="text" matInput>
-    </mat-form-field>
+            <mat-form-field appearance="outline">
+              <mat-label>Piezas utilizadas</mat-label>
+              <input formControlName="tpiezasutilizadas" type="text" [readonly]="true" matInput>
+            </mat-form-field>
 
-    <mat-form-field appearance="outline">
-      <mat-label>Subsistema</mat-label>
-      <input formControlName="tsubsistema" type="text" matInput>
-    </mat-form-field>
+          </div>
+          <div class="col">
 
-    <mat-form-field appearance="outline">
-      <mat-label>Turno</mat-label>
-      <input formControlName="tturno" type="text" matInput>
-    </mat-form-field>
+            <mat-form-field appearance="outline">
+              <mat-label>Técnico</mat-label>
+              <input formControlName="ttecnico" type="text" [readonly]="true" matInput>
+            </mat-form-field>
+
+          </div>
+          <div class="col">
+
+            <mat-form-field appearance="outline">
+              <mat-label>Supervisor</mat-label>
+              <input formControlName="tsupervisor" type="text" [readonly]="true" matInput>
+            </mat-form-field>
+
+          </div>
+          <div class="col">
+
+            <mat-form-field appearance="outline">
+              <mat-label>Sistema</mat-label>
+              <input formControlName="tsistema" type="text" [readonly]="true" matInput>
+            </mat-form-field>
+
+          </div>
+          <div class="col">
+
+            <mat-form-field appearance="outline">
+              <mat-label>Subsistema</mat-label>
+              <input formControlName="tsubsistema" type="text" [readonly]="true" matInput>
+            </mat-form-field>
+            
+          </div>
+          <div class="col">
+
+            <mat-form-field appearance="outline">
+              <mat-label>Turno</mat-label>
+              <input formControlName="tturno" type="text" [readonly]="true" matInput>
+            </mat-form-field>
+            
+          </div>
+        </div>
+      </div>
 
   </form>
 </div>

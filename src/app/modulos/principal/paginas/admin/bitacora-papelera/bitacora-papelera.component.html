@@ -21,16 +21,26 @@
   <div class="btnRegistrarUnidad"><button type="button" class="btnRegistrarUnidad">Unidad de negocio</button></div>
   -->
 
-  <h1 style="text-align: star;" id="horometro">
+  <div class="container text-left" id="horometro">
+    <div class="row">
+      <div class="col">
+
+  <h1 class="bitacora">
   <i class="fa-solid fa-clipboard-list" id="icon"></i>
   Bitácora
-  
-  <mat-form-field class="filtro" style="width:20%; border-radius: 10px; margin-top: 20px; justify-content: left; text-align: left; left: 100%; margin-left: 63%;">
+</h1>
+  </div>
+  <div class="col text-right">
+  <mat-form-field class="filtro" style="width:30%; border-radius: 10px; margin-top: 20px;">
     <mat-label>Filtro</mat-label>
-    <input matInput (keyup)="applyFilter($event)" placeholder="Ex. ium" #input>
+    <input matInput (keyup)="applyFilter($event)" placeholder="Buscar" #input>
   </mat-form-field>
 
-</h1>
+
+      </div>
+    </div>
+  </div>
+  
   <div class="mat-elevation-z8">
 
     <table mat-table [dataSource]="dataSource" matSort>
@@ -98,7 +108,7 @@
 
       <!-- Row shown when there is no matching data. -->
       <tr class="mat-row" *matNoDataRow>
-        <td class="mat-cell" colspan="4">No hay datos</td>
+        <td class="mat-cell" colspan="4" style="text-align: right"><b>No hay datos</b></td>
       </tr>
     </table>
 

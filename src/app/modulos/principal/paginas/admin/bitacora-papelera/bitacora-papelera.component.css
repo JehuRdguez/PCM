@@ -2,6 +2,11 @@
     flex: 1 1 auto;
   }
 
+    .bitacora {
+    font-size: 45px;
+    margin-top: 20px;
+  }
+
   table {
     margin-top: -10px;
     width: 100%;
@@ -30,16 +35,9 @@
     align-content: center;
   }
 
-  .filtro {
-    background-color: none;
-    background: none;
-    border-radius: 5px;
-    width: 10%;
-  }
-
   #horometro {
     background-color: rgba(8, 109, 139, 0.959);
-    margin-top: 50px;
+    margin-top: 30px;
     width: 100%;
     color: white;
     border-radius: 5px;
@@ -50,8 +48,8 @@
     font-size: 20px;
     margin-right: 5px;
     color: #FFFFFF;
-    margin-bottom: 3px;
-    margin-top: 3px;
+    margin-bottom: 8px;
+    margin-top: 8px;
   }
 
   .container {
@@ -98,8 +96,4 @@
   .btn-labeled {
     padding-top: 0;
     padding-bottom: 0;
-  }
-  
-  .btn {
-    margin-bottom: 10px;
   }
