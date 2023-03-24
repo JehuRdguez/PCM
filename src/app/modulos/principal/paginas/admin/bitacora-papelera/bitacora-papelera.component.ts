@@ -65,16 +65,15 @@ export class BitacoraPapeleraComponent {
   }
 */
   deleteBitacora(id: number) {
-    var confirmacion = confirm("¿Está seguro que desea eliminar el registro?");
+    var confirmacion = confirm("¿Desea recuperar este registro?");
     if (confirmacion == true) {
-      this.api.patchBitacora(id, "0").subscribe({
+      this.api.patchBitacora(id, "1").subscribe({
         next: (res) => {
-          alert("Bitacora eliminado!!")
+          alert("El registro ha sido recuperado ")
           this.getAllBitacora();
-          alert("LLEGO AL FINAL")
         },
         error: () => {
-          alert("Error!!!")
+          alert("¡Error!")
         }
       })
     }

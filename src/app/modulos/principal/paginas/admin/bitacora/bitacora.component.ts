@@ -88,12 +88,11 @@ export class BitacoraComponent {
     if (confirmacion == true) {
       this.api.patchBitacora(id, "0").subscribe({
         next: (res) => {
-          alert("Bitacora eliminado!!")
+          alert("Registo de la bitácora eliminado")
           this.getAllBitacora();
-          alert("LLEGO AL FINAL")
         },
         error: () => {
-          alert("Error!!!")
+          alert("¡Error!")
         }
       })
     }

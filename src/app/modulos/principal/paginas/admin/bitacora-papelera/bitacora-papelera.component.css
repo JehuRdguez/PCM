@@ -1,248 +1,105 @@
-/*Phones*/
-@media only screen and (min-width: 600px) {
-    .example-spacer {
-      flex: 1 1 auto;
-    }
-  
-    table {
-      margin-top: -10px;
-      width: 100%;
-    }
-  
-    .mat-column-tdescripcion{
-      word-wrap: break-word !important;
-      white-space: unset !important;
-      flex: 0 0 28% !important;
-      width: 28% !important;
-      overflow-wrap: break-word;
-      word-wrap: break-word;
-  
-      word-break: break-word;
-  
-      -ms-hyphens: auto;
-      -moz-hyphens: auto;
-      -webkit-hyphens: auto;
-      hyphens: auto;
-    }
-  
-    .mat-column-acciones{
-      text-align: center;
-      justify-content: center;
-      align-items: center;
-      align-content: center;
-    }
-  
-    .filtro {
-      background-color: none;
-      background: none;
-      border-radius: 5px;
-      width: 10%;
-    }
-  
-    #horometro {
-      background-color: rgba(8, 109, 139, 0.959);
-      margin-top: 50px;
-      width: 100%;
-      color: white;
-      border-radius: 5px;
-      font-family: 'Rokkitt', serif;
-    }
-  
-    .btn {
-      color: white;
-    }
-  
-    .container {
-      font-family: 'Rokkitt', serif;
-    }
-  
-    .mat-mdc-form-field {
-      font-size: 14px;
-      width: 100%;
-    }
-  
-    .fond-2 {
-      color: white ;
-    }
-  
-    #icon{
-      margin-left: 10px;
-      font-size: 35px;
-      margin-bottom: 5px;
-      margin-top: 5px;
-    }
-  
-    .btnRegistrar {
-      background-color: rgb(31, 41, 63);
-      width: 150px;
-      position: absolute;
-      left: 72%;
-      border-radius: 8px;
-      color: white;
-    }
-  
-    .btnRegistrarUnidad {
-      background-color: rgb(31, 41, 63);
-      width: 200px;
-      position: absolute;
-      color: white;
-      border-radius: 8px;
-    }
+.example-spacer {
+    flex: 1 1 auto;
+  }
+
+  table {
+    margin-top: -10px;
+    width: 100%;
+  }
+
+  .mat-column-tdescripcion{
+    word-wrap: break-word !important;
+    white-space: unset !important;
+    flex: 0 0 28% !important;
+    width: 28% !important;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+
+    word-break: break-word;
+
+    -ms-hyphens: auto;
+    -moz-hyphens: auto;
+    -webkit-hyphens: auto;
+    hyphens: auto;
+  }
+
+  .mat-column-acciones{
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+  }
+
+  .filtro {
+    background-color: none;
+    background: none;
+    border-radius: 5px;
+    width: 10%;
+  }
+
+  #horometro {
+    background-color: rgba(8, 109, 139, 0.959);
+    margin-top: 50px;
+    width: 100%;
+    color: white;
+    border-radius: 5px;
+    font-family: 'Rokkitt', serif;
+  }
+
+  .btn {
+    font-size: 20px;
+    margin-right: 5px;
+    color: #FFFFFF;
+    margin-bottom: 3px;
+    margin-top: 3px;
+  }
+
+  .container {
+    font-family: 'Rokkitt', serif;
+  }
+
+  .mat-mdc-form-field {
+    font-size: 14px;
+    width: 100%;
+  }
+
+  .fond-2 {
+    color: white ;
+  }
+
+  #icon{
+    margin-left: 10px;
+    font-size: 35px;
+    margin-bottom: 5px;
+    margin-top: 5px;
+  }
+
+  .btnRegistrar {
+    margin-left: 88%;
+  }
+
+  /*.btnRegistrarUnidad {
+    background-color: rgb(31, 41, 63);
+    width: 200px;
+    position: absolute;
+    color: white;
+    border-radius: 8px;
+  }*/
+
+  .btn-label {
+    position: relative;
+    left: -12px;
+    display: inline-block;
+    padding: 6px 12px;
+    background: rgba(0, 0, 0, 0.15);
+    border-radius: 3px 0 0 3px;
   }
   
-  /*Tablet*/
-  @media only screen and (min-width: 768px) {
-    .example-spacer {
-      flex: 1 1 auto;
-    }
-  
-    table {
-      margin-top: -10px;
-      width: 100%;
-    }
-  
-    .mat-column-tdescripcion{
-      word-wrap: break-word !important;
-      white-space: unset !important;
-      flex: 0 0 28% !important;
-      width: 28% !important;
-      overflow-wrap: break-word;
-      word-wrap: break-word;
-  
-      word-break: break-word;
-  
-      -ms-hyphens: auto;
-      -moz-hyphens: auto;
-      -webkit-hyphens: auto;
-      hyphens: auto;
-    }
-  
-    .filtro {
-      background-color: none;
-      background: none;
-      border-radius: 5px;
-      width: 10%;
-    }
-  
-    #horometro {
-      background-color: rgba(8, 109, 139, 0.959);
-      margin-top: 50px;
-      width: 100%;
-      color: white;
-      border-radius: 5px;
-      font-family: 'Rokkitt', serif;
-    }
-  
-    .container {
-      font-family: 'Rokkitt', serif;
-    }
-  
-    .mat-mdc-form-field {
-      font-size: 14px;
-      width: 100%;
-    }
-  
-    #icon{
-      margin-left: 10px;
-      font-size: 35px;
-      margin-bottom: 5px;
-      margin-top: 5px;
-    }
-  
-    .btnRegistrar {
-      background-color: rgb(31, 41, 63);
-      width: 150px;
-      position: absolute;
-      left: 72%;
-      border-radius: 8px;
-      color: white;
-    }
-  
-    .btnRegistrarUnidad {
-      background-color: rgb(31, 41, 63);
-      width: 200px;
-      position: absolute;
-      color: white;
-      border-radius: 8px;
-    }
+  .btn-labeled {
+    padding-top: 0;
+    padding-bottom: 0;
   }
   
-  /*Desktop*/
-  @media only screen and (min-width: 1200px) {
-    .example-spacer {
-      flex: 1 1 auto;
-    }
-  
-    table {
-      margin-top: -10px;
-      width: 100%;
-    }
-  
-    .mat-column-tdescripcion{
-      word-wrap: break-word !important;
-      white-space: unset !important;
-      flex: 0 0 28% !important;
-      width: 28% !important;
-      overflow-wrap: break-word;
-      word-wrap: break-word;
-  
-      word-break: break-word;
-  
-      -ms-hyphens: auto;
-      -moz-hyphens: auto;
-      -webkit-hyphens: auto;
-      hyphens: auto;
-    }
-  
-    .filtro {
-      background-color: none;
-      background: none;
-      border-radius: 5px;
-      width: 10%;
-      text-align: left;
-      left: 100%;
-    }
-  
-    #horometro {
-      background-color: rgba(8, 109, 139, 0.959);
-      margin-top: 50px;
-      width: 100%;
-      color: white;
-      border-radius: 5px;
-      font-family: 'Rokkitt', serif;
-    }
-  
-    .container {
-      font-family: 'Rokkitt', serif;
-    }
-  
-    .mat-mdc-form-field {
-      font-size: 14px;
-      width: 100%;
-    }
-  
-    #icon{
-      margin-left: 10px;
-      font-size: 35px;
-      margin-bottom: 5px;
-      margin-top: 5px;
-    }
-  
-    .btnRegistrar {
-      background-color: rgb(31, 41, 63);
-      width: 150px;
-      position: absolute;
-      left: 72%;
-      border-radius: 8px;
-      color: white;
-    }
-  
-    .btnRegistrarUnidad {
-      background-color: rgb(31, 41, 63);
-      width: 200px;
-      position: absolute;
-      color: white;
-      border-radius: 8px;
-    }
+  .btn {
+    margin-bottom: 10px;
   }
-  

@@ -1,11 +1,13 @@
-<br>
+  <br>
 &nbsp;&nbsp;&nbsp;&nbsp;
 <div class="container">
   <div class="text">
     <h3><b>Registros</b> | <span>Consulta de bitácora</span></h3>
   </div>
   <br>
-      <div><a routerLink="../../bitacora" type="button" >Regresar</a></div>
+
+
+  <div><a routerLink="../../bitacora" type="button" >Regresar</a></div>
 
   <!--
   <div class="btnRegistrarUnidad"><button type="button" class="btnRegistrarUnidad">Unidad de negocio</button></div>
@@ -68,25 +70,17 @@
         <td mat-cell *matCellDef="let row">
           <!--
           <button (click)="editBitacora(row)" mat-icon-button>
-            <div class="fond-1">
               <i class="fa-solid fa-pen-to-square" style="color: #17aa43;"></i>
-            </div>
           </button>
           -->
           <button mat-icon-button class="btn btn-danger" (click)="deleteBitacora(row.ecodbitacora)">
-            <div class="fond-2">
               <i class="fa-solid fa-trash"></i>
-            </div>
           </button>
-          <button mat-icon-button class="btn btn-warning" (click)="getBitacoraByid(row)">
-            <div class="fond-3">
+          <button mat-icon-button class="btn btn-success" (click)="getBitacoraByid(row)">
               <i class="fa-solid fa-file-circle-question"></i>
-            </div>
           </button>
           <button mat-icon-button class="btn btn-primary" (click)="generarPDF(row)">
-            <div class="fond-4">
             <i class="fa-solid fa-file-pdf"></i>
-            </div>
           </button>
         </td>
       </ng-container>
