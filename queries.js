@@ -12,7 +12,8 @@ const pool = new Pool({
 //api de bitacora
 const ObtencionRegistro = (request, response) => {
   pool.query(
-    'SELECT * FROM bitacora ORDER BY ecodbitacora ASC',
+    'SELECT * FROM bitacora WHERE estado = $1 ORDER BY ecodbitacora ASC',
+    ['1'],
     (error, results) => {
       if (error) {
         throw error;
@@ -53,10 +54,11 @@ const crearRegistro = (request, response) => {
     tsupervisor,
     tturno,
     tefectosfalla,
+    estado
   } = request.body;
 
   pool.query(
-    'INSERT INTO bitacora ( "tunidad", "tunidadnegocios", "tcaptura", "tdescripcion", "ttiporeporte", "fhfecha", "tpiezasutilizadas", "tdisponibilidad", "tsistema", "tsubsistema", "ttecnico", "tsupervisor", "tturno", "tefectosfalla")VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13,$14) RETURNING * ',
+    'INSERT INTO bitacora ( "tunidad", "tunidadnegocios", "tcaptura", "tdescripcion", "ttiporeporte", "fhfecha", "tpiezasutilizadas", "tdisponibilidad", "tsistema", "tsubsistema", "ttecnico", "tsupervisor", "tturno", "tefectosfalla", "estado")VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13,$14,$15) RETURNING * ',
     [
       tunidad,
       tunidadnegocios,
@@ -72,6 +74,7 @@ const crearRegistro = (request, response) => {
       tsupervisor,
       tturno,
       tefectosfalla,
+      estado
     ],
     (error, result) => {
       if (error) {
@@ -99,9 +102,10 @@ const actualizarRegistro = (request, response) => {
     tsupervisor,
     tturno,
     tefectosfalla,
+    estado
   } = request.body;
   pool.query(
-    "UPDATE bitacora SET tunidad = $1, tunidadnegocios = $2, tcaptura  = $3, tdescripcion = $4, ttiporeporte = $5, fhfecha = $6, tpiezasutilizadas = $7, tdisponibilidad = $8, tsistema = $9, tsubsistema = $10, ttecnico = $11,tsupervisor = $12,tturno = $13, tefectosfalla = $14 WHERE ecodbitacora = $15 RETURNING * ",
+    "UPDATE bitacora SET tunidad = $1, tunidadnegocios = $2, tcaptura  = $3, tdescripcion = $4, ttiporeporte = $5, fhfecha = $6, tpiezasutilizadas = $7, tdisponibilidad = $8, tsistema = $9, tsubsistema = $10, ttecnico = $11,tsupervisor = $12,tturno = $13, tefectosfalla = $14, estado = $15 WHERE ecodbitacora = $16 RETURNING * ",
     [
       tunidad,
       tunidadnegocios,
@@ -118,12 +122,28 @@ const actualizarRegistro = (request, response) => {
       tturno,
       tefectosfalla,
       ecodbitacora,
+      estado
     ],
     (error, result) => {
       if (error) {
         throw error;
       }
       response.status(200).send(result);
+    }
+  );
+};
+
+const bajaRegistro = (request, response) => {
+  const { id } = request.params;
+  const { estado } = request.body;
+  pool.query(
+    "UPDATE bitacora SET estado = $1 WHERE ecodbitacora = $2 RETURNING * ",
+    [estado, id],
+    (error, result) => {
+      if (error) {
+        throw error;
+      }
+      response.status(200).send(result.rows[0]);
     }
   );
 };
@@ -1021,5 +1041,6 @@ module.exports = {
   getUsuarioPorId,
   crearUsuario,
   actualizarUsuario,
-  eliminarUsuario
+  eliminarUsuario,
+  bajaRegistro
 };
