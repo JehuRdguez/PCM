@@ -6,16 +6,36 @@
   </div>
   <br>
 
-  <div class="container text-right">
+  <div class="container">
     <div class="row">
-      <div class="col">
+      <div class="col text-left">
+        
+        <mat-form-field appearance="fill" style="width:48%; border-radius: 10px;">
+          <mat-label>Ingrese un rango de fechas</mat-label>
+          <mat-date-range-input [rangePicker]="picker">
+            <input matStartDate (dateChange)="applyStartDateFilter($event)" placeholder="Fecha de inicio">
+            <input matEndDate (dateChange)="applyEndDateFilter($event)"  placeholder="Fecha final">
+          </mat-date-range-input>
+          <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-date-range-picker #picker></mat-date-range-picker>
+        </mat-form-field>
 
-        <button type="button" class="btn btn-labeled btn-primary" routerLink="../../bitacora">
-          <span class="btn-label"><i class="fa-solid fa-rotate-left"></i></span>Regresar</button>
+          <mat-form-field class="filtro" style="width:48%; border-radius: 10px; margin-left: 10px;" class="side">
+            <mat-label>Filtro</mat-label>
+            <input matInput (keyup)="applyFilter($event)" placeholder="Buscar" #input>
+          </mat-form-field>
 
       </div>
-    </div>
-  </div>
+
+      <div class="col text-right">
+
+        <button type="button" class="btn btn-labeled btn-primary" routerLink="../../bitacora">
+            <span class="btn-label"><i class="fa-solid fa-rotate-left"></i></span>Regresar</button>
+
+      </div>
+      </div>
+      </div>
+
 
   
   <!--

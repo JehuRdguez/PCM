@@ -5,6 +5,8 @@ import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { ApiService } from 'src/app/services/api.service';
 import { DetallesBitacoraComponent } from '../bitacora/elementos/bitacoradetalles/bitacoradetalles.component';
+import { MatDatepickerInputEvent } from '@angular/material/datepicker';
+
 
 import jsPDF from 'jspdf';
 import autoTable from 'jspdf-autotable';
@@ -18,6 +20,9 @@ export class BitacoraPapeleraComponent {
   title = 'PlanMant'
   displayedColumns: string[] = ['tunidad', 'ttiporeporte', 'tcaptura', 'tunidadnegocios', 'fhfecha', 'tdescripcion', 'acciones'];
   dataSource!: MatTableDataSource<any>;
+  startDate: Date = new Date();
+  endDate: Date = new Date();
+  filasOriginales: Array<any> = [];
 
   @ViewChild(MatPaginator, { static: true }) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
@@ -39,6 +44,7 @@ export class BitacoraPapeleraComponent {
     this.api.getPapelera()
       .subscribe({
         next: (res) => {
+          this.filasOriginales = res;
           this.dataSource = new MatTableDataSource(res);
           this.dataSource.paginator = this.paginator;
           this.dataSource.sort = this.sort;
@@ -97,6 +103,33 @@ export class BitacoraPapeleraComponent {
       this.dataSource.paginator.firstPage();
     }
   }
+
+  applyStartDateFilter(event: MatDatepickerInputEvent<Date>) {
+    if (!event.value) return;
+
+    this.startDate = event.value;
+  }
+
+  applyEndDateFilter(event: MatDatepickerInputEvent<Date>) {
+    if (!event.value) return;
+
+    this.endDate = event.value;
+
+    if (this.startDate && this.endDate) {
+      const filtrados = this.filasOriginales.filter((fila) => {
+        const fecha = Date.parse(fila.fhfecha)
+
+        return fecha >= this.startDate.getTime() && fecha <= this.endDate.getTime();
+      })
+
+      this.dataSource.data = filtrados;
+
+      if (this.dataSource.paginator) {
+        this.dataSource.paginator.firstPage();
+      }
+    }
+  }
+
   generarPDF(bitacora: any) {
     const doc = new jsPDF();
 
