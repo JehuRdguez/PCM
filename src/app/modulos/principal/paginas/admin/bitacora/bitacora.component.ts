@@ -159,12 +159,8 @@ export class BitacoraComponent {
       doc.setFontSize(18);
       doc.text('Reporte de incidencias', doc.internal.pageSize.width / 2, 20, {align: 'center'});
       doc.setFontSize(12);
-      doc.text('Creación: ', 150, 10);
-      doc.text(dateString, 170, 10);
-      doc.text('Id:', 165, 20);
-      doc.text(data.tunidad, 170, 20);
-      doc.text('-', 183, 20);
-      doc.text(data.ecodbitacora.toString(), 185, 20);
+      doc.text('Creación:' + dateString, 150, 10);
+      doc.text('Código:'+ data.ecodbitacora.toString() + '-' + data.tunidad, 165, 20);
 
       const tableHeight = 120; // Altura estimada de una fila de la tabla
 
@@ -220,12 +216,8 @@ export class BitacoraComponent {
       doc.setFontSize(18);
       doc.text('Reporte de incidencias', doc.internal.pageSize.width / 2, 160, {align: 'center'});
       doc.setFontSize(12);
-      doc.text('Creación: ', 150, 150);
-      doc.text(dateString, 170, 150);
-      doc.text('Id:', 165, 160);
-      doc.text(data.tunidad, 170, 160);
-      doc.text('-', 183, 160);
-      doc.text(data.ecodbitacora.toString(), 185, 160);
+      doc.text('Creación:' + dateString, 150, 150);
+      doc.text('Código:' + data.ecodbitacora.toString() + '-' + data.tunidad, 165, 160);
 
       autoTable(doc, {
         headStyles: { fillColor: [0, 0, 0] },
