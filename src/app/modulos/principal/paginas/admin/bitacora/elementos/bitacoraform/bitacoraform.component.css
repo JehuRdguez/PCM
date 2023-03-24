@@ -19,3 +19,8 @@
 mat-form-field{
     width: 100%;
 }
+
+.text {
+    font-family: 'Rokkitt', serif;
+    font-size: 30px;
+}
