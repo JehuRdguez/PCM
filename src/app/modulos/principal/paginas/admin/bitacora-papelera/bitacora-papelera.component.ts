@@ -192,7 +192,7 @@ export class BitacoraPapeleraComponent {
       autoTable(doc, {
         headStyles: { fillColor: [0, 0, 0] },
         theme: 'grid',
-        head: [['Disponibilidad', 'Piezas utilizadas', 'Tecnico', 'Supervisor', 'Sistema', 'Subsistema']],
+        head: [['Disponibilidad', 'Piezas utilizadas', 'Técnico', 'Supervisor', 'Sistema', 'Subsistema']],
         body: [
           [data.tdisponibilidad, data.tpiezasutilizadas, data.ttecnico, data.tsupervisor, data.tsistema, data.tsubsistema]
         ],
@@ -253,7 +253,7 @@ export class BitacoraPapeleraComponent {
       autoTable(doc, {
         headStyles: { fillColor: [0, 0, 0] },
         theme: 'grid',
-        head: [['Disponibilidad', 'Piezas utilizadas', 'Tecnico', 'Supervisor', 'Sistema', 'Subsistema']],
+        head: [['Disponibilidad', 'Piezas utilizadas', 'Técnico', 'Supervisor', 'Sistema', 'Subsistema']],
         body: [
           [data.tdisponibilidad, data.tpiezasutilizadas, data.ttecnico, data.tsupervisor, data.tsistema, data.tsubsistema]
         ],
