@@ -106,7 +106,7 @@ export class BitacoravComponent {
   }*/
   generarPDF(bitacora: any) {
     const doc = new jsPDF();
-
+    const fecha = isNaN(Date.parse(bitacora.fhfecha)) ? '' : new Date(bitacora.fhfecha).toLocaleDateString();
 
     const data = {
       ecodbitacora: bitacora.ecodbitacora,
@@ -114,7 +114,7 @@ export class BitacoravComponent {
       ttiporeporte: bitacora.ttiporeporte,
       tcaptura: bitacora.tcaptura,
       tunidadnegocios: bitacora.tunidadnegocios,
-      fhfecha: bitacora.fhfecha,
+      fhfecha: fecha,
       tdescripcion: bitacora.tdescripcion,
       tdisponibilidad: bitacora.tdisponibilidad,
       tefectosfalla: bitacora.tefectosfalla,
@@ -180,15 +180,24 @@ export class BitacoravComponent {
         body: [
           [data.tdescripcion, data.tefectosfalla]
         ],
-        startY: tableY + 40 // Agregar la tabla debajo de la primera tabla
+        startY: tableY + 50 // Agregar la tabla debajo de la primera tabla
       })
 
-      // Agregar línea para la parte de la firma
-      doc.line(40, 130, 170, 130);
-      // Agregar texto indicando que el espacio es para firma y centrarlo
-      doc.text(data.tsupervisor, doc.internal.pageSize.width / 2, 135, { align: 'center' });
+      // Ajustar la posición X e Y del texto en relación con la línea
+      var textX3 = (30 + 90) / 2; // centro de la línea
+      var textY3 = 125 + 10; // debajo de la línea
+      var textX4 = (120 + 180) / 2; // centro de la línea
+      var textY4 = 125 + 10; // debajo de la línea
+
       doc.setFontSize(10);
-      doc.text('Supervisor', doc.internal.pageSize.width / 2, 140, { align: 'center' });
+
+      doc.line(30, 130, 90, 130);
+      doc.text('Juan de la Cruz Lopez Ochoa', textX3, textY3, { align: 'center' });
+      doc.text('Coordinador', textX3, textY3 + 5, { align: 'center' });
+
+      doc.line(120, 130, 180, 130);
+      doc.text(data.tsupervisor, textX4, textY4, { align: 'center' });
+      doc.text('Supervisor', textX4, textY4 + 5, { align: 'center' });
 
       const tableHeight2 = 100; // Altura estimada de una fila de la tabla
       const imgHeight2 = 40; // Altura de la imagen
@@ -232,15 +241,24 @@ export class BitacoravComponent {
         body: [
           [data.tdescripcion, data.tefectosfalla]
         ],
-        startY: tableY + 180 // Agregar la tabla debajo de la primera tabla
+        startY: tableY + 190 // Agregar la tabla debajo de la primera tabla
       })
 
-      // Agregar línea para la parte de la firma
-      doc.line(40, 270, 170, 270);
-      // Agregar texto indicando que el espacio es para firma y centrarlo
-      doc.text('Juan de la Cruz Lopez Ochoa', doc.internal.pageSize.width / 2, 280, { align: 'center' });
+      doc.line(30, 265, 90, 265);
+
+      // Ajustar la posición X e Y del texto en relación con la línea
+      var textX = (30 + 90) / 2; // centro de la línea
+      var textY = 260 + 10; // debajo de la línea
+      var textX2 = (120 + 180) / 2; // centro de la línea
+      var textY2 = 260 + 10; // debajo de la línea
+
       doc.setFontSize(10);
-      doc.text('Coordinador', doc.internal.pageSize.width / 2, 285, { align: 'center' });
+      doc.text('Juan de la Cruz Lopez Ochoa', textX, textY, { align: 'center' });
+      doc.text('Coordinador', textX, textY + 5, { align: 'center' });
+
+      doc.line(120, 265, 180, 265);
+      doc.text(data.tsupervisor, textX2, textY2, { align: 'center' });
+      doc.text('Supervisor', textX2, textY2 + 5, { align: 'center' });
 
 
 
