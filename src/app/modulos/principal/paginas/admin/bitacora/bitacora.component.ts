@@ -25,6 +25,10 @@ export class BitacoraComponent {
   endDate: Date = new Date();
   filasOriginales: Array<any> = [];
 
+  fechaInicioSeleccionada: boolean = false;
+  fechaFinalSeleccionada: boolean = false;
+  filtroClaveSeleccionado: boolean = false;
+
   @ViewChild(MatPaginator, { static: true }) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
 
@@ -290,6 +294,7 @@ export class BitacoraComponent {
     }
   }
   applyFilter(event: Event) {
+    this.filtroClaveSeleccionado = true;
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
 
@@ -299,12 +304,16 @@ export class BitacoraComponent {
   }
 
   applyStartDateFilter(event: MatDatepickerInputEvent<Date>) {
+    this.fechaInicioSeleccionada = true;
+
     if (!event.value) return;
 
     this.startDate = event.value;
   }
 
   applyEndDateFilter(event: MatDatepickerInputEvent<Date>) {
+    this.fechaFinalSeleccionada = true;
+
     if (!event.value) return;
 
     this.endDate = event.value;
@@ -328,6 +337,223 @@ export class BitacoraComponent {
     location.reload();
   }
 
+  generarInformes() {
+    const doc = new jsPDF();
+
+    if (this.fechaInicioSeleccionada && this.fechaFinalSeleccionada) {  //CONDICIONAL PARA CUANDO SE SELECCIONA EL RANGO DE FECHAS Y/O PALABRA CLAVE
+
+      const filterValue = this.dataSource.filter.trim().toLowerCase();
+      const filteredData = this.filasOriginales.filter((bitacora: any) => {
+        return bitacora.tunidad.toLowerCase().includes(filterValue) ||
+               bitacora.ttiporeporte.toLowerCase().includes(filterValue) ||
+               bitacora.tcaptura.toLowerCase().includes(filterValue) ||
+               bitacora.tunidadnegocios.toLowerCase().includes(filterValue) ||
+               bitacora.fhfecha.toLowerCase().includes(filterValue) ||
+               bitacora.tdescripcion.toLowerCase().includes(filterValue);
+      }).filter((bitacora: any) => {
+        const fecha = new Date(bitacora.fhfecha);
+        return fecha >= this.startDate && fecha <= this.endDate;
+      });
+
+
+      ////////////////////////////////////////////////////////////////////APARTIR DE AQUÍ ES PURO DISEÑO
+    
+      const tableHeight = 150;
+      const pageHeight = doc.internal.pageSize.getHeight();
+    
+      let currentY = 30;
+    
+      filteredData.forEach((bitacora: any, index: number) => {
+        if (currentY + tableHeight > pageHeight) {
+          doc.addPage();
+          currentY = 30;
+        }
+    
+        autoTable(doc, {
+          head: [['Unidad', 'Unidad de negocio', 'Tipo de reporte', 'Fecha', 'Turno', 'Capturista']],
+          body: [[
+            bitacora.tunidad,
+            bitacora.tunidadnegocios,
+            bitacora.ttiporeporte,
+            isNaN(Date.parse(bitacora.fhfecha)) ? '' : new Date(bitacora.fhfecha).toLocaleDateString(),
+            bitacora.tturno,
+            bitacora.tcaptura
+          ]],
+          startY: currentY
+        });
+    
+        autoTable(doc, {
+          head: [['Disponibilidad', 'Piezas utilizadas', 'Técnico', 'Supervisor', 'Sistema', 'Subsistema']],
+          body: [[
+            bitacora.tdisponibilidad,
+            bitacora.tpiezasutilizadas,
+            bitacora.ttecnico,
+            bitacora.tsupervisor,
+            bitacora.tsistema,
+            bitacora.tsubsistema
+          ]],
+          startY: currentY + 20
+        });
+
+        autoTable(doc, {
+          head: [['Descripción', 'Efectos de falla']],
+          body: [[
+            bitacora.tdescripcion,
+            bitacora.tefectosfalla,
+          ]],
+          startY: currentY + 50
+        });
+    
+        currentY += tableHeight;
+      });
+
+
+
+  } else if (this.filtroClaveSeleccionado){     //CONDICIONAL PARA CUANDO SE SELECCIONA SOLO PALABRA CLAVE
+
+
+    const filterValue = this.dataSource.filter.trim().toLowerCase();
+    const filteredData = this.filasOriginales.filter((bitacora: any) => {
+      return bitacora.tunidad.toLowerCase().includes(filterValue) ||
+             bitacora.ttiporeporte.toLowerCase().includes(filterValue) ||
+             bitacora.tcaptura.toLowerCase().includes(filterValue) ||
+             bitacora.tunidadnegocios.toLowerCase().includes(filterValue) ||
+             bitacora.tdescripcion.toLowerCase().includes(filterValue);
+    })
+
+    ////////////////////////////////////////////////////////////////////APARTIR DE AQUÍ ES PURO DISEÑO
+
+    
+    const tableHeight = 150;
+    const pageHeight = doc.internal.pageSize.getHeight();
+  
+    let currentY = 30;
+  
+    filteredData.forEach((bitacora: any, index: number) => {
+      if (currentY + tableHeight > pageHeight) {
+        doc.addPage();
+        currentY = 30;
+      }
+  
+      autoTable(doc, {
+        head: [['Unidad', 'Unidad de negocio', 'Tipo de reporte', 'Fecha', 'Turno', 'Capturista']],
+        body: [[
+          bitacora.tunidad,
+          bitacora.tunidadnegocios,
+          bitacora.ttiporeporte,
+          isNaN(Date.parse(bitacora.fhfecha)) ? '' : new Date(bitacora.fhfecha).toLocaleDateString(),
+          bitacora.tturno,
+          bitacora.tcaptura
+        ]],
+        startY: currentY
+      });
+  
+      autoTable(doc, {
+        head: [['Disponibilidad', 'Piezas utilizadas', 'Técnico', 'Supervisor', 'Sistema', 'Subsistema']],
+        body: [[
+          bitacora.tdisponibilidad,
+          bitacora.tpiezasutilizadas,
+          bitacora.ttecnico,
+          bitacora.tsupervisor,
+          bitacora.tsistema,
+          bitacora.tsubsistema
+        ]],
+        startY: currentY + 20
+      });
+
+      autoTable(doc, {
+        head: [['Descripción', 'Efectos de falla']],
+        body: [[
+          bitacora.tdescripcion,
+          bitacora.tefectosfalla,
+        ]],
+        startY: currentY + 50
+      });
+  
+      currentY += tableHeight;
+    });
+
+
+  } else {     //CONDICIONAL PARA CUANDO NO HAY FILTROS SELECCIONADOS
+
+
+    const data = this.filasOriginales.filter((bitacora: any) => {
+      return bitacora.tunidad.toLowerCase() ||
+             bitacora.ttiporeporte.toLowerCase() ||
+             bitacora.tcaptura.toLowerCase()||
+             bitacora.tunidadnegocios.toLowerCase() ||
+             bitacora.tdescripcion.toLowerCase();
+    })
+
+      ////////////////////////////////////////////////////////////////////APARTIR DE AQUÍ ES PURO DISEÑO
+
+
+    const tableHeight = 150;
+    const pageHeight = doc.internal.pageSize.getHeight();
+  
+    let currentY = 30;
+  
+    data.forEach((bitacora: any, index: number) => {
+      if (currentY + tableHeight > pageHeight) {
+        doc.addPage();
+        currentY = 30;
+      }
+  
+      autoTable(doc, {
+        head: [['Unidad', 'Unidad de negocio', 'Tipo de reporte', 'Fecha', 'Turno', 'Capturista']],
+        body: [[
+          bitacora.tunidad,
+          bitacora.tunidadnegocios,
+          bitacora.ttiporeporte,
+          isNaN(Date.parse(bitacora.fhfecha)) ? '' : new Date(bitacora.fhfecha).toLocaleDateString(),
+          bitacora.tturno,
+          bitacora.tcaptura
+        ]],
+        startY: currentY
+      });
+  
+      autoTable(doc, {
+        head: [['Disponibilidad', 'Piezas utilizadas', 'Técnico', 'Supervisor', 'Sistema', 'Subsistema']],
+        body: [[
+          bitacora.tdisponibilidad,
+          bitacora.tpiezasutilizadas,
+          bitacora.ttecnico,
+          bitacora.tsupervisor,
+          bitacora.tsistema,
+          bitacora.tsubsistema
+        ]],
+        startY: currentY + 20
+      });
+
+      autoTable(doc, {
+        head: [['Descripción', 'Efectos de falla']],
+        body: [[
+          bitacora.tdescripcion,
+          bitacora.tefectosfalla,
+        ]],
+        startY: currentY + 50
+      });
+  
+      currentY += tableHeight;
+    });
+
+  }
+
+    const pdfOutput = doc.output();
+    const buffer = new ArrayBuffer(pdfOutput.length);
+    const array = new Uint8Array(buffer);
+    for (let i = 0; i < pdfOutput.length; i++) {
+      array[i] = pdfOutput.charCodeAt(i);
+    }
+    const blob = new Blob([array], { type: "application/pdf" });
+    const url = URL.createObjectURL(blob);
+    window.open(url);
+  }
+}
+
+
+
+/* FUNCIÓN ORIGINAL
   generarInformes() {
     const doc = new jsPDF();
     const data: any[][] = [];
@@ -360,4 +586,5 @@ export class BitacoraComponent {
     const url = URL.createObjectURL(blob);
     window.open(url);
   }
-}
+
+*/
