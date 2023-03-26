@@ -404,7 +404,8 @@ export class BitacoraComponent {
           startY: currentY + 50
         });
     
-        currentY += tableHeight;
+        currentY += tableHeight; // SALTO DE PÁGINA COMPLETA DESPUÉS DE ÚLTIMO REGISTRO
+        //currentY += 110; // SALTO DE MEDIA PÁGINA DESPUÉS DE ÚLTIMO REGISTRO
       });
 
 
@@ -470,7 +471,8 @@ export class BitacoraComponent {
         startY: currentY + 50
       });
   
-      currentY += tableHeight;
+      currentY += tableHeight; // SALTO DE PÁGINA COMPLETA DESPUÉS DE ÚLTIMO REGISTRO
+      //currentY += 110; // SALTO DE MEDIA PÁGINA DESPUÉS DE ÚLTIMO REGISTRO
     });
 
 
@@ -534,7 +536,9 @@ export class BitacoraComponent {
         startY: currentY + 50
       });
   
-      currentY += tableHeight;
+      currentY += tableHeight; // SALTO DE PÁGINA COMPLETA DESPUÉS DE ÚLTIMO REGISTRO
+      //currentY += 110; // SALTO DE MEDIA PÁGINA DESPUÉS DE ÚLTIMO REGISTRO
+
     });
 
   }
