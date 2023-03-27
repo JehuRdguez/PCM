@@ -12,6 +12,8 @@ import { MatDatepickerInputEvent } from '@angular/material/datepicker';
 import jsPDF from 'jspdf';
 import autoTable from 'jspdf-autotable';
 
+
+
 @Component({
   selector: 'app-bitacora',
   templateUrl: './bitacora.component.html',
@@ -24,6 +26,7 @@ export class BitacoraComponent {
   startDate: Date = new Date();
   endDate: Date = new Date();
   filasOriginales: Array<any> = [];
+  public objetounico: any = {};
 
   fechaInicioSeleccionada: boolean = false;
   fechaFinalSeleccionada: boolean = false;
@@ -43,7 +46,22 @@ export class BitacoraComponent {
       const end = (page + 1) * pageSize;
       return `${start} - ${end} de ${lenght}`;
     }
+    
+    let token = sessionStorage.getItem("token") as string;
+    this.objetounico = this.decodificarJwt(token);
+
   }
+
+  private decodificarJwt(token: string): any {
+    var base64Url = token.split('.')[1];
+    var base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+    var jsonPayload = decodeURIComponent(window.atob(base64).split('').map(function (c) {
+      return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
+    }).join(''));
+
+    return JSON.parse(jsonPayload);
+  }
+
   openDialogRegistrar() {
     this.dialog.open(BitacoraFormComponent, {
       width: '30%'
@@ -160,20 +178,25 @@ export class BitacoraComponent {
 
       const date = new Date();
       const day = date.getDate();
-      const month = date.getMonth() + 1; // Los meses comienzan en 0, así que sumamos 1
+      const month = date.getMonth() + 1; 
       const year = date.getFullYear();
       const dateString = `${day}/${month}/${year}`;
+
+      const hora = date.getHours();
+      const min = date.getMinutes();
+      const seg = date.getSeconds();
+  
+      var cod = `${day}${month}${year}`;
 
       doc.setFont("helvetica");
       doc.setFontSize(18);
       doc.text('Reporte de incidencias', doc.internal.pageSize.width / 2, 20, { align: 'center' });
       doc.setFontSize(12);
       doc.text('Creación:' + dateString, 150, 10);
-      doc.text('Código:' + data.ecodbitacora.toString() + '-' + data.tunidad, 150, 20);
+      doc.text('Código: ' + cod + '-' + data.tunidad, 150, 20);
 
-      const tableHeight = 120; // Altura estimada de una fila de la tabla
+      const tableHeight = 120; 
 
-      // Calcular la posición en la que se debe agregar la tabla
       const tableY = (doc.internal.pageSize.getHeight() - (2 * tableHeight)) / 2;
 
       autoTable(doc, {
@@ -183,7 +206,7 @@ export class BitacoraComponent {
         body: [
           [data.tunidad, data.tunidadnegocios, data.ttiporeporte, data.fhfecha, data.tturno, data.tcaptura]
         ],
-        startY: tableY + 0// Agregar la tabla en la posición calculada
+        startY: tableY + 0
       })
       autoTable(doc, {
         headStyles: { fillColor: [0, 0, 0] },
@@ -192,7 +215,7 @@ export class BitacoraComponent {
         body: [
           [data.tdisponibilidad, data.tpiezasutilizadas, data.ttecnico, data.tsupervisor, data.tsistema, data.tsubsistema]
         ],
-        startY: tableY + 20 // Agregar la tabla debajo de la segunda tabla
+        startY: tableY + 20 
       })
 
       autoTable(doc, {
@@ -202,14 +225,13 @@ export class BitacoraComponent {
         body: [
           [data.tdescripcion, data.tefectosfalla]
         ],
-        startY: tableY + 50 // Agregar la tabla debajo de la primera tabla
+        startY: tableY + 50
       })
 
-      // Ajustar la posición X e Y del texto en relación con la línea
-      var textX3 = (30 + 90) / 2; // centro de la línea
-      var textY3 = 125 + 10; // debajo de la línea
-      var textX4 = (120 + 180) / 2; // centro de la línea
-      var textY4 = 125 + 10; // debajo de la línea
+      var textX3 = (30 + 90) / 2; 
+      var textY3 = 125 + 10; 
+      var textX4 = (120 + 180) / 2; 
+      var textY4 = 125 + 10; 
 
       doc.setFontSize(10);
 
@@ -235,7 +257,7 @@ export class BitacoraComponent {
       doc.text('Reporte de incidencias', doc.internal.pageSize.width / 2, 160, { align: 'center' });
       doc.setFontSize(12);
       doc.text('Creación:' + dateString, 150, 150);
-      doc.text('Código:' + data.ecodbitacora.toString() + '-' + data.tunidad, 150, 160);
+      doc.text('Código: ' + cod + '-' + data.tunidad, 150, 160);
 
       autoTable(doc, {
         headStyles: { fillColor: [0, 0, 0] },
@@ -339,6 +361,7 @@ export class BitacoraComponent {
 
   generarInformes() {
     const doc = new jsPDF();
+    let pageCount = 1;
 
     if (this.fechaInicioSeleccionada && this.fechaFinalSeleccionada) {  //CONDICIONAL PARA CUANDO SE SELECCIONA EL RANGO DE FECHAS Y/O PALABRA CLAVE
 
@@ -358,18 +381,52 @@ export class BitacoraComponent {
 
       ////////////////////////////////////////////////////////////////////APARTIR DE AQUÍ ES PURO DISEÑO
     
-      const tableHeight = 150;
+      const tableHeight = 110;
       const pageHeight = doc.internal.pageSize.getHeight();
     
-      let currentY = 30;
+      let currentY = 50;
     
       filteredData.forEach((bitacora: any, index: number) => {
         if (currentY + tableHeight > pageHeight) {
           doc.addPage();
-          currentY = 30;
+          pageCount = pageCount + 1;
+          currentY = 50;
         }
+  
+        const img = new Image();
+        img.src = '../../../../../assets/dist/img/CIMA.png';
     
+          const imgWidth = 35;
+          const imgHeight = 35;
+          const docWidth = doc.internal.pageSize.width;
+          const x = (docWidth - imgWidth) / 2;
+          doc.addImage(img, 'PNG', 25, 7, imgWidth, imgHeight);
+    
+          const date = new Date();
+          const day = date.getDate();
+          const month = date.getMonth() + 1; // Los meses comienzan en 0, así que sumamos 1
+          const year = date.getFullYear();
+          const dateString = `${day}/${month}/${year}`;
+    
+          const hora = date.getHours();
+          const min = date.getMinutes();
+          const seg = date.getSeconds();
+    
+          var cod = `${day}${month}${year}-${hora}${min}${seg}`;
+    
+          var pagina = doc.getNumberOfPages();
+  
+  
+          doc.setFont("helvetica");
+          doc.setFontSize(18);
+          doc.text('Informe de incidencias', doc.internal.pageSize.width / 2, 27, { align: 'center' });
+          doc.setFontSize(12);
+          doc.text('Creación: ' + dateString, 150, 17);
+          doc.text('Código: ' + cod, 150, 27);
+  
         autoTable(doc, {
+          headStyles: { fillColor: [0, 0, 0] },
+          theme: 'grid',
           head: [['Unidad', 'Unidad de negocio', 'Tipo de reporte', 'Fecha', 'Turno', 'Capturista']],
           body: [[
             bitacora.tunidad,
@@ -383,6 +440,8 @@ export class BitacoraComponent {
         });
     
         autoTable(doc, {
+          headStyles: { fillColor: [0, 0, 0] },
+          theme: 'grid',
           head: [['Disponibilidad', 'Piezas utilizadas', 'Técnico', 'Supervisor', 'Sistema', 'Subsistema']],
           body: [[
             bitacora.tdisponibilidad,
@@ -394,8 +453,10 @@ export class BitacoraComponent {
           ]],
           startY: currentY + 20
         });
-
+  
         autoTable(doc, {
+          headStyles: { fillColor: [0, 0, 0] },
+          theme: 'grid',
           head: [['Descripción', 'Efectos de falla']],
           body: [[
             bitacora.tdescripcion,
@@ -403,9 +464,20 @@ export class BitacoraComponent {
           ]],
           startY: currentY + 50
         });
+  
+        /*
+        const tableHeight2 = 110; 
+        const imgHeight2 = 25; 
+        const imgMarginTop = 5;
+        const lineY = imgHeight2 + imgMarginTop + tableHeight2;
+        const lineX1 = doc.internal.pageSize.width / 6; 
+        const lineX2 = doc.internal.pageSize.width / 6 * 5; 
+        doc.line(lineX1, lineY, lineX2, lineY);
+        */
     
-        currentY += tableHeight; // SALTO DE PÁGINA COMPLETA DESPUÉS DE ÚLTIMO REGISTRO
+        currentY += 105; // SALTO DE PÁGINA COMPLETA DESPUÉS DE ÚLTIMO REGISTRO
         //currentY += 110; // SALTO DE MEDIA PÁGINA DESPUÉS DE ÚLTIMO REGISTRO
+  
       });
 
 
@@ -424,19 +496,52 @@ export class BitacoraComponent {
 
     ////////////////////////////////////////////////////////////////////APARTIR DE AQUÍ ES PURO DISEÑO
 
-    
-    const tableHeight = 150;
+    const tableHeight = 110;
     const pageHeight = doc.internal.pageSize.getHeight();
   
-    let currentY = 30;
+    let currentY = 50;
   
     filteredData.forEach((bitacora: any, index: number) => {
       if (currentY + tableHeight > pageHeight) {
         doc.addPage();
-        currentY = 30;
+        pageCount = pageCount + 1;
+        currentY = 50;
       }
+
+      const img = new Image();
+      img.src = '../../../../../assets/dist/img/CIMA.png';
   
+        const imgWidth = 35;
+        const imgHeight = 35;
+        const docWidth = doc.internal.pageSize.width;
+        const x = (docWidth - imgWidth) / 2;
+        doc.addImage(img, 'PNG', 25, 7, imgWidth, imgHeight);
+  
+        const date = new Date();
+        const day = date.getDate();
+        const month = date.getMonth() + 1; // Los meses comienzan en 0, así que sumamos 1
+        const year = date.getFullYear();
+        const dateString = `${day}/${month}/${year}`;
+  
+        const hora = date.getHours();
+        const min = date.getMinutes();
+        const seg = date.getSeconds();
+  
+        var cod = `${day}${month}${year}-${hora}${min}${seg}`;
+  
+        var pagina = doc.getNumberOfPages();
+
+
+        doc.setFont("helvetica");
+        doc.setFontSize(18);
+        doc.text('Informe de incidencias', doc.internal.pageSize.width / 2, 27, { align: 'center' });
+        doc.setFontSize(12);
+        doc.text('Creación: ' + dateString, 150, 17);
+        doc.text('Código: ' + cod, 150, 27);
+
       autoTable(doc, {
+        headStyles: { fillColor: [0, 0, 0] },
+        theme: 'grid',
         head: [['Unidad', 'Unidad de negocio', 'Tipo de reporte', 'Fecha', 'Turno', 'Capturista']],
         body: [[
           bitacora.tunidad,
@@ -450,6 +555,8 @@ export class BitacoraComponent {
       });
   
       autoTable(doc, {
+        headStyles: { fillColor: [0, 0, 0] },
+        theme: 'grid',
         head: [['Disponibilidad', 'Piezas utilizadas', 'Técnico', 'Supervisor', 'Sistema', 'Subsistema']],
         body: [[
           bitacora.tdisponibilidad,
@@ -463,6 +570,8 @@ export class BitacoraComponent {
       });
 
       autoTable(doc, {
+        headStyles: { fillColor: [0, 0, 0] },
+        theme: 'grid',
         head: [['Descripción', 'Efectos de falla']],
         body: [[
           bitacora.tdescripcion,
@@ -470,9 +579,20 @@ export class BitacoraComponent {
         ]],
         startY: currentY + 50
       });
+
+      /*
+      const tableHeight2 = 110; 
+      const imgHeight2 = 25; 
+      const imgMarginTop = 5;
+      const lineY = imgHeight2 + imgMarginTop + tableHeight2;
+      const lineX1 = doc.internal.pageSize.width / 6; 
+      const lineX2 = doc.internal.pageSize.width / 6 * 5; 
+      doc.line(lineX1, lineY, lineX2, lineY);
+      */
   
-      currentY += tableHeight; // SALTO DE PÁGINA COMPLETA DESPUÉS DE ÚLTIMO REGISTRO
+      currentY += 105; // SALTO DE PÁGINA COMPLETA DESPUÉS DE ÚLTIMO REGISTRO
       //currentY += 110; // SALTO DE MEDIA PÁGINA DESPUÉS DE ÚLTIMO REGISTRO
+
     });
 
 
@@ -489,19 +609,54 @@ export class BitacoraComponent {
 
       ////////////////////////////////////////////////////////////////////APARTIR DE AQUÍ ES PURO DISEÑO
 
+      
 
-    const tableHeight = 150;
+    const tableHeight = 110;
     const pageHeight = doc.internal.pageSize.getHeight();
   
-    let currentY = 30;
+    let currentY = 50;
   
     data.forEach((bitacora: any, index: number) => {
       if (currentY + tableHeight > pageHeight) {
         doc.addPage();
-        currentY = 30;
+        pageCount = pageCount + 1;
+        currentY = 50;
       }
+
+      const img = new Image();
+      img.src = '../../../../../assets/dist/img/CIMA.png';
   
+        const imgWidth = 35;
+        const imgHeight = 35;
+        const docWidth = doc.internal.pageSize.width;
+        const x = (docWidth - imgWidth) / 2;
+        doc.addImage(img, 'PNG', 25, 7, imgWidth, imgHeight);
+  
+        const date = new Date();
+        const day = date.getDate();
+        const month = date.getMonth() + 1; // Los meses comienzan en 0, así que sumamos 1
+        const year = date.getFullYear();
+        const dateString = `${day}/${month}/${year}`;
+  
+        const hora = date.getHours();
+        const min = date.getMinutes();
+        const seg = date.getSeconds();
+  
+        var cod = `${day}${month}${year}-${hora}${min}${seg}`;
+  
+        var pagina = doc.getNumberOfPages();
+
+
+        doc.setFont("helvetica");
+        doc.setFontSize(18);
+        doc.text('Informe de incidencias', doc.internal.pageSize.width / 2, 27, { align: 'center' });
+        doc.setFontSize(12);
+        doc.text('Creación: ' + dateString, 150, 17);
+        doc.text('Código: ' + cod, 150, 27);
+
       autoTable(doc, {
+        headStyles: { fillColor: [0, 0, 0] },
+        theme: 'grid',
         head: [['Unidad', 'Unidad de negocio', 'Tipo de reporte', 'Fecha', 'Turno', 'Capturista']],
         body: [[
           bitacora.tunidad,
@@ -515,6 +670,8 @@ export class BitacoraComponent {
       });
   
       autoTable(doc, {
+        headStyles: { fillColor: [0, 0, 0] },
+        theme: 'grid',
         head: [['Disponibilidad', 'Piezas utilizadas', 'Técnico', 'Supervisor', 'Sistema', 'Subsistema']],
         body: [[
           bitacora.tdisponibilidad,
@@ -528,6 +685,8 @@ export class BitacoraComponent {
       });
 
       autoTable(doc, {
+        headStyles: { fillColor: [0, 0, 0] },
+        theme: 'grid',
         head: [['Descripción', 'Efectos de falla']],
         body: [[
           bitacora.tdescripcion,
@@ -535,13 +694,45 @@ export class BitacoraComponent {
         ]],
         startY: currentY + 50
       });
+
+      /*
+      const tableHeight2 = 110; 
+      const imgHeight2 = 25; 
+      const imgMarginTop = 5;
+      const lineY = imgHeight2 + imgMarginTop + tableHeight2;
+      const lineX1 = doc.internal.pageSize.width / 6; 
+      const lineX2 = doc.internal.pageSize.width / 6 * 5; 
+      doc.line(lineX1, lineY, lineX2, lineY);
+      */
   
-      currentY += tableHeight; // SALTO DE PÁGINA COMPLETA DESPUÉS DE ÚLTIMO REGISTRO
+      currentY += 105; // SALTO DE PÁGINA COMPLETA DESPUÉS DE ÚLTIMO REGISTRO
       //currentY += 110; // SALTO DE MEDIA PÁGINA DESPUÉS DE ÚLTIMO REGISTRO
 
     });
 
   }
+  
+  for (let i = 1; i <= pageCount; i++) {
+    doc.setPage(i);
+    doc.text('Página ' + i + ' de ' + pageCount, 150, 37);
+  }
+
+  doc.line(30, 265, 90, 265);
+
+  // Ajustar la posición X e Y del texto en relación con la línea
+  var textX = (30 + 90) / 2; // centro de la línea
+  var textY = 260 + 10; // debajo de la línea
+  var textX2 = (120 + 180) / 2; // centro de la línea
+  var textY2 = 260 + 10; // debajo de la línea
+
+  doc.setFontSize(10);
+  doc.text('Juan de la Cruz Lopez Ochoa', textX, textY, { align: 'center' });
+  doc.text('Coordinador', textX, textY + 5, { align: 'center' });
+
+  doc.line(120, 265, 180, 265);
+  doc.text(this.objetounico.nombre, textX2, textY2, { align: 'center' });
+  doc.text('Supervisor', textX2, textY2 + 5, { align: 'center' });
+
 
     const pdfOutput = doc.output();
     const buffer = new ArrayBuffer(pdfOutput.length);
