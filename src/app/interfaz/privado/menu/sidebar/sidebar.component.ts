@@ -18,6 +18,9 @@ export class SidebarComponent implements OnInit {
    }
 
    ngOnInit(): void {
+
+    (<HTMLElement>document.querySelector('.e-resizable')).style.height = (window.innerHeight - 0) + 'px';   
+
     let token = sessionStorage.getItem("token") as string;
     this.objetounico = this.decodificarJwt(token);
     //console.log("OBJETO: ",this.objetounico);
