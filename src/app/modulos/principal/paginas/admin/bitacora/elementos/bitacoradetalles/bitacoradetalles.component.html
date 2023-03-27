@@ -7,18 +7,22 @@
       <div class="row">
         <div class="col">
 
-          <mat-form-field appearance="outline">
-            <mat-label>Disponibilidad</mat-label>
-            <input formControlName="tdisponibilidad" type="text" [readonly]="true" matInput>
-          </mat-form-field>
+          <mat-card>
+            <mat-card-title>Disponibilidad</mat-card-title>
+            <mat-card-content>
+              <p> {{this.detallesData.tdisponibilidad}} </p>
+            </mat-card-content>
+          </mat-card>
 
           </div>
           <div class="col">
 
-            <mat-form-field appearance="outline">
-              <mat-label>Turno</mat-label>
-              <input formControlName="tturno" type="text" [readonly]="true" matInput>
-            </mat-form-field>
+            <mat-card>
+              <mat-card-title>Turno</mat-card-title>
+              <mat-card-content>
+                <p> {{this.detallesData.tturno}} </p>
+              </mat-card-content>
+            </mat-card>
 
           </div>
       </div>
@@ -27,18 +31,22 @@
       <div class="row">
         <div class="col">
 
-            <mat-form-field appearance="outline">
-              <mat-label>Piezas utilizadas</mat-label>
-              <input formControlName="tpiezasutilizadas" type="text" [readonly]="true" matInput>
-            </mat-form-field>
+          <mat-card>
+            <mat-card-title>Piezas utilizadas</mat-card-title>
+            <mat-card-content>
+              <p> {{this.detallesData.tpiezasutilizadas}} </p>
+            </mat-card-content>
+          </mat-card>
 
           </div>
           <div class="col">
 
-            <mat-form-field appearance="outline">
-              <mat-label>Técnico</mat-label>
-              <input formControlName="ttecnico" type="text" [readonly]="true" matInput>
-            </mat-form-field>
+            <mat-card>
+              <mat-card-title>Técnico</mat-card-title>
+              <mat-card-content>
+                <p> {{this.detallesData.ttecnico}} </p>
+              </mat-card-content>
+            </mat-card>
 
           </div>
       </div>
@@ -47,18 +55,22 @@
       <div class="row">
         <div class="col">
 
-            <mat-form-field appearance="outline">
-              <mat-label>Supervisor</mat-label>
-              <input formControlName="tsupervisor" type="text" [readonly]="true" matInput>
-            </mat-form-field>
+          <mat-card>
+            <mat-card-title>Supervisor</mat-card-title>
+            <mat-card-content>
+              <p> {{this.detallesData.tsupervisor}} </p>
+            </mat-card-content>
+          </mat-card>
 
           </div>
           <div class="col">
 
-            <mat-form-field appearance="outline">
-              <mat-label>Sistema</mat-label>
-              <input formControlName="tsistema" type="text" [readonly]="true" matInput>
-            </mat-form-field>
+            <mat-card>
+              <mat-card-title>Sistema</mat-card-title>
+              <mat-card-content>
+                <p formControlName="tsistema"> {{this.detallesData.tsistema}} </p>
+              </mat-card-content>
+            </mat-card>
 
           </div>
       </div>
@@ -67,18 +79,22 @@
       <div class="row">
         <div class="col">
 
-            <mat-form-field appearance="outline">
-              <mat-label>Subsistema</mat-label>
-              <input formControlName="tsubsistema" type="text" [readonly]="true" matInput>
-            </mat-form-field>
+          <mat-card>
+            <mat-card-title>Subsistema</mat-card-title>
+            <mat-card-content>
+              <p> {{this.detallesData.tsubsistema}} </p>
+            </mat-card-content>
+          </mat-card>
             
           </div>
           <div class="col">
 
-            <mat-form-field appearance="outline">
-              <mat-label>Efectos de falla</mat-label>
-              <textarea formControlName="tefectosfalla" type="text" [readonly]="true" matInput></textarea>
-            </mat-form-field>
+            <mat-card class="detalles">
+              <mat-card-title>Efectos de falla</mat-card-title>
+              <mat-card-content>
+                <p> {{this.detallesData.tefectosfalla}} </p>
+              </mat-card-content>
+            </mat-card>
             
           </div>
         </div>
