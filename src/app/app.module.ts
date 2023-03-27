@@ -64,7 +64,6 @@ export function tokenGetter() {
     MatMenuModule,
     MatSidenavModule,
     NgChartsModule,
-    LoginModule,
     PrincipalModule,
 
   ],

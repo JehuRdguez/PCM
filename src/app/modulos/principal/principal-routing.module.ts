@@ -18,24 +18,26 @@ import { PermisosRutasService } from 'src/app/core/permisosRutas/permisos-rutas.
 import { BitacoravComponent } from './paginas/visitante/bitacorav/bitacorav.component';
 import { BitacoraPapeleraComponent } from './paginas/admin/bitacora-papelera/bitacora-papelera.component';
 
+
+
 const rutas: Routes = [
   {path:'', component:LoginComponent},
-  {path:'administrador',  component: PrincipalComponent, canActivate: [PermisosRutasService], 
+  {path:'administrador',  component: PrincipalComponent, canActivate: [PermisosRutasService], data : {expectedRole :'Administrador'}, 
   children:[
     {path:'dashboard', component: DashboardComponent},
     {path:'administrador', component: DashboardComponent},
     {path:'horometros', component: HorometrosComponent},
     {path:'preventivos', component: PreventivosComponent},
     {path:'semanales', component: SemanalesComponent},
-    {path:'bitacora', component: BitacoraComponent},
+    {path:'bitacora', component: BitacoraComponent}, 
     {path:'manpower', component: ManpowerComponent},
     {path:'kpis', component: KpisComponent},
     {path:'bitacora/papelera', component: BitacoraPapeleraComponent},
   ]
 },
-{path:'visitante',  component: PrincipalComponent, canActivate: [PermisosRutasService], 
+{path:'visitante',  component: PrincipalComponent, canActivate: [PermisosRutasService], data : {expectedRole :'Visitante'}, 
   children:[
-    {path:'bitacora', component: BitacoravComponent},
+    {path:'bitacorav', component: BitacoravComponent},
   ]
 },
 ];

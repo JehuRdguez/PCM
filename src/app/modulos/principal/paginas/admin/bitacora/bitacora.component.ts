@@ -11,6 +11,7 @@ import { MatDatepickerInputEvent } from '@angular/material/datepicker';
 
 import jsPDF from 'jspdf';
 import autoTable from 'jspdf-autotable';
+import { PermisosRutasService } from 'src/app/core/permisosRutas/permisos-rutas.service';
 
 
 
@@ -35,7 +36,7 @@ export class BitacoraComponent {
   @ViewChild(MatPaginator, { static: true }) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
 
-  constructor(public dialog: MatDialog, private api: ApiService) { }
+  constructor(public dialog: MatDialog, private api: ApiService, private seg: PermisosRutasService) { }
   ngOnInit(): void {
     this.getAllBitacora();
     //paginator
@@ -49,7 +50,6 @@ export class BitacoraComponent {
     
     let token = sessionStorage.getItem("token") as string;
     this.objetounico = this.decodificarJwt(token);
-
   }
 
   private decodificarJwt(token: string): any {
@@ -71,6 +71,8 @@ export class BitacoraComponent {
       }
     });
   }
+
+
   getAllBitacora() {
     this.api.getBitacora()
       .subscribe({

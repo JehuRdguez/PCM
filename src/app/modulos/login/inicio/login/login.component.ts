@@ -4,6 +4,7 @@ import {FormBuilder,FormGroup, Validators} from '@angular/forms'
 import { Router } from '@angular/router';
 import { AutentificacionService } from 'src/app/autentificacion/autentificacion.service';
 import * as CryptoJS from 'crypto-js';
+import { PermisosRutasService } from 'src/app/core/permisosRutas/permisos-rutas.service';
 
 @Component({
   selector: 'app-login',
@@ -26,7 +27,7 @@ export class LoginComponent implements OnInit{
   public myForm!:FormGroup;
 
   constructor(private fb:FormBuilder, private loginPrd:AutentificacionService,
-    private routerprd:Router, private http:HttpClient){
+    private routerprd:Router, private http:HttpClient, private seg: PermisosRutasService){
       this.formLogin = fb.group({
         enumtrabajador:['',[Validators.required]],
         tcontra:['',[Validators.required]]
@@ -66,8 +67,15 @@ export class LoginComponent implements OnInit{
             console.log('token', token);
             sessionStorage.setItem('token', JSON.stringify(token));
 
-            const url = userData.ttipousuario === 'Administrador' ? '/administrador/bitacora' : '/visitante/bitacora';
+            const url = userData.ttipousuario === 'Administrador' ? '/administrador/bitacora' : '/visitante/bitacorav';
             this.routerprd.navigateByUrl(url);
+
+            if (userData.ttipousuario == 'Administrador'){
+              this.seg.tipodeusuario2(userData.ttipousuario);
+            } else if(userData.ttipousuario == 'Visitante'){
+              this.seg.tipodeusuario2(userData.ttipousuario);
+            }
+
           } else {
             alert('Contraseña incorrecta.');
           }
