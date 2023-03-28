@@ -1,34 +1,43 @@
+/* Estilos base */
+
 .nav {
     color: white;
     background-color: #0E1527;
     justify-content: center;
-}
-.CIMALogin {
+    }
+    
+    .CIMALogin {
     width: 100%;
     height: 100%;
-    position:fixed;
+    position: fixed;
     object-fit: cover;
-}
-.text {
+    }
+    
+    .text {
     margin-top: 15px;
-}
-.CIMANoLetters {
+    }
+    
+    .CIMANoLetters {
     margin-top: 15px;
     width: 25px;
     height: 20px;
     justify-content: center;
-}
-.col {
-    position:relative;
-}
-.container {
+    }
+    
+    .col {
+    position: relative;
+    }
+    
+    .container {
     text-align: center;
-}
-.CIMA {
+    }
+    
+    .CIMA {
     width: 50%;
     height: 80%;
-}
-.glassmorfism {
+    }
+    
+    .glassmorfism {
     margin-top: 2em;
     padding: 3em;
     width: 100%;
@@ -38,20 +47,54 @@
     box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
     backdrop-filter: blur(2px);
     border: 1px solid rgba(255, 255, 255, 0.18);
-}
-.mb-3 {
+    }
+    
+    .mb-3 {
     text-align: center;
-}
-.slogan {
+    }
+    
+    .slogan {
     font-family: 'Rokkitt', serif;
     color: #36499b;
     text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
     font-size: 50px;
-}
-.title{
+    }
+    
+    .title {
     font-family: 'Rokkitt', serif;
     justify-content: center;
     text-align: center;
     text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
     font-size: 40px;
+    }
+    
+    /* Estilos para pantallas de tamaño medio */
+    
+    @media (max-width: 768px) {
+    .CIMA {
+    width: 80%;
+    }
+    .glassmorfism {
+        padding: 2em;
+        font-size: 16px;
+    }
+    
+    .title {
+        font-size: 30px;
+    }
+}
+
+/* Estilos para pantallas pequeñas */
+
+@media (max-width: 576px) {
+.CIMA {
+width: 100%;
+}
+.slogan {
+    font-size: 30px;
+}
+
+.title {
+    font-size: 25px;
+}
 }

@@ -1,4 +1,4 @@
-import { NgModule, Component } from '@angular/core';
+import { NgModule, Component, LOCALE_ID } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { LoginModule } from './modulos/login/login.module';
 import { PrincipalModule } from './modulos/principal/principal.module';
@@ -31,6 +31,10 @@ import { DashboardComponent } from './modulos/principal/paginas/admin/dashboard/
 
 // CONTROL EQUIPOS DIALOGOS
 import { FormComponent } from './components/form/form.component';
+
+//IDIOMA
+import localeEs from '@angular/common/locales/es';
+import { registerLocaleData } from '@angular/common';
 
 export function tokenGetter() {
   return localStorage.getItem("access_token");
@@ -67,7 +71,13 @@ export function tokenGetter() {
     PrincipalModule,
 
   ],
-  providers: [],
+  providers: [
+    { provide: LOCALE_ID, useValue: 'es' }
+  ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+  constructor() {
+    registerLocaleData(localeEs);
+  }
+}
