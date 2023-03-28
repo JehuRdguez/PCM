@@ -1,244 +1,57 @@
-/*Phones*/
-@media only screen and (min-width: 600px) {
-
-  .nav {
-      color: white;
-      background-color: #0E1527;
-      justify-content: center;
-  }
-  .CIMALogin {
-      width: 100%;
-      height: 100%;
-      position:fixed;
-      object-fit: cover;
-  }
-  .text {
-      margin-top: 15px;
-  }
-  .CIMANoLetters {
-      margin-top: 15px;
-      width: 25px;
-      height: 20px;
-      justify-content: center;
-  }
-  .col {
-      position:relative;
-  }
-  .container {
-      text-align: center;
-      justify-content: center;
-      align-items: center;
-  }
-  .CIMA {
-      width: 0%;
-      height: 0%;
-  }
-  .glassmorfism {
-      margin-top: 2em;
-      padding: 3em;
-      width: 100%;
-      position: absolute;
-      border-radius: 10px;
-      background: rgba(255, 255, 255, 0.30);
-      box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-      backdrop-filter: blur(2px);
-      border: 1px solid rgba(255, 255, 255, 0.18);
-  }
-  .mb-3 {
-      text-align: center;
-  }
-  .slogan {
-      font-size: 0px;
-  }
-  .title{
-      font-family: 'Rokkitt', serif;
-      justify-content: center;
-      text-align: center;
-      text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
-      font-size: 20px;
-  }
-
+.nav {
+    color: white;
+    background-color: #0E1527;
+    justify-content: center;
 }
-
-/*Tablets*/
-@media only screen and (min-width: 768px) {
-  .nav {
-      color: white;
-      background-color: #0E1527;
-      justify-content: center;
-  }
-  .CIMALogin {
-      width: 100%;
-      height: 100%;
-      position:fixed;
-      object-fit: cover;
-  }
-  .text {
-      margin-top: 15px;
-  }
-  .CIMANoLetters {
-      margin-top: 15px;
-      width: 25px;
-      height: 20px;
-      justify-content: center;
-  }
-  .col {
-      position:relative;
-  }
-  .container {
-      text-align: center;
-  }
-  .CIMA {
-      width: 50%;
-      height: 80%;
-  }
-  .glassmorfism {
-      margin-top: 2em;
-      padding: 3em;
-      width: 100%;
-      position: absolute;
-      border-radius: 10px;
-      background: rgba(255, 255, 255, 0.30);
-      box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-      backdrop-filter: blur(2px);
-      border: 1px solid rgba(255, 255, 255, 0.18);
-  }
-  .mb-3 {
-      text-align: center;
-  }
-  .slogan {
-      font-family: 'Rokkitt', serif;
-      color: #36499b;
-      text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
-      font-size: 50px;
-  }
-  .title{
-      font-family: 'Rokkitt', serif;
-      justify-content: center;
-      text-align: center;
-      text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
-      font-size: 40px;
-  }
+.CIMALogin {
+    width: 100%;
+    height: 100%;
+    position:fixed;
+    object-fit: cover;
 }
-
-/*Laptops*/
-@media only screen and (min-width: 992px) {
-  .nav {
-      color: white;
-      background-color: #0E1527;
-      justify-content: center;
-  }
-  .CIMALogin {
-      width: 100%;
-      height: 100%;
-      position:fixed;
-      object-fit: cover;
-  }
-  .text {
-      margin-top: 15px;
-  }
-  .CIMANoLetters {
-      margin-top: 15px;
-      width: 25px;
-      height: 20px;
-      justify-content: center;
-  }
-  .col {
-      position:relative;
-  }
-  .container {
-      text-align: center;
-  }
-  .CIMA {
-      width: 50%;
-      height: 80%;
-  }
-  .glassmorfism {
-      margin-top: 2em;
-      padding: 3em;
-      width: 100%;
-      position: absolute;
-      border-radius: 10px;
-      background: rgba(255, 255, 255, 0.30);
-      box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-      backdrop-filter: blur(2px);
-      border: 1px solid rgba(255, 255, 255, 0.18);
-  }
-  .mb-3 {
-      text-align: center;
-  }
-  .slogan {
-      font-family: 'Rokkitt', serif;
-      color: #36499b;
-      text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
-      font-size: 50px;
-  }
-  .title{
-      font-family: 'Rokkitt', serif;
-      justify-content: center;
-      text-align: center;
-      text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
-      font-size: 40px;
-  }
+.text {
+    margin-top: 15px;
 }
-
-/*Desktop*/
-@media only screen and (min-width: 1200px) {
-  .nav {
-      color: white;
-      background-color: #0E1527;
-      justify-content: center;
-  }
-  .CIMALogin {
-      width: 100%;
-      height: 100%;
-      position:fixed;
-      object-fit: cover;
-  }
-  .text {
-      margin-top: 15px;
-  }
-  .CIMANoLetters {
-      margin-top: 15px;
-      width: 25px;
-      height: 20px;
-      justify-content: center;
-  }
-  .col {
-      position:relative;
-  }
-  .container {
-      text-align: center;
-  }
-  .CIMA {
-      width: 50%;
-      height: 80%;
-  }
-  .glassmorfism {
-      margin-top: 2em;
-      padding: 3em;
-      width: 100%;
-      position: absolute;
-      border-radius: 10px;
-      background: rgba(255, 255, 255, 0.30);
-      box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-      backdrop-filter: blur(2px);
-      border: 1px solid rgba(255, 255, 255, 0.18);
-  }
-  .mb-3 {
-      text-align: center;
-  }
-  .slogan {
-      font-family: 'Rokkitt', serif;
-      color: #36499b;
-      text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
-      font-size: 50px;
-  }
-  .title{
-      font-family: 'Rokkitt', serif;
-      justify-content: center;
-      text-align: center;
-      text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
-      font-size: 40px;
-  }
+.CIMANoLetters {
+    margin-top: 15px;
+    width: 25px;
+    height: 20px;
+    justify-content: center;
+}
+.col {
+    position:relative;
+}
+.container {
+    text-align: center;
+}
+.CIMA {
+    width: 50%;
+    height: 80%;
+}
+.glassmorfism {
+    margin-top: 2em;
+    padding: 3em;
+    width: 100%;
+    position: absolute;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.30);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    backdrop-filter: blur(2px);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+}
+.mb-3 {
+    text-align: center;
+}
+.slogan {
+    font-family: 'Rokkitt', serif;
+    color: #36499b;
+    text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+    font-size: 50px;
+}
+.title{
+    font-family: 'Rokkitt', serif;
+    justify-content: center;
+    text-align: center;
+    text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+    font-size: 40px;
 }
