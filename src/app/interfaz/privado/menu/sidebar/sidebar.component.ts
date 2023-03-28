@@ -35,5 +35,13 @@ export class SidebarComponent implements OnInit {
     return JSON.parse(jsonPayload);
   }
 
+  cerrarSesion() {
+    var confirmacion = confirm("¿Desea cerrar sesión?")
+    if(confirmacion ==true){
+    sessionStorage.clear();
+    this.router.navigate(['/']);
+    //this.router.navigate(['/inicio/login']);
+  }
+  }
   
 }
