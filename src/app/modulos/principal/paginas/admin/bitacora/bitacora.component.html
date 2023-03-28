@@ -103,12 +103,13 @@
         <div class="center">
           <th mat-header-cell *matHeaderCellDef mat-sort-header> Acciones </th>
         </div>
-        <td mat-cell *matCellDef="let row" class="button-container">
+        <td mat-cell *matCellDef="let row">
           <!--
           <button (click)="editBitacora(row)" mat-icon-button>
               <i class="fa-solid fa-pen-to-square" style="color: #17aa43;"></i>
           </button>
           -->
+          <div class="button-container">
           <button mat-icon-button class="btn btn-danger" (click)="deleteBitacora(row.ecodbitacora)">
               <i class="fa-solid fa-trash"></i>
           </button>
@@ -118,6 +119,7 @@
           <button mat-icon-button class="btn btn-primary" (click)="generarPDF(row)">
             <i class="fa-solid fa-file-pdf"></i>
           </button>
+        </div>
         </td>
       </ng-container>
 
