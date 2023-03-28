@@ -42,20 +42,21 @@ canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean 
   console.log("TIPOOOOO: ", this.tipoUsuario2);
   if(!Boolean(this.AutentificacionService.getAutentificacionByToken())){
     return this.router.parseUrl("");
-
+/*
   } else {
   return true;
   }
-  
+  */
 }
-/*
-if (this.tipoUsuario2 == expectedRole){
+
+ else if (this.tipoUsuario2 == expectedRole){
   return true;
 } else {
   return this.router.parseUrl("");
 }
-*/
 
+
+}
 }
 
 /*
