@@ -1,10 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { CommonModule } from '@angular/common';
-//import { EquiposComponent } from './equipos/equipos.component';
-//import { ValorequiposComponent } from './valorequipos/valorequipos.component';
-//import { ChecklistComponent } from './checklist/checklist.component';
-//import { DisponibilidaddiariaComponent } from './disponibilidaddiaria/disponibilidaddiaria.component';
 import { HorometrosComponent } from './paginas/admin/horometros/horometros.component';
 import { PreventivosComponent } from './paginas/admin/preventivos/preventivos.component';
 import { SemanalesComponent } from './paginas/admin/semanales/semanales.component';
@@ -17,12 +13,13 @@ import { BitacoraComponent } from './paginas/admin/bitacora/bitacora.component';
 import { PermisosRutasService } from 'src/app/core/permisosRutas/permisos-rutas.service';
 import { BitacoravComponent } from './paginas/visitante/bitacorav/bitacorav.component';
 import { BitacoraPapeleraComponent } from './paginas/admin/bitacora-papelera/bitacora-papelera.component';
+import { GuardianGuard } from 'src/app/core/permisosRutas/guardian.guard';
 
 
 
 const rutas: Routes = [
   {path:'', component:LoginComponent},
-  {path:'administrador',  component: PrincipalComponent, canActivate: [PermisosRutasService], data : {expectedRole :'Administrador'}, 
+  {path:'administrador',  component: PrincipalComponent, canActivate: [GuardianGuard], data : {expectedRole :'Administrador'}, 
   children:[
     {path:'dashboard', component: DashboardComponent},
     {path:'administrador', component: DashboardComponent},
@@ -35,7 +32,7 @@ const rutas: Routes = [
     {path:'bitacora/papelera', component: BitacoraPapeleraComponent},
   ]
 },
-{path:'visitante',  component: PrincipalComponent, canActivate: [PermisosRutasService], data : {expectedRole :'Visitante'}, 
+{path:'visitante',  component: PrincipalComponent, canActivate: [GuardianGuard], data : {expectedRole :'Visitante'}, 
   children:[
     {path:'bitacorav', component: BitacoravComponent},
   ]
