@@ -67,7 +67,8 @@ export class LoginComponent implements OnInit{
             console.log('token', token);
             sessionStorage.setItem('token', JSON.stringify(token));
 
-            const url = userData.ttipousuario === 'Administrador' ? '/administrador/bitacora' : '/visitante/bitacorav';
+            const url = userData.ttipousuario === 'Administrador' ? '/administrador/bitacora' : userData.ttipousuario === 'Visitante' ? '/visitante/bitacorav' : '';
+
             this.routerprd.navigateByUrl(url);
 
             if (userData.ttipousuario == 'Administrador'){
@@ -125,15 +126,6 @@ export class LoginComponent implements OnInit{
 
     var signedToken = token + "." + signature;
     return signedToken;
-  }
-
-      handleCredentialResponse(response:any){
-    console.log(response);
-    console.log(this.routerprd);
-    if(response.credential){
-      sessionStorage.setItem("token",response.credential);
-      document.location.href = "/sesion/principal";
-    }
   }
 
   public get f():any{
